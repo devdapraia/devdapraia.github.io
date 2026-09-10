@@ -615,16 +615,9 @@
             margin-bottom: 16px;
         }
 
-        /* Botao "Pedir a gravacao" centralizado no card (pedido do autor na
-           conferencia da Fase 6). Continua .btn-ghost (FSD RN13); o margin-top
-           vem das regras do bloco "FASE 3". */
-        .projeto-card .btn-ghost {
-            display: block;
-            width: -webkit-fit-content;
-            width: fit-content;
-            margin-left: auto;
-            margin-right: auto;
-        }
+        /* (A centralizacao do botao "Pedir a gravacao" foi revertida a pedido do
+           autor — ele volta encostado a esquerda, como o `.btn-ghost` inline-block
+           padrao; ver bloco "FASE 3" para o margin-top.) */
 
         /* ========== AJUSTE DE RESPONSIVIDADE (fora de fase, a pedido do autor) ========== */
         /* Antecipa parte da Fase 10 (FSD 12.8): foto do hero acima do texto no
