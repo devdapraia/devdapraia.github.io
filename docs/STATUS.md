@@ -1,6 +1,6 @@
 # STATUS — Site de Portfólio devdapraia
 
-**Última atualização:** 2026-09-10 (29ª atualização do dia — **teste HGS → vídeo APROVADO pelo autor com 2 ajustes, feitos no `rascunho`; NÃO publicado**. (1) `aria-label` reescrito para o conteúdo real do vídeo; (2) **fade de 0,4 s** no início e no fim, na cor da barra do topo do app (`#04344a`); MP4/WebM/poster reencodados (poster = 1º quadro **já visível**, não o escuro do fade). Aguarda o autor conferir e decidir sobre o HFS.)
+**Última atualização:** 2026-09-10 (30ª atualização do dia — **teste HGS → vídeo APROVADO e PUBLICADO**. Antes de publicar: (1) `aria-label` reescrito para o conteúdo real do vídeo; (2) fade de 0,4 s nas duas pontas (`#04344a`); (3) **WebM removido** — só MP4 (H.264) como padrão de vídeo dos cards, registrado no `docs/DESIGN.md § 6.3`. Autor: "conferi, pode publicar". `rascunho` → `main` pelo merge `<merge>`. Verificação do endereço publicado: ver nota abaixo.)
 
 **Teste "GIF do HGS → vídeo" (autor, 2026-09-10) — FEITO no `rascunho`. NÃO publicado (é teste).** Trocar **só** o GIF do HGS por `<video>` (o HFS fica com o GIF), com **desvio do FSD autorizado** quanto a vídeo nos cards. O `video-hgs-teste.mp4` foi gravado no sistema em produção com **dados fictícios** (confirmado pelo autor). ffmpeg **v9.0.1** (winget). Arquivo de origem: 720×1556, 30 fps, 26,97 s, 809 quadros, 18,17 MB, com áudio (removido).
 
@@ -10,13 +10,15 @@
 3. **Teclado + pílula de URL** — o Safari mostra a barra de endereço recolhida (`hfs.web.br.com`) **acima do teclado** quando o campo "Observação (obrigatória)" recebe foco. Teclado sobe em **n678 (22,600 s)**, desce até **n723**; primeiro quadro limpo depois = **n724**. Remover **n678–n724** (47 quadros). Emenda: n677 (checklist, campo vazio) → **n725 = 24,167 s** (checklist, campo "Não liga" preenchido).
 
 *Processamento (ffmpeg, um passe a partir do original):* `select='between(n,9,248)+between(n,278,677)+between(n,725,808)'` + `setpts` + `crop=720:1294:0:96` (tira barra de status do iOS no topo e barra do Safari na base) + `scale=600:-2`. Resultado: **600×1078, 30 fps, 724 quadros, 24,13 s** (809 − 85: 9 + 29 + 47). Saídas em `imagens/hgs/`:
-- `hgs-demo.mp4` — H.264 `-crf 23 -preset slow -pix_fmt yuv420p -movflags +faststart -an` → **1,17 MB** (meta era ~3 MB).
-- `hgs-demo.webm` — VP9 `-crf 42 -b:v 0 -an` → **1,57 MB** (2ª `<source>`, só baixa se o MP4 falhar; o VP9 fica pesado com os degradês do fade, por isso `crf` mais alto que o padrão).
+- `hgs-demo.mp4` — H.264 `-crf 23 -preset slow -pix_fmt yuv420p -movflags +faststart -an` → **1,17 MB** (meta era ~3 MB). **Único formato** (ver Ajuste 3).
 - `hgs-demo-poster.jpg` — 1º quadro **já visível** (n9), 600×1078, **38 KB**.
+- ~~`hgs-demo.webm`~~ **removido antes da publicação (Ajuste 3, autor):** só MP4. O H.264 é suportado por todos os navegadores atuais; a 2ª `<source>` VP9 só somava peso (o VP9 fica caro com os degradês do fade — chegou a 1,57 MB). **Padrão registrado no `docs/DESIGN.md § 6.3`:** vídeo-demo de card = só MP4 (H.264), uma `<source>`. `.gitignore` mantém só a exceção `!imagens/hgs/hgs-demo.mp4` (e `!imagens/hfs/hfs-demo.mp4`).
 
 *Ajuste 1 — `aria-label` (autor, 2026-09-10):* reescrito para o conteúdo real do vídeo. Texto final: **"O HGS em uso: a recepção registra o checkout de um quarto, a camareira confere a limpeza item por item e, ao final, o quarto é encaminhado para manutenção."** Não há `<img>` de poster separado (o `poster=` do `<video>` não tem `alt`); o `aria-label` do `<video>` é o nome acessível, inclusive enquanto mostra o poster.
 
-*Ajuste 2 — fade no loop (autor, 2026-09-10):* `fade=t=in:st=0:d=0.4:c=0x04344a` + `fade=t=out:st=23.7333:d=0.4:c=0x04344a` no fim do filtro. Cor `#04344a` amostrada da barra escura do topo do app (pixel constante `(4,52,74)`). Entra do escuro nos primeiros 0,4 s e sai para o escuro nos últimos 0,4 s — o "salto" do loop (painel da gerência ↔ tarefas da camareira) fica coberto pelas duas pontas escuras. MP4/WebM reencodados com o fade; poster continua sendo o 1º quadro **antes** do fade (dashboard, não a tela escura).
+*Ajuste 2 — fade no loop (autor, 2026-09-10):* `fade=t=in:st=0:d=0.4:c=0x04344a` + `fade=t=out:st=23.7333:d=0.4:c=0x04344a` no fim do filtro. Cor `#04344a` amostrada da barra escura do topo do app (pixel constante `(4,52,74)`). Entra do escuro nos primeiros 0,4 s e sai para o escuro nos últimos 0,4 s — o "salto" do loop (painel da gerência ↔ tarefas da camareira) fica coberto pelas duas pontas escuras. MP4 reencodado com o fade; poster continua sendo o 1º quadro **antes** do fade (dashboard, não a tela escura).
+
+*Ajuste 3 — só MP4 (autor, antes de publicar):* `imagens/hgs/hgs-demo.webm` e a `<source type="video/webm">` removidos. MP4 (H.264) sozinho é o padrão para os próximos vídeos de card — registrado no `docs/DESIGN.md § 6.3`.
 
 *Conferência fina de URL (item 2) — LIMPA:* todos os quadros do trecho do teclado (removidos), 1 s antes/depois de cada uma das 3 emendas quadro a quadro, e 2 fps no resto. **Nenhum quadro** com URL, pílula de endereço, tela de login ou campo de usuário. (Nomes "Olá, Gerência/Cleide", "Rosa Santos", "Hevson Silva" seguem — fictícios, liberados pela regra do `AGENTS.md`.)
 

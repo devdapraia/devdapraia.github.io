@@ -88,10 +88,9 @@ imagens/hgs/sistema-em-uso.gif
 
 # --- Exceção: os vídeos-demo TRATADOS (recortados, sem login/URL) vão ao ar ---
 # Gerados por ffmpeg a partir de video-*.mp4; conferidos quadro a quadro.
+# Padrão: só MP4 (H.264) — sem WebM (ver docs/DESIGN.md § 6.3).
 !imagens/hgs/hgs-demo.mp4
-!imagens/hgs/hgs-demo.webm
 !imagens/hfs/hfs-demo.mp4
-!imagens/hfs/hfs-demo.webm
 
 # ==============================================================
 # NÃO ignorar (registrado de propósito para não reintroduzir por engano):
