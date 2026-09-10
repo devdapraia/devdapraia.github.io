@@ -91,6 +91,27 @@
             color: var(--destaque);
         }
 
+        /* ===== ACABAMENTO PARA APRESENTACAO — separadores do menu (PARTE 1) ===== */
+        /* Bolinha ambar so ENTRE os itens (nenhuma antes do 1o, nenhuma depois
+           do ultimo). Pseudo-elemento com content vazio, sem caractere no HTML:
+           e decorativa, o leitor de tela nao anuncia nada. Mesmo tom das antigas
+           bolinhas da secao de stack — cor pelo token --destaque, igual nos dois
+           temas. `vertical-align: middle` centra a bolinha na altura do texto.
+           Com o gap de 32px do nav + margin-right de 32px, a bolinha fica no meio
+           do vao entre os itens; nas telas estreitas a margem acompanha o gap
+           menor (bloco de responsividade) e, quando o menu quebra linha, a
+           bolinha e removida para nao sobrar pendurada no inicio nem no fim. */
+        nav a:not(:first-child)::before {
+            content: "";
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--destaque);
+            vertical-align: middle;
+            margin-right: 32px;
+        }
+
         /* ========== HERO ========== */
 
         .hero {
@@ -732,6 +753,11 @@
                 font-size: 0.8em;
             }
 
+            /* Separadores do menu: margem acompanha o gap menor. */
+            nav a:not(:first-child)::before {
+                margin-right: 16px;
+            }
+
             /* Hero: foto acima do texto, tudo centralizado, com respiro. */
             .hero {
                 padding: 48px 24px 40px;
@@ -783,6 +809,13 @@
             nav {
                 gap: 12px;
                 padding: 14px 16px;
+            }
+
+            /* Nesta largura o menu quebra em duas linhas; sem os pontos para
+               nenhum ficar pendurado no inicio nem no fim de uma linha. O gap
+               de 12px mantem a separacao entre os itens. */
+            nav a:not(:first-child)::before {
+                content: none;
             }
 
             .hero {
