@@ -38,12 +38,12 @@
     </div>
 
     <div class="apresentacao">
-        <p>Sou João Adôrno. Trabalho na recepção de uma pousada e foi ali, vendo onde a operação travava todo dia, que aprendi a programar. Hoje mantenho dois sistemas que a equipe usa de verdade.</p>
+        <p>Sou João Adôrno. Trabalho na recepção de uma pousada e foi ali, vendo onde a operação travava todo dia, que aprendi a programar.</p>
     </div>
 
     <section class="section" id="sobre">
         <p class="section-label">sobre mim</p>
-        <h2>Da recepção ao código</h2>
+        <h2>Minha trajetória</h2>
         <div class="sobre-grid">
             <div class="sobre-card destaque-card">
                 <span class="card-label">quem sou</span>
@@ -63,35 +63,92 @@
     <hr class="divider">
 
     <section class="section" id="projetos">
-        <p class="section-label">projeto principal</p>
-        <h2>Hotel Governance System</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <p class="version">v1.0 — v1.4</p>
-                <h3>Protótipo em Portugol</h3>
-                <p>Sistema de controle de quartos com 9 status, checklists e travas de segurança. Base lógica do projeto.</p>
+        <p class="section-label">projetos</p>
+        <h2>Os sistemas</h2>
+
+        <article class="projeto-card">
+            <h3>HGS — Hotel Governance System</h3>
+            <p class="projeto-resumo">Sistema de governança hoteleira para uma pousada de 38 quartos.</p>
+
+            <div class="projeto-bloco">
+                <span class="card-label">O problema que existia antes</span>
+                <p>A comunicação entre recepção, camareiras e manutenção era toda verbal, e o controle dos quartos ficava num caderno de papel. A informação se perdia, ninguém sabia o estado real de cada quarto e não havia histórico para consultar depois.</p>
             </div>
-            <div class="timeline-item">
-                <p class="version">v2.0 — v3.0</p>
-                <h3>Migração para Java + POO</h3>
-                <p>38 quartos reais, orientação a objetos com herança, polimorfismo e checklists especializados por tipo de quarto.</p>
+
+            <div class="projeto-bloco">
+                <span class="card-label">O que o sistema faz</span>
+                <p>Cada quarto tem um status que todos enxergam. Quando a recepção registra um checkout, a camareira é avisada na hora; quando a limpeza termina, a recepção já vê que o quarto está liberado. Cada passo fica registrado com data, hora e responsável.</p>
             </div>
-            <div class="timeline-item">
-                <p class="version">v4.0 — v4.2</p>
-                <h3>Persistência com MySQL</h3>
-                <p>Modelagem relacional completa, banco MariaDB, tabelas relacionadas com chaves estrangeiras.</p>
+
+            <div class="projeto-bloco">
+                <span class="card-label">O que mudou na rotina</span>
+                <p>A camareira não precisa mais descer à recepção para saber quais quartos liberar, e a recepção deixou de ligar para o andar para cobrar a limpeza — o status está na tela. As dúvidas de "esse quarto já está pronto?" praticamente sumiram do dia a dia.</p>
             </div>
-            <div class="timeline-item">
-                <p class="version">v5.0 — v5.2</p>
-                <h3>Integração JDBC completa</h3>
-                <p>Arquitetura Main → Controller → DAO, histórico de operações, relatórios gerenciais em PDF e alertas automáticos.</p>
+
+            <div class="projeto-bloco">
+                <span class="card-label">Onde está hoje</span>
+                <p>Em produção, usado todos os dias pela equipe da pousada. A versão em aplicativo, para celular, está em construção.</p>
             </div>
-            <div class="timeline-item">
-                <p class="version">ERBASE 2026</p>
-                <h3>Artigo científico</h3>
-                <p>Submetido ao IFAL Campus Maragogi — pesquisa sobre digitalização de pousadas de pequeno porte.</p>
+
+            <div class="projeto-imagens">
+                <p class="projeto-imagens-placeholder">Imagens do sistema em funcionamento — em preparação.</p>
             </div>
-        </div>
+
+            <div class="projeto-tech">
+                <ul class="tech-lista">
+                    <li class="tech-pill">PHP</li>
+                    <li class="tech-pill">MySQL</li>
+                    <li class="tech-pill">HTML</li>
+                    <li class="tech-pill">CSS</li>
+                    <li class="tech-pill">JavaScript</li>
+                    <li class="tech-pill">Git e GitHub</li>
+                    <li class="tech-pill">Figma</li>
+                </ul>
+                <p class="tech-nota">Protótipo original em Java; app em construção com Flutter e Dart.</p>
+            </div>
+
+            <a class="btn-ghost" href="https://wa.me/5581995212456?text=Olá,%20João.%20Vi%20seu%20portfólio%20e%20gostaria%20de%20agendar%20uma%20apresentação%20do%20Hotel%20Governance%20System." target="_blank" rel="noopener noreferrer">Solicitar apresentação do sistema</a>
+        </article>
+
+        <article class="projeto-card">
+            <h3>HFS — Hotel Finance System</h3>
+            <p class="projeto-resumo">Sistema de controle financeiro para o mesmo contexto.</p>
+
+            <div class="projeto-bloco">
+                <span class="card-label">O problema que existia antes</span>
+                <p>O controle de contas a pagar e a receber era disperso, sem uma visão consolidada do saldo e dos vencimentos. Faltava enxergar num lugar só o que já tinha entrado, o que ainda ia entrar e o que estava para vencer.</p>
+            </div>
+
+            <div class="projeto-bloco">
+                <span class="card-label">O que o sistema faz</span>
+                <p>Registra receitas e despesas, acompanha o que foi pago e o que está pendente e mostra o saldo disponível e o previsto em indicadores.</p>
+            </div>
+
+            <div class="projeto-bloco">
+                <span class="card-label">O que mudou na rotina</span>
+                <p>A conferência de vencimentos deixou de depender de juntar papéis e planilhas soltas — a equipe gerencial abre o sistema e vê a posição do caixa. As decisões de pagamento passaram a partir de um número que todos consultam no mesmo lugar.</p>
+            </div>
+
+            <div class="projeto-bloco">
+                <span class="card-label">Onde está hoje</span>
+                <p>Em uso pela equipe gerencial da pousada, em fase de testes.</p>
+            </div>
+
+            <div class="projeto-imagens">
+                <p class="projeto-imagens-placeholder">Imagens do sistema em funcionamento — em preparação.</p>
+            </div>
+
+            <div class="projeto-tech">
+                <ul class="tech-lista">
+                    <li class="tech-pill">PHP</li>
+                    <li class="tech-pill">MySQL</li>
+                    <li class="tech-pill">HTML</li>
+                    <li class="tech-pill">CSS</li>
+                    <li class="tech-pill">JavaScript</li>
+                    <li class="tech-pill">Git e GitHub</li>
+                </ul>
+            </div>
+        </article>
     </section>
 
     <hr class="divider">

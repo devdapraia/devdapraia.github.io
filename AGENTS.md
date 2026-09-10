@@ -136,6 +136,43 @@ Ao terminar qualquer trabalho:
 4. Informar como testar ou validar a entrega.
 ```
 
+## Regras de conteúdo
+
+- **Sem repetição de formulação na página.** Nenhuma frase, título ou informação
+  deve aparecer duas vezes com a mesma formulação em pontos diferentes da página.
+  Cada ideia tem **um lugar só**: a origem na recepção vive no bloco de
+  apresentação abaixo do hero; "dois sistemas em uso real" é **exclusivo do selo
+  do hero** (o título da seção Projetos é "Os sistemas"); a linha de posicionamento
+  ("da recepção ao código…") vive no hero e não é repetida como título de seção.
+  Ao escrever conteúdo novo, conferir se a frase — ou a mesma informação com outras
+  palavras — já não está dita em outro ponto.
+- O card "quem sou" da seção Sobre **não repete** a origem na recepção (essa
+  história é do bloco de apresentação). Na fase da seção Sobre, ele é reescrito
+  com outro recorte: trajetória, o que se estuda hoje, para onde se vai.
+
+## Publicação (procedimento para a IA)
+
+O **portão de publicação é do autor**. A IA só publica depois de uma confirmação
+explícita do autor no chat — a frase "conferi, pode publicar" (ou equivalente
+inequívoco), dada após a conferência visual no Live Server / celular.
+
+Recebida essa confirmação, a IA **executa a sequência completa sozinha**, sem
+listar comandos para o autor rodar:
+
+```
+git push origin rascunho
+git checkout main
+git merge --no-ff rascunho
+git push origin main
+git checkout rascunho
+```
+
+Depois disso, a IA informa o resultado (branch de volta em `rascunho`, `main`
+publicado) e lembra que o GitHub Pages publica automaticamente a partir do `main`.
+
+Sem a confirmação do autor, a IA **não** faz `push`, `merge` nem `checkout main`
+— fica tudo no `rascunho` local até o autor liberar.
+
 ## Boas práticas
 
 - Código claro, funções pequenas, nomes descritivos. Comentários úteis em português do Brasil quando ajudarem.
