@@ -486,17 +486,10 @@
 
         /* ========== FASE 4 — LIMPEZA DA AUTOAVALIACAO DE NIVEL (adicoes) ========== */
         /* O bloco STACK (.stack-item / .tech-dot / .dot-on / .dot-off e os textos
-           de nivel) foi removido daqui e da marcacao — FSD 12.11 / RN16. O
-           conteudo definitivo da secao #tecnologias (dois grupos por contexto de
-           uso + linha de formacao) entra na Fase 7. Ate la, esta linha neutra
-           mantem a secao publicavel e integra. Consome variavel de tema; funciona
-           nos dois temas. */
-        .secao-preparo {
-            font-size: 0.9em;
-            font-weight: 300;
-            color: var(--texto-muted);
-            line-height: 1.7;
-        }
+           de nivel) foi removido daqui e da marcacao — FSD 12.11 / RN16. A linha
+           provisoria ".secao-preparo" ("Conteudo em preparacao.") saiu quando o
+           conteudo real da secao #tecnologias entrou (ver bloco "ACABAMENTO PARA
+           APRESENTACAO — PARTE 2", mais abaixo). */
 
         /* ========== FASE 5 — IMAGENS DE TELA + AMPLIACAO AO TOQUE (adicoes) ========== */
         /* Bloco aditivo: consome variaveis de tema, funciona nos dois temas, usa
@@ -686,6 +679,27 @@
             color: var(--texto-muted);
             line-height: 1.7;
             margin-bottom: 24px;
+        }
+
+        /* ========== ACABAMENTO PARA APRESENTACAO — PARTE 2: secao de tecnologias ========== */
+        /* Conteudo da Fase 7 adiantado. Dois grupos por contexto de uso; cada
+           tecnologia e uma etiqueta .tech-pill (mesmo componente dos cards de
+           projeto — FSD 12.5), sem nivel/barra/estrela/percentual/bolinha
+           (RN16). O titulo de cada grupo segue o FSD 12.5: Space Mono,
+           maiusculas, cor --acento (mesmo tratamento do .section-label).
+           Consome variaveis de tema; funciona nos dois temas; nenhuma regra
+           herdada reescrita. */
+        .tech-grupo + .tech-grupo {
+            margin-top: 24px;
+        }
+
+        .tech-grupo-titulo {
+            font-family: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: 11px;
+            color: var(--acento);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
         }
 
         /* ========== SECAO DE CONTATO — Fase 9 antecipada (fora da ordem do FSD) ========== */
