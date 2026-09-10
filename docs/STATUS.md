@@ -246,9 +246,9 @@ Legenda: `[x]` concluído · `[~]` em andamento · `[ ]` não iniciado
 - [ ] Frase do ERBASE 2026 no 3º parágrafo (sem afirmar aceitação, sem desculpas)
 - [ ] Sem menção a Recife nem Porto Digital
 
-### Fase 9 — Seção de contato e conversão — `[ ]`
+### Fase 9 — Seção de contato e conversão — `[x]` (construída fora de ordem; "tela cheia" removida a pedido do autor em 2026-09-10)
 
-- [ ] Seção `#contato` em tela cheia com pergunta convidativa
+- [x] Seção `#contato` como bloco de fechamento, com pergunta convidativa e o espaçamento vertical padrão das seções (sem `min-height` de viewport)
 - [ ] WhatsApp em `.btn-primary` — único botão em destaque da seção
 - [ ] E-mail, LinkedIn, GitHub e download do currículo (`download`, sem formulário) subordinados
 - [ ] Links externos com `target="_blank"` + `rel="noopener noreferrer"`

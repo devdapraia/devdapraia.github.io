@@ -299,11 +299,13 @@ Texto "Sobre mim" — três parágrafos (caminho crítico — FSD 28).
 
 ## Fase 9 — Seção de contato e conversão
 
-**Objetivo:** fechamento da página em tela cheia, com o WhatsApp como única ação de conversão em destaque (FSD Módulo E; 12.7; 25/Fase 2 item 21).
+> **Adiantada em 2026-09-10** (fases fora da ordem do PLANO). Construída no `rascunho`. Em 2026-09-10 o autor pediu para **remover a "tela cheia"** — a seção passou a ter o mesmo espaçamento vertical das demais (FSD E1/12.7 revisto).
+
+**Objetivo:** fechamento da página, com o WhatsApp como única ação de conversão em destaque (FSD Módulo E; 12.7; 25/Fase 2 item 21).
 
 ### Checklist
 
-- [ ] Seção `#contato` em tela cheia (altura mínima ≈ viewport, conteúdo centralizado verticalmente), com pergunta convidativa.
+- [x] Seção `#contato` como bloco de fechamento, com o **mesmo espaçamento vertical das outras seções** (sem `min-height` de viewport nem centragem vertical — revisto a pedido do autor em 2026-09-10), com pergunta convidativa.
 - [ ] **WhatsApp** em `.btn-primary` — **único botão em destaque visual da seção** — `https://wa.me/5581995212456?text=Olá,%20João.%20Vi%20seu%20portfólio%20e%20gostaria%20de%20conversar.` (E2, RN13).
 - [ ] Abaixo, visivelmente subordinados: e-mail `mailto:jvictorna.dev@gmail.com`; LinkedIn `https://linkedin.com/in/joaoadorno`; GitHub `https://github.com/devdapraia`; **download do currículo** — link direto para `arquivos/curriculo-joao-victor.pdf` com atributo `download`, sem formulário (E3, RN14).
 - [ ] Links externos com `target="_blank"` e `rel="noopener noreferrer"` (12.7, 24.2).
@@ -319,7 +321,7 @@ Texto "Sobre mim" — três parágrafos (caminho crítico — FSD 28).
 
 ### Áreas prováveis de alteração
 
-`index.html` (nova seção `#contato` / substituição do rodapé atual conforme necessário), `css/estilo.css` (bloco de contato em tela cheia), `arquivos/curriculo-joao-victor.pdf` (já em posição).
+`index.html` (nova seção `#contato` / substituição do rodapé atual conforme necessário), `css/estilo.css` (bloco de contato — espaçamento vertical padrão das seções), `arquivos/curriculo-joao-victor.pdf` (já em posição).
 
 ### Dependências
 

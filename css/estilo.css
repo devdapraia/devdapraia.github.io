@@ -708,21 +708,19 @@
         }
 
         /* ========== SECAO DE CONTATO — Fase 9 antecipada (fora da ordem do FSD) ========== */
-        /* Bloco de fechamento em tela cheia (FSD E1 / 12.7): altura minima da
-           viewport, conteudo centrado na vertical. Herda .section (recuo lateral,
-           max-width 780px, centralizado, scroll-margin-top do bloco "FASE 1").
-           O WhatsApp em .btn-primary e o 2o e ultimo botao em destaque da pagina
-           (FSD E2 / RN13); e-mail, LinkedIn, GitHub e curriculo sao links de
-           texto subordinados, no mesmo padrao visual do rodape (--acento, hover
-           --destaque). Consome variaveis de tema; funciona nos dois temas; sem
-           regra herdada reescrita (FSD RT02). */
-        .contato {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
+        /* Bloco de fechamento da pagina. Herda .section: recuo lateral, max-width
+           780px, centralizado, scroll-margin-top do bloco "FASE 1" e o MESMO
+           espacamento vertical das outras secoes (padding 48/32/24px da escala
+           do DESIGN 3.1/3.2). O `min-height: 100vh` + flex de centragem vertical
+           foi REMOVIDO em 2026-09-10 a pedido do autor: forcava a secao a ocupar
+           quase uma tela inteira, com espaco vazio exagerado acima e abaixo do
+           conteudo. Por ser a ultima secao, nao ha problema a ancora #contato
+           nao levar o topo dela ate o topo da viewport (revisa FSD E1 / 12.7:
+           "tela cheia" / "altura minima equivalente a viewport" / "conteudo
+           centralizado verticalmente"). O WhatsApp em .btn-primary segue o 2o e
+           ultimo botao em destaque (FSD E2 / RN13); e-mail, LinkedIn, GitHub e
+           curriculo sao links de texto subordinados (--acento, hover --destaque).
+           Consome variaveis de tema; funciona nos dois temas. */
         .contato .section-intro {
             max-width: 52ch;
         }

@@ -375,8 +375,8 @@ Acima do botão, uma linha curta deixa claro que **o envio é pessoal, feito pel
 
 ### Módulo E — Contato e conversão
 
-**E1. Seção de contato em tela cheia (fechamento da página)**
-Bloco final, com pergunta convidativa e as formas de contato.
+**E1. Seção de contato (fechamento da página)**
+Bloco final, com pergunta convidativa e as formas de contato. **Revisto em 2026-09-10 (decisão do autor):** ~~em tela cheia~~ — a seção usa o **mesmo espaçamento vertical das demais** (padding da escala, sem `min-height` de viewport e sem centragem vertical). Por ser a última seção, a âncora `#contato` não precisa levar o topo dela até o topo da tela.
 
 **E2. Ação principal — WhatsApp**
 *Regra:* o WhatsApp é a **única ação de conversão em destaque** e, **na seção de contato, é o único botão em destaque visual**. O botão âmbar preenchido (`.btn-primary`) aparece em **no máximo dois momentos** na página inteira: "Ver projetos", no bloco de abertura, e o WhatsApp, na seção de contato. Todo o restante — inclusive os botões "Pedir a gravação" dos dois cards — usa o estilo secundário (`.btn-ghost`). Um site com vários botões concorrendo entre si não converte nenhum; por isso os dois botões dos cards são secundários e ficam a uma tela de distância um do outro (fim de cada card).
@@ -389,7 +389,7 @@ Presentes e acessíveis, porém visualmente subordinados ao WhatsApp. O currícu
 **F1. Boa experiência no celular.** O site precisa funcionar bem em tela pequena, porque é assim que o público principal vai abri-lo. Atenção especial às imagens de tela. Especificação na seção 12.6.
 **F2. Carregamento rápido.** Sem animações pesadas nem efeitos que atrasem a exibição. Especificação na seção 24.3 e tetos na seção 21.
 **F3. Identidade visual devdapraia herdada.** Paleta, tipografia, componentes e alternância de tema vêm da base e não são redecididos.
-**F4. Estrutura de página herdada.** Página única, menu fixo com rolagem suave, seções com rótulo monoespaçado, blocos em card com borda sutil, hero com avatar e fechamento de contato em tela cheia.
+**F4. Estrutura de página herdada.** Página única, menu fixo com rolagem suave, seções com rótulo monoespaçado, blocos em card com borda sutil, hero com avatar e seção de contato como bloco de fechamento (sem tela cheia — ver E1, revisto em 2026-09-10).
 
 ---
 
@@ -621,7 +621,7 @@ Substitui `.stack-item` com `.tech-dot`, que sai junto com a autoavaliação de 
 
 **Sobre mim (`#sobre`):** primeira seção após o hero (o bloco `.apresentacao` foi descontinuado — 6/A3). Rótulo + `h2` + três parágrafos **curtos** em texto corrido, peso 300, com largura de leitura confortável. Como a seção **abre a página**, é enxuta — não atrasa a chegada aos cards. O primeiro parágrafo absorve o "quem sou" que era do bloco de apresentação (trajetória: marketing/atendimento/coordenação → recepção → ADS → constrói software). A formação em Marketing aparece ao lado da de ADS (6/D1). A frase do ERBASE fica no terceiro parágrafo. Sem card, sem imagem adicional.
 
-**Contato (`#contato`):** bloco de fechamento em tela cheia (altura mínima equivalente à viewport, com o conteúdo centralizado verticalmente), com pergunta convidativa, o botão de WhatsApp em `.btn-primary` — **único botão em destaque visual da seção** — e, abaixo, e-mail, LinkedIn, GitHub e download do currículo como links secundários ou botões ghost, visivelmente subordinados.
+**Contato (`#contato`):** bloco de fechamento da página, com o **mesmo espaçamento vertical das demais seções** (padding da escala; ~~altura mínima equivalente à viewport, conteúdo centralizado verticalmente~~ — removido em 2026-09-10 por decisão do autor, ver E1), com pergunta convidativa, o botão de WhatsApp em `.btn-primary` — **único botão em destaque visual da seção** — e, abaixo, e-mail, LinkedIn, GitHub e download do currículo como links secundários ou botões ghost, visivelmente subordinados.
 *Currículo:* link direto para `arquivos/curriculo-joao-victor.pdf`, com o atributo `download`. Sem formulário e sem etapa intermediária.
 *Links externos:* todos com `target="_blank"` e `rel="noopener noreferrer"`.
 
@@ -693,7 +693,7 @@ O CSS desses componentes sai junto com a marcação, **desde que nada mais o uti
 4. O gestor rola e encontra o card do HGS, com o problema antes da solução e as imagens de tela.
 5. Toca em uma imagem e ela é ampliada de forma legível; fecha a ampliação e continua a leitura.
 6. Rola novamente e encontra o card do HFS, na mesma estrutura.
-7. Chega ao bloco de contato em tela cheia, com o WhatsApp em destaque.
+7. Chega ao bloco de contato (fechamento da página), com o WhatsApp em destaque.
 8. Toca no botão e inicia a conversa.
 
 *Resultado esperado:* conversa iniciada com contexto já formado.
