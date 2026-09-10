@@ -182,7 +182,10 @@
             font-size: 1em;
             font-weight: 300;
             color: var(--texto-sub);
-            margin-bottom: 32px;
+            /* 32px -> 24px (escala do DESIGN 3.2): com o selo logo abaixo, o
+               espaco frase -> caixa (aqui + margin-top do selo) estava em 44px,
+               contra 24px de caixa -> botoes. Agora os dois vaos ficam em 24px. */
+            margin-bottom: 24px;
         }
 
         .hero-sub strong {
@@ -346,7 +349,9 @@
         /* Selo de credibilidade: pilula discreta entre o posicionamento e os botoes. */
         .hero-selo {
             display: inline-block;
-            margin: 12px 0 24px;
+            /* margin-top 12px -> 0: o vao acima vem so do margin-bottom (24px) da
+               .hero-sub. Assim frase -> caixa (24px) = caixa -> botoes (24px). */
+            margin: 0 0 24px;
             padding: 6px 12px;
             border: 1px solid var(--card-border);
             border-radius: 8px;
