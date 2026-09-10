@@ -667,6 +667,48 @@
             margin-bottom: 24px;
         }
 
+        /* ========== SECAO DE CONTATO — Fase 9 antecipada (fora da ordem do FSD) ========== */
+        /* Bloco de fechamento em tela cheia (FSD E1 / 12.7): altura minima da
+           viewport, conteudo centrado na vertical. Herda .section (recuo lateral,
+           max-width 780px, centralizado, scroll-margin-top do bloco "FASE 1").
+           O WhatsApp em .btn-primary e o 2o e ultimo botao em destaque da pagina
+           (FSD E2 / RN13); e-mail, LinkedIn, GitHub e curriculo sao links de
+           texto subordinados, no mesmo padrao visual do rodape (--acento, hover
+           --destaque). Consome variaveis de tema; funciona nos dois temas; sem
+           regra herdada reescrita (FSD RT02). */
+        .contato {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contato .section-intro {
+            max-width: 52ch;
+        }
+
+        .contato-principal {
+            margin: 8px 0 24px;
+        }
+
+        .contato-secundarios {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 0.9em;
+        }
+
+        .contato-secundarios a {
+            color: var(--acento);
+            text-decoration: none;
+            font-weight: 300;
+            transition: color 0.15s;
+        }
+
+        .contato-secundarios a:hover {
+            color: var(--destaque);
+        }
+
         /* ========== AJUSTE DE RESPONSIVIDADE (fora de fase, a pedido do autor) ========== */
         /* Antecipa parte da Fase 10 (FSD 12.8): foto do hero acima do texto no
            celular com espaco para respirar, menu sem encostar nas bordas, grades
