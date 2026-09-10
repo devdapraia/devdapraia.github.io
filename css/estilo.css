@@ -283,71 +283,6 @@
             display: block;
         }
 
-        /* ========== TIMELINE ========== */
-
-        .timeline {
-            position: relative;
-            padding-left: 24px;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 6px;
-            bottom: 6px;
-            width: 1px;
-            background: linear-gradient(to bottom, var(--destaque), var(--acento), transparent);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 28px;
-            opacity: 0;
-            transform: translateX(-10px);
-            transition: opacity 0.4s, transform 0.4s;
-        }
-
-        .timeline-item.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -28px;
-            top: 6px;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--destaque);
-            border: 2px solid var(--base);
-            transition: border-color 0.3s;
-        }
-
-        .timeline-item .version {
-            font-family: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-            font-size: 11px;
-            color: var(--acento);
-            letter-spacing: 1px;
-            margin-bottom: 4px;
-        }
-
-        .timeline-item h3 {
-            font-size: 0.95em;
-            font-weight: 600;
-            color: var(--neutro);
-            margin-bottom: 4px;
-        }
-
-        .timeline-item p {
-            font-size: 0.85em;
-            color: var(--texto-muted);
-            font-weight: 300;
-            line-height: 1.6;
-        }
-
         /* ========== STACK ========== */
 
         .stack-grid {
@@ -463,4 +398,122 @@
             font-weight: 300;
             line-height: 1.7;
             color: var(--texto-muted);
+        }
+
+        /* ========== FASE 3 — CARDS DE PROJETO (adicoes) ========== */
+        /* Bloco aditivo: reaproveita a base visual de .sobre-card (FSD 12.3),
+           consome variaveis de tema, funciona nos dois temas, usa a escala de
+           espacamento e nao altera nenhuma regra herdada (FSD RT02/RT04/RT05). */
+
+        /* Card de projeto: mesma base visual de .sobre-card, largura total da
+           coluna de conteudo, empilhado na vertical (nunca lado a lado). */
+        .projeto-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 20px;
+            transition: background 0.3s, border-color 0.3s;
+        }
+
+        .projeto-card + .projeto-card {
+            margin-top: 24px;
+        }
+
+        /* Elemento 1 — nome do projeto. */
+        .projeto-card h3 {
+            font-size: 0.95em;
+            font-weight: 600;
+            color: var(--neutro);
+            margin-bottom: 6px;
+        }
+
+        /* Elemento 2 — uma linha do que e o sistema. */
+        .projeto-resumo {
+            font-size: 0.9em;
+            font-weight: 300;
+            color: var(--texto-muted);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        /* Elementos 3 a 6 — rotulo curto em maiusculas + paragrafo. */
+        .projeto-bloco {
+            margin-bottom: 16px;
+        }
+
+        .projeto-bloco .card-label {
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--destaque);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .projeto-bloco p {
+            font-size: 0.9em;
+            font-weight: 300;
+            color: var(--texto-muted);
+            line-height: 1.7;
+        }
+
+        /* Elemento 7 — area das imagens. Placeholder textual temporario ate a
+           Fase 5 (FSD 12.3: o card nao vai ao ar com o slot de imagem vazio). */
+        .projeto-imagens {
+            margin-bottom: 16px;
+        }
+
+        .projeto-imagens-placeholder {
+            border: 1px dashed var(--card-border);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            font-size: 0.85em;
+            font-weight: 300;
+            color: var(--texto-muted);
+            transition: border-color 0.3s;
+        }
+
+        /* Elemento 8 — pilulas de tecnologia. Reaproveitado na secao de
+           tecnologias (Fase 7). Sem icone, sem bolinha, sem barra, sem
+           percentual, sem nivel (FSD 12.5 / RN16). Os itens nao sao links. */
+        .tech-lista {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 8px;
+            list-style: none;
+        }
+
+        .tech-pill {
+            padding: 6px 12px;
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            background: var(--card-bg);
+            font-size: 0.8em;
+            font-weight: 300;
+            color: var(--neutro);
+            transition: border-color 0.2s, transform 0.2s, background 0.3s;
+        }
+
+        .tech-pill:hover {
+            border-color: var(--destaque);
+            transform: translateY(-2px);
+        }
+
+        /* Nota curta abaixo das pilulas — presente apenas no card do HGS (B2). */
+        .tech-nota {
+            font-size: 0.8em;
+            font-weight: 300;
+            color: var(--texto-muted);
+            line-height: 1.6;
+            margin-top: 8px;
+        }
+
+        /* Botao de solicitacao de apresentacao — apenas o card do HGS, estilo
+           secundario .btn-ghost (o ambar preenchido fica reservado ao hero e
+           ao contato — FSD RN13). */
+        .projeto-card .btn-ghost {
+            margin-top: 16px;
         }
