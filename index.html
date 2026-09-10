@@ -11,16 +11,16 @@
 </head>
 <body>
 
-    <button class="theme-toggle" onclick="alternarTema()" title="Alternar tema">☀️</button>
+    <button class="theme-toggle" type="button" title="Alternar tema">☀️</button>
 
     <nav>
-        <a class="active" onclick="window.scrollTo(0,0)">início</a>
-        <a onclick="document.getElementById('sobre').scrollIntoView({behavior:'smooth'})">sobre</a>
-        <a onclick="document.getElementById('projetos').scrollIntoView({behavior:'smooth'})">projetos</a>
-        <a onclick="document.getElementById('stack').scrollIntoView({behavior:'smooth'})">stack</a>
+        <a href="#projetos">projetos</a>
+        <a href="#tecnologias">tecnologias</a>
+        <a href="#sobre">sobre</a>
+        <a href="#contato">contato</a>
     </nav>
 
-    <div class="hero">
+    <div class="hero" id="inicio">
         <span class="hero-tag">devdapraia · portfólio</span>
         <div class="hero-content">
             <img src="imagens/avatar.png" alt="João Adôrno" class="hero-avatar">
@@ -28,8 +28,8 @@
                 <h1>João <span>Adôrno</span></h1>
                 <p class="hero-sub">Dev em formação · <strong>Maragogi → Recife</strong> · Transição de carreira</p>
                 <div class="hero-btns">
-                    <button class="btn-primary" onclick="document.getElementById('projetos').scrollIntoView({behavior:'smooth'})">Ver projetos</button>
-                    <button class="btn-ghost" onclick="window.open('https://github.com/devdapraia')">GitHub</button>
+                    <a class="btn-primary" href="#projetos">Ver projetos</a>
+                    <a class="btn-ghost" href="https://github.com/devdapraia" target="_blank" rel="noopener noreferrer">GitHub</a>
                 </div>
             </div>
         </div>
@@ -90,7 +90,7 @@
 
     <hr class="divider">
 
-    <section class="section" id="stack">
+    <section class="section" id="tecnologias">
         <p class="section-label">tecnologias</p>
         <h2>Stack atual</h2>
         <div class="stack-grid">
@@ -127,8 +127,8 @@
         </div>
     </section>
 
-    <footer>
-        <p>feito com HTML e CSS · <span>devdapraia</span> · <a href="https://github.com/devdapraia" target="_blank">github.com/devdapraia</a></p>
+    <footer id="contato">
+        <p>feito com HTML e CSS · <span>devdapraia</span> · <a href="https://github.com/devdapraia" target="_blank" rel="noopener noreferrer">github.com/devdapraia</a></p>
     </footer>
 
     <script src="js/script.js"></script>

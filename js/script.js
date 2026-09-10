@@ -23,3 +23,6 @@
         }, { threshold: 0.1 });
 
         items.forEach(el => observer.observe(el));
+
+        // Alternancia de tema por listener: o HTML nao usa mais onclick inline.
+        toggle.addEventListener('click', alternarTema);

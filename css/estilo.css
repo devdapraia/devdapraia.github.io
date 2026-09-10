@@ -409,3 +409,25 @@
         footer span { color: var(--destaque); }
         footer a { color: var(--acento); text-decoration: none; }
         footer a:hover { color: var(--destaque); }
+
+        /* ========== FASE 1 — NAVEGACAO POR ANCORA (adicoes) ========== */
+        /* Bloco aditivo: nao altera nenhuma regra herdada da base (FSD RT02). */
+
+        /* Rolagem suave por CSS: navegar entre secoes dispensa JavaScript. */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Compensa a altura do menu fixo (~48px) ao saltar para uma ancora. */
+        .hero,
+        .section {
+            scroll-margin-top: 56px;
+        }
+
+        /* Ancoras que reaproveitam o visual dos botoes, para funcionarem sem JS. */
+        a.btn-primary,
+        a.btn-ghost {
+            display: inline-block;
+            text-decoration: none;
+            text-align: center;
+        }
