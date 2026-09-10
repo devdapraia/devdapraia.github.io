@@ -140,17 +140,21 @@ Ao terminar qualquer trabalho:
 
 - **Sem repetição de formulação na página.** Nenhuma frase, título ou informação
   deve aparecer duas vezes com a mesma formulação em pontos diferentes da página.
-  Cada ideia tem **um lugar só**: a origem na recepção vive no bloco de
-  apresentação abaixo do hero; "dois sistemas em uso real" é **exclusivo do selo
-  do hero** (o título da seção Projetos é "Os sistemas"); a linha de posicionamento
+  Cada ideia tem **um lugar só**: a trajetória (marketing/atendimento/coordenação
+  → recepção → ADS → constrói software) vive no card/parágrafo "quem sou" da seção
+  "Sobre mim"; "dois sistemas em uso real" é **exclusivo do selo do hero** (o
+  título da seção Projetos é "Os sistemas"); a linha de posicionamento
   ("da recepção ao código…") vive no hero e não é repetida como título de seção.
   Ao escrever conteúdo novo, conferir se a frase — ou a mesma informação com outras
   palavras — já não está dita em outro ponto.
-- O card "quem sou" da seção Sobre **não repete** a origem na recepção (essa
-  história é do bloco de apresentação). Na fase da seção Sobre, ele é reescrito
-  com outro recorte: trajetória, o que se estuda hoje, para onde se vai.
+- **Bloco `.apresentacao` removido (alteração consciente de escopo, 2026-09-10).**
+  O bloco de apresentação curta abaixo do hero (FSD 6/A3), criado na Fase 2, saiu
+  da página (marcação e CSS). O que ele dizia foi **unificado no card "quem sou"**
+  da seção "Sobre mim", que agora abre com a trajetória completa. Motivo: com
+  "Sobre mim" abrindo a página logo após o hero, um bloco separado imediatamente
+  antes seria redundância na mesma dobra.
 - **Ordem das seções e do menu (alteração consciente de escopo, 2026-09-10).**
-  Ordem da página: hero → apresentação curta → **`#sobre`** → **`#projetos`** →
+  Ordem da página: hero → **`#sobre`** → **`#projetos`** →
   `#processo` → `#tecnologias` → `#contato`. O menu acompanha:
   **Sobre · Projetos · Tecnologias · Contato**. Isso contraria o FSD original
   (seções 1, 5.3, 12.1, 13, 25), que foi atualizado. Motivo: o site é lido

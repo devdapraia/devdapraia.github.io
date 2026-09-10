@@ -337,20 +337,6 @@
             transition: background 0.3s, border-color 0.3s;
         }
 
-        /* Apresentacao curta: texto corrido logo abaixo do bloco de abertura. */
-        .apresentacao {
-            max-width: 780px;
-            margin: 0 auto;
-            padding: 32px 40px;
-        }
-
-        .apresentacao p {
-            font-size: 0.95em;
-            font-weight: 300;
-            line-height: 1.7;
-            color: var(--texto-muted);
-        }
-
         /* ========== FASE 3 — CARDS DE PROJETO (adicoes) ========== */
         /* Bloco aditivo: reaproveita a base visual de .sobre-card (FSD 12.3),
            consome variaveis de tema, funciona nos dois temas, usa a escala de

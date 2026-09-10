@@ -80,7 +80,7 @@ Ponto de verificação obrigatório: a Fase 2 **só começa** após o site publi
 - [ ] Substituir o texto do `h1`, a tag do hero e a linha de posicionamento pelo novo conteúdo. O posicionamento **não menciona marketing** (A1).
 - [ ] Adicionar o **selo de credibilidade** — sistemas em uso real, **sem nomear a pousada** (A2, RN03).
 - [ ] Botões do hero: `.btn-primary` "Ver projetos" → `#projetos`; `.btn-ghost` "Falar comigo" → `#contato`. **Remover** o botão GitHub do hero (vai para o contato). O hero **não** tem link de WhatsApp (A1, 12.2, E2).
-- [ ] Apresentação curta — duas ou três linhas logo abaixo do hero (A3).
+- [x] ~~Apresentação curta — duas ou três linhas logo abaixo do hero (A3).~~ Feita na Fase 2 e **removida em 2026-09-10** (marcação `.apresentacao` + CSS): com a seção "Sobre mim" abrindo a página logo após o hero, o bloco virou redundância. O "quem sou" foi **unificado no card "quem sou"** da seção Sobre (ver Fase 8 e FSD 6/A3).
 - [ ] Ajustar os rótulos do menu se ainda não feito na Fase 1. **Ordem do menu (revisada em 2026-09-10 — ver Fase 8 e alteração consciente na seção 1 do FSD):** Sobre, Projetos, Tecnologias, Contato.
 - [ ] Estratégia de fontes: `display=swap` já na URL, pilha de fallback de sistema nas famílias CSS, só os pesos usados (FSD 24.3).
 
@@ -250,15 +250,15 @@ Listas já definidas (INSUMOS 3, C2). Depende da pílula de tecnologia (Fase 3) 
 
 ## Fase 8 — Seção "Sobre mim"
 
-**Objetivo:** dar contexto de quem é o autor a quem chega sem repertório prévio. A seção **abre a página** (após a apresentação curta), então precisa ser **curta** — o visitante tem de chegar rápido aos sistemas (FSD Módulo D/D1; 12.7; 25/Fase 2 item 20; alteração consciente de escopo na seção 1 do FSD).
+**Objetivo:** dar contexto de quem é o autor a quem chega sem repertório prévio. A seção **abre a página** (primeira após o hero — o bloco `.apresentacao` foi descontinuado), então precisa ser **curta** — o visitante tem de chegar rápido aos sistemas (FSD Módulo D/D1; 12.7; 25/Fase 2 item 20; alteração consciente de escopo na seção 1 do FSD).
 
 ### Feito antecipadamente (2026-09-10, fora da Fase 8, por decisão do autor)
 
-- [x] **Posição da seção na página** — `#sobre` vem **antes de `#projetos`**, logo após a apresentação curta. Ordem final: hero → apresentação → `#sobre` → `#projetos` → `#tecnologias` → `#contato`. O menu foi alinhado a essa ordem: **Sobre · Projetos · Tecnologias · Contato**. Isso **contraria** o FSD original (seções 1, 5.3, 12.1, 13, 25) — tratado como **alteração consciente de escopo** e registrado nesses cinco pontos. *Motivo:* o site também é lido por quem chega sem contexto prévio, e a apresentação antes dos projetos dá esse contexto. Houve um passo intermediário em que `#sobre` chegou a ser movida para depois de `#tecnologias` (alinhando ao FSD antigo); o autor reverteu para antes de `#projetos`.
+- [x] **Posição da seção na página** — `#sobre` vem **antes de `#projetos`**, é a primeira seção após o hero. Ordem final: hero → `#sobre` → `#projetos` → `#tecnologias` → `#contato`. O menu foi alinhado a essa ordem: **Sobre · Projetos · Tecnologias · Contato**. Isso **contraria** o FSD original (seções 1, 5.3, 12.1, 13, 25) — tratado como **alteração consciente de escopo** e registrado nesses pontos. *Motivo:* o site também é lido por quem chega sem contexto prévio, e a apresentação antes dos projetos dá esse contexto. Houve um passo intermediário em que `#sobre` chegou a ser movida para depois de `#tecnologias` (alinhando ao FSD antigo); o autor reverteu para antes de `#projetos`.
+- [x] **Bloco `.apresentacao` removido e unificado no "quem sou"** — o bloco de apresentação curta abaixo do hero (FSD 6/A3, feito na Fase 2) **saiu da página** (marcação + CSS `.apresentacao` / `.apresentacao p`; `grep` confirmou que nada mais os usa). O texto de "quem sou" foi unificado no card **"quem sou"** da seção Sobre, com esta redação: *"Vim do marketing, do atendimento e da coordenação de equipe. Hoje trabalho na recepção de uma pousada, estudo Análise e Desenvolvimento de Sistemas e construo software a partir dos problemas que vejo travarem a operação todo dia."* *Motivo:* com "Sobre mim" abrindo a página logo após o hero, um bloco separado imediatamente antes seria redundância na mesma dobra.
 - [x] **Card "objetivo" — 1ª troca:** texto herdado da base `Estágio no Porto Digital · Recife · Jan 2027` → `Primeira oportunidade na área de desenvolvimento de software` (sem destino nem data; alinhado ao FSD 7.3).
 - [x] **Card "objetivo" — 2ª troca (posicionamento marketing + desenvolvimento):** → `Uma posição que una repertório de negócio e capacidade de construir a solução, em desenvolvimento ou em marketing`. A oportunidade pode ser nas duas frentes; a formulação serve às duas sem parecer indefinição (FSD 6/D1, alteração consciente na seção 1).
 - [x] **Card "formação" — Marketing ao lado de ADS:** `ADS · 2º período · Anhanguera · Maragogi` → `Análise e Desenvolvimento de Sistemas — conclusão prevista para junho de 2028` **+** `Bacharelado em Marketing — UNIBRA, 2020`. Marketing entra como parte do perfil, não como curiosidade (FSD 6/D1, 10).
-- [x] **Card "quem sou" — recorte provisório:** reescrito para `Vim do marketing, do atendimento e da coordenação de equipe. Hoje estudo Análise e Desenvolvimento de Sistemas e construo software a partir de problemas reais de operação.` — não reconta a origem na recepção com a formulação do bloco de apresentação; a redação definitiva (três parágrafos) é o restante desta fase.
 
 ### Checklist (restante da fase — redação final)
 
@@ -269,8 +269,8 @@ Listas já definidas (INSUMOS 3, C2). Depende da pílula de tecnologia (Fase 3) 
 - [ ] **Sem experiência profissional detalhada** — o portfólio não é currículo; o currículo está para download (D1, revisto; 7.1/7.2).
 - [ ] Frase do **ERBASE 2026** no terceiro parágrafo: artigo submetido sobre digitalização de pousadas de pequeno porte, com o feedback dos avaliadores incorporado à evolução do projeto. **Não** afirma nem sugere aceitação; **não** se desculpa nem trata como fracasso (D1, RN17).
 - [ ] O texto **não menciona** mudança para Recife nem Porto Digital (D1, 7.3).
-- [ ] **Sem repetir o bloco de apresentação** (`AGENTS.md` › Regras de conteúdo). O bloco de apresentação abaixo do hero já conta a origem na recepção em duas linhas; nesta seção a origem é aberta por outro ângulo (marketing/atendimento/coordenação), sem repetir a frase "trabalho na recepção… foi ali que aprendi a programar".
-- [ ] O antigo card **"quem sou"** e a grade `.sobre-grid` saem e dão lugar aos três parágrafos; o conteúdo é **reescrito**, não reaproveitado.
+- [ ] **Origem/trajetória tem um lugar só** (`AGENTS.md` › Regras de conteúdo). Com o bloco `.apresentacao` removido, a trajetória (marketing/atendimento/coordenação → recepção → ADS → constrói software) vive **só** no primeiro parágrafo desta seção. Conferir que nada no hero repete essa formulação.
+- [ ] A grade `.sobre-grid` e os cards provisórios ("quem sou", "formação", "objetivo") saem e dão lugar aos três parágrafos; o conteúdo dos cards (já revisado em 2026-09-10) é a matéria-prima, reescrito em texto corrido.
 - [ ] Confirmar o `h2` da seção (hoje **"Minha trajetória"**, provisório desde a Fase 3).
 - [ ] **Avaliar o hero** (pedido do autor): a linha "Da recepção ao código: construo software que resolve problema real de operação" serve às duas leituras; conferir, com a seção "Sobre mim" já reescrita, se o conjunto do hero não ficou estreito para o leitor de marketing. Só mexer no hero se a avaliação apontar necessidade — é conteúdo aprovado do FSD 12.2.
 
@@ -281,7 +281,7 @@ Listas já definidas (INSUMOS 3, C2). Depende da pílula de tecnologia (Fase 3) 
 - Objetivo serve às duas frentes sem parecer indefinição (26.5).
 - Sem experiência profissional detalhada; sem menção a Recife ou Porto Digital (26.5).
 - ERBASE em no máximo uma frase, sem afirmar aceitação e sem desculpas (26.5).
-- Nenhuma frase ou informação repete, com a mesma formulação, o bloco de apresentação ou o selo do hero (`AGENTS.md` › Regras de conteúdo).
+- Nenhuma frase ou informação repete, com a mesma formulação, a linha do hero ou o selo do hero (`AGENTS.md` › Regras de conteúdo). Não há mais bloco `.apresentacao`.
 
 ### Áreas prováveis de alteração
 
