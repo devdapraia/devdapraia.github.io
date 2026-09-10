@@ -166,12 +166,12 @@ A pílula de tecnologia deve existir (Fase 3) antes de remover `.stack-item`.
 
 ### Checklist
 
-- [ ] Conferir **imagem por imagem, em tamanho real**, contra dado de terceiro: nome/documento/telefone de hóspede, valor financeiro real, nome da pousada, nome de funcionário, credencial em tela, aba com endereço interno, notificação do SO (21.4). **Só depois** entra no repositório.
-- [ ] Converter para WebP (JPEG como alternativa), largura máx. `1200px`, **teto de 150 KB por arquivo**; se não couber legível, **recortar** a área de interesse (21.2).
-- [ ] HGS: duas capturas com dados fictícios em `imagens/hgs/`. HFS: duas capturas com **valores mascarados** em `imagens/hfs/` (B5, RN01, RN02).
-- [ ] Marcação de cada imagem: `width` e `height` reais, `loading="lazy"` (imagens abaixo da dobra), `alt` descritivo **sem** dado de hóspede nem nome da pousada, borda 1px `--card-border` e raio `12px` (12.4).
-- [ ] Disposição: duas colunas em telas largas, empilhadas em telas estreitas (12.4).
-- [ ] Ampliação ao toque: cada imagem envolta por `<a>` para o próprio arquivo (`target="_blank"`, `rel="noopener"`) — **funciona sem JS**; `js/script.js` intercepta o clique e abre overlay próprio (fundo escuro translúcido, imagem até 100% largura / 90% altura, rolagem horizontal quando maior); fecha por clique, botão de fechar e `Esc`; trava a rolagem do corpo enquanto aberto; usa variáveis de tema; só transição de opacidade curta (12.4).
+- [x] Conferir **imagem por imagem, em tamanho real**, contra dado de terceiro: nome/documento/telefone de hóspede, valor financeiro real, nome da pousada, nome de funcionário, credencial em tela, aba com endereço interno, notificação do SO (21.4). **Só depois** entra no repositório. → HGS só com número de quarto/status/alerta; HFS com valores **fictícios** (confirmado pelo autor); recorte tirou a barra de status e a barra do navegador. 2ª conferência = teste em celular do autor.
+- [x] Converter para WebP (JPEG como alternativa), largura máx. `1200px`, **teto de 150 KB por arquivo**; se não couber legível, **recortar** a área de interesse (21.2). → 4 arquivos WebP q82, 1170×2150, entre 55,8 e 86,7 KB.
+- [x] HGS: duas capturas com dados fictícios em `imagens/hgs/` (`grade-de-quartos.webp`, `central-de-alertas.webp`). HFS: duas capturas em `imagens/hfs/` (`contas-vencidas.webp`, `lancamentos.webp`) — valores **fictícios**, publicados sem tarja (decisão consciente do autor 2026-09-10; atende 26.4; leitura mais frouxa de "mascarados" de RN02/21.1 porque não há valor real a proteger).
+- [x] Marcação de cada imagem: `width` e `height` reais (`1170`×`2150`), `loading="lazy"` (as duas ficam abaixo da dobra), `alt` descritivo **sem** dado de hóspede nem nome da pousada, borda 1px `--card-border` e raio `12px` (12.4).
+- [~] Disposição: duas colunas em telas largas, empilhadas em telas estreitas (12.4). → duas colunas entregues; o empilhamento em telas estreitas é da **Fase 10** (a base não tem media queries).
+- [x] Ampliação ao toque: cada imagem envolta por `<a>` para o próprio arquivo (`target="_blank"`, `rel="noopener"`) — **funciona sem JS**; `js/script.js` intercepta o clique e abre overlay próprio (fundo escuro translúcido, imagem até 100% largura / 90% altura); fecha por clique no fundo, botão `×` e `Esc`; trava a rolagem do corpo com `body.overlay-aberto`; usa variáveis de tema; só transição de opacidade curta (12.4).
 
 ### Critérios de pronto
 
