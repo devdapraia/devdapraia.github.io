@@ -483,17 +483,25 @@
            O empilhamento das imagens em telas estreitas entra com as media
            queries da Fase 10 (FSD 12.4 / 12.8). */
 
-        /* Elemento 7 — grade das duas imagens do card, lado a lado em telas largas. */
-        .projeto-imagens {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
+        /* Elemento 7 — miniaturas das imagens do card. No fluxo da pagina elas
+           ficam pequenas (miniatura) e expandem na sobreposicao ao toque/clique
+           (ajuste pedido pelo autor na conferencia da Fase 6 — antes cada imagem
+           ocupava metade da largura da coluna e ficava alta demais no celular).
+           O mesmo tratamento vale para o bloco de processo (.processo-imagens). */
+        .projeto-imagens,
+        .processo-imagens {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
         }
 
         .projeto-imagem {
             display: block;
+            width: 150px;
+            flex: 0 0 auto;
             border-radius: 12px;
             overflow: hidden;
+            cursor: zoom-in;
         }
 
         .projeto-imagem img {
@@ -590,26 +598,32 @@
             margin-bottom: 24px;
         }
 
-        /* Tres recortes de tela de celular, lado a lado em telas largas. */
-        .processo-imagens {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
+        /* Os recortes usam o mesmo layout de miniatura de .projeto-imagens
+           (definido no bloco "FASE 5"): flex com quebra, miniaturas de 150px que
+           expandem na sobreposicao ao toque/clique. Sem grade propria — o bloco
+           inteiro sai junto se a secao for cortada (FSD 12.6 / C3). */
+
+        /* Nota de "dados ficticios" abaixo de cada grupo de imagens — nos dois
+           cards e no bloco de processo (pedido do autor na conferencia da Fase 6).
+           Mesmo tratamento visual de .tech-nota / .projeto-gravacao. */
+        .nota-ficticia {
+            font-size: 0.8em;
+            font-weight: 300;
+            color: var(--texto-muted);
+            line-height: 1.6;
+            margin-top: 8px;
+            margin-bottom: 16px;
         }
 
-        /* Telas estreitas: os tres recortes passam a duas colunas e depois a uma,
-           na mesma direcao das imagens dos cards. Media queries proprias do bloco,
-           para ele seguir autocontido; a varredura completa e da Fase 10 (FSD 12.8). */
-        @media (max-width: 768px) {
-            .processo-imagens {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .processo-imagens {
-                grid-template-columns: 1fr;
-            }
+        /* Botao "Pedir a gravacao" centralizado no card (pedido do autor na
+           conferencia da Fase 6). Continua .btn-ghost (FSD RN13); o margin-top
+           vem das regras do bloco "FASE 3". */
+        .projeto-card .btn-ghost {
+            display: block;
+            width: -webkit-fit-content;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* ========== AJUSTE DE RESPONSIVIDADE (fora de fase, a pedido do autor) ========== */
@@ -673,13 +687,11 @@
                 padding: 32px 24px;
             }
 
-            /* Cards que estavam em duas colunas passam a uma: recuo lateral
-               identico em todos, sem card espremido. */
+            /* A grade "quem sou / formacao / objetivo" passa a uma coluna, sem
+               card espremido. (As imagens dos cards e do processo agora sao
+               miniaturas em flex-wrap — nao precisam mais de regra aqui; ver o
+               bloco "FASE 5".) */
             .sobre-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .projeto-imagens {
                 grid-template-columns: 1fr;
             }
         }
