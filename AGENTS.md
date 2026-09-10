@@ -185,6 +185,20 @@ Ao terminar qualquer trabalho:
   (RN18); não conta como repetição de formulação. Contraria o FSD (6/B3, 6/C1,
   12.3, 13/Fluxo 3, 21.1, 26.4), atualizado. `.btn-primary` continua só em "Ver
   projetos" (hero) e WhatsApp (contato) — RN13 preservada.
+- **GIF do sistema no card + botão "Solicitar gravação completa" (ajuste pós-publicação, 2026-09-10).**
+  Cada card (HGS e HFS) ganhou uma **caixa interna** `<figure class="projeto-gif">`
+  (base visual do card — borda 1px `--card-border`, raio `12px`, fundo `--card-bg`)
+  com um **GIF do sistema em uso** (`imagens/hgs/sistema-em-uso.gif`,
+  `imagens/hfs/sistema-em-uso.gif`), largura nativa 240px, `loading="lazy"`.
+  Vem entre `.projeto-tech` e `.projeto-gravacao`; o botão dos cards, agora
+  **"Solicitar gravação completa"** (segue `.btn-ghost` — RN13 intacta), fica
+  logo **abaixo do GIF**. O GIF é a prévia curta; o botão pede a gravação completa
+  pelo WhatsApp. **Desvio consciente do FSD 21.2:** os dois GIFs somam ~6,5 MB
+  (assets da página ~7,3 MB), acima do teto de 150 KB/imagem e 1,5 MB/página —
+  mantidos sem tratamento por decisão explícita do autor; ver `docs/STATUS.md`
+  para o impacto e o caminho de otimização/reversão. As cópias soltas na raiz
+  (`gif-*.gif`) não são versionadas (`.gitignore`). Rodapé passou a citar
+  JavaScript ("feito com HTML, CSS e JavaScript").
 
 ## Publicação (procedimento para a IA)
 

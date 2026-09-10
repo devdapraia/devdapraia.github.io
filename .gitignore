@@ -63,6 +63,10 @@ credenciais.*
 # autor. As capturas brutas (hgs-*.png / hfs-*.png) trazem a barra de
 # status do celular e a barra do navegador; a versão tratada e recortada
 # de cada uma entra em imagens/hgs|hfs/ como .webp (Fase 5).
+# gif-*.gif na raiz: cópias soltas entregues pelo autor. O arquivo que
+# vai ao ar é a cópia em imagens/hgs|hfs/sistema-em-uso.gif (por decisão
+# do autor, sem tratamento — ver docs/STATUS.md); a cópia da raiz não é
+# versionada para não duplicar.
 *.mp4
 *.mov
 *.webm
@@ -70,6 +74,7 @@ credenciais.*
 /apresentacao-*.png
 /hgs-*.png
 /hfs-*.png
+/gif-*.gif
 
 # --- Exceções: arquivos de exemplo PODEM ser versionados ---
 !.env.example
