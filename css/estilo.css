@@ -619,6 +619,38 @@
            autor — ele volta encostado a esquerda, como o `.btn-ghost` inline-block
            padrao; ver bloco "FASE 3" para o margin-top.) */
 
+        /* ========== AJUSTE POS-FASE 6 — GIF DO SISTEMA NO CARD (pedido do autor) ========== */
+        /* "Uma caixa dentro da caixa do card" com uma gravacao curta do sistema
+           em uso, uma por card (HGS e HFS). Reaproveita a base visual do card
+           (fundo --card-bg, borda 1px --card-border, raio 12px da escala/DESIGN
+           3.3). O GIF fica no tamanho nativo do recorte de celular (240px de
+           largura); em telas estreitas o max-width cede e ele acompanha a
+           coluna. O botao "Solicitar gravacao completa" vem logo abaixo — o
+           margin-top do .btn-ghost continua vindo do bloco "FASE 3". Consome
+           variaveis de tema; funciona nos dois temas; sem regra herdada
+           reescrita (FSD RT02/RT04/RT05).
+
+           Peso: os dois GIFs somam ~6,7 MB, acima do teto do FSD 21.2
+           (150 KB por imagem, 1,5 MB por pagina) — mantidos sem tratamento
+           por decisao do autor (ver docs/STATUS.md). O loading="lazy" na
+           marcacao adia o download ate a rolagem chegar perto do card. */
+        .projeto-gif {
+            margin: 16px 0 0;
+            padding: 12px;
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            background: var(--card-bg);
+            max-width: 264px;
+            transition: background 0.3s, border-color 0.3s;
+        }
+
+        .projeto-gif img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
         /* ========== AJUSTE DE RESPONSIVIDADE (fora de fase, a pedido do autor) ========== */
         /* Antecipa parte da Fase 10 (FSD 12.8): foto do hero acima do texto no
            celular com espaco para respirar, menu sem encostar nas bordas, grades
