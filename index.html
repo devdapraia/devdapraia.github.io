@@ -15,9 +15,9 @@
     <button class="theme-toggle" type="button" title="Alternar tema">☀️</button>
 
     <nav>
+        <a href="#sobre">sobre</a>
         <a href="#projetos">projetos</a>
         <a href="#tecnologias">tecnologias</a>
-        <a href="#sobre">sobre</a>
         <a href="#contato">contato</a>
     </nav>
 
@@ -37,25 +37,21 @@
         </div>
     </div>
 
-    <div class="apresentacao">
-        <p>Sou João Adôrno. Trabalho na recepção de uma pousada e foi ali, vendo onde a operação travava todo dia, que aprendi a programar.</p>
-    </div>
-
     <section class="section" id="sobre">
         <p class="section-label">sobre mim</p>
         <h2>Minha trajetória</h2>
         <div class="sobre-grid">
             <div class="sobre-card destaque-card">
                 <span class="card-label">quem sou</span>
-                <p>Estudante de ADS em transição de carreira, desenvolvendo projetos reais inspirados nos desafios operacionais da hotelaria onde trabalho. Acredito que a melhor forma de aprender programação é resolvendo problemas reais.</p>
+                <p>Vim do marketing, do atendimento e da coordenação de equipe. Hoje trabalho na recepção de uma pousada, estudo Análise e Desenvolvimento de Sistemas e construo software a partir dos problemas que vejo travarem a operação todo dia.</p>
             </div>
             <div class="sobre-card">
                 <span class="card-label">formação</span>
-                <p>ADS · 2º período<br>Anhanguera · Maragogi</p>
+                <p>Análise e Desenvolvimento de Sistemas — conclusão prevista para junho de 2028<br>Bacharelado em Marketing — UNIBRA, 2020</p>
             </div>
             <div class="sobre-card">
                 <span class="card-label">objetivo</span>
-                <p>Estágio no Porto Digital · Recife · Jan 2027</p>
+                <p>Uma posição que una repertório de negócio e capacidade de construir a solução, em desenvolvimento ou em marketing.</p>
             </div>
         </div>
     </section>
@@ -107,7 +103,8 @@
                 <p class="tech-nota">Protótipo original em Java; app em construção com Flutter e Dart.</p>
             </div>
 
-            <a class="btn-ghost" href="https://wa.me/5581995212456?text=Olá,%20João.%20Vi%20seu%20portfólio%20e%20gostaria%20de%20agendar%20uma%20apresentação%20do%20Hotel%20Governance%20System." target="_blank" rel="noopener noreferrer">Solicitar apresentação do sistema</a>
+            <p class="projeto-gravacao">Gravei o HGS funcionando no meu celular. Toque no botão e eu te envio a gravação pelo WhatsApp — é um envio pessoal, feito por mim.</p>
+            <a class="btn-ghost" href="https://wa.me/5581995212456?text=Olá,%20João.%20Vi%20seu%20portfólio%20e%20gostaria%20de%20receber%20a%20gravação%20do%20Hotel%20Governance%20System%20funcionando." target="_blank" rel="noopener noreferrer">Pedir a gravação</a>
         </article>
 
         <article class="projeto-card">
@@ -148,6 +145,9 @@
                     <li class="tech-pill">Git e GitHub</li>
                 </ul>
             </div>
+
+            <p class="projeto-gravacao">Gravei o HFS funcionando no meu celular. Toque no botão e eu te envio a gravação pelo WhatsApp — é um envio pessoal, feito por mim.</p>
+            <a class="btn-ghost" href="https://wa.me/5581995212456?text=Olá,%20João.%20Vi%20seu%20portfólio%20e%20gostaria%20de%20receber%20a%20gravação%20do%20Hotel%20Finance%20System%20funcionando." target="_blank" rel="noopener noreferrer">Pedir a gravação</a>
         </article>
     </section>
 
@@ -156,38 +156,10 @@
     <section class="section" id="tecnologias">
         <p class="section-label">tecnologias</p>
         <h2>Stack atual</h2>
-        <div class="stack-grid">
-            <div class="stack-item">
-                <span class="tech-dot dot-on"></span><span class="tech-dot dot-on"></span><span class="tech-dot dot-on"></span><span class="tech-dot dot-on"></span><span class="tech-dot dot-on"></span>
-                <span class="tech-name">Java</span>
-                <span class="tech-level">avançado</span>
-            </div>
-            <div class="stack-item">
-                <span class="tech-dot dot-on"></span><span class="tech-dot dot-on"></span><span class="tech-dot dot-on"></span><span class="tech-dot dot-on"></span><span class="tech-dot dot-off"></span>
-                <span class="tech-name">MySQL</span>
-                <span class="tech-level">intermediário</span>
-            </div>
-            <div class="stack-item">
-                <span class="tech-dot dot-on"></span><span class="tech-dot dot-on"></span><span class="tech-dot dot-on"></span><span class="tech-dot dot-on"></span><span class="tech-dot dot-off"></span>
-                <span class="tech-name">JDBC</span>
-                <span class="tech-level">intermediário</span>
-            </div>
-            <div class="stack-item">
-                <span class="tech-dot dot-on"></span><span class="tech-dot dot-on"></span><span class="tech-dot dot-on"></span><span class="tech-dot dot-off"></span><span class="tech-dot dot-off"></span>
-                <span class="tech-name">HTML</span>
-                <span class="tech-level">básico</span>
-            </div>
-            <div class="stack-item">
-                <span class="tech-dot dot-on"></span><span class="tech-dot dot-on"></span><span class="tech-dot dot-off"></span><span class="tech-dot dot-off"></span><span class="tech-dot dot-off"></span>
-                <span class="tech-name">CSS</span>
-                <span class="tech-level">iniciando</span>
-            </div>
-            <div class="stack-item">
-                <span class="tech-dot dot-on"></span><span class="tech-dot dot-off"></span><span class="tech-dot dot-off"></span><span class="tech-dot dot-off"></span><span class="tech-dot dot-off"></span>
-                <span class="tech-name">Flutter</span>
-                <span class="tech-level">em breve</span>
-            </div>
-        </div>
+        <!-- A autoavaliacao de nivel (.stack-item / .tech-dot) foi removida na Fase 4
+             (FSD 12.11 / RN16). Os dois grupos por contexto de uso e a linha de
+             formacao entram na Fase 7; ate la, esta linha mantem a secao integra. -->
+        <p class="secao-preparo">Conteúdo em preparação.</p>
     </section>
 
     <footer id="contato">

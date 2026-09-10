@@ -14,7 +14,14 @@
 
 **Objetivo principal:** fazer com que um gestor não técnico entenda, em poucos minutos e no celular, que o autor identifica problemas reais e constrói soluções que funcionam — e saia do site querendo conversar com ele.
 
-**Resumo do funcionamento:** site público de **página única**, estático, sem servidor de aplicação e sem banco de dados. Todo o conteúdo é fixo e publicado junto com o código. Um menu fixo no topo rola suavemente até cada seção. A página apresenta um bloco de abertura com posicionamento e foto, dois cards de projeto com estrutura idêntica e imagens de tela, um bloco de processo de design, uma seção de tecnologias agrupada por contexto de uso, uma seção "Sobre mim" e um bloco final de contato com uma única ação em destaque. Existe alternância entre tema claro e escuro, herdada da base.
+**Resumo do funcionamento:** site público de **página única**, estático, sem servidor de aplicação e sem banco de dados. Todo o conteúdo é fixo e publicado junto com o código. Um menu fixo no topo rola suavemente até cada seção. A página apresenta um bloco de abertura com posicionamento e foto, uma **seção "Sobre mim" enxuta** que dá contexto de quem escreve, dois cards de projeto com estrutura idêntica e imagens de tela, um bloco de processo de design, uma seção de tecnologias agrupada por contexto de uso e um bloco final de contato com uma única ação em destaque. Existe alternância entre tema claro e escuro, herdada da base.
+
+> **Alteração consciente de escopo (2026-09-10) — ordem das seções e posicionamento profissional.** Duas mudanças foram decididas pelo autor depois da versão 1.0 e valem sobre o que este documento diz nas seções indicadas:
+>
+> 1. **Ordem da página e do menu.** A seção **"Sobre mim" passa a vir antes dos cards de projeto** — ordem final: hero → **Sobre mim** → projetos → processo → tecnologias → contato. O menu acompanha: **Sobre · Projetos · Tecnologias · Contato**. *Motivo:* o site também é lido por quem chega sem contexto prévio (currículo enviado, link no LinkedIn); a apresentação de quem é o autor antes dos projetos dá esse contexto e evita que o visitante caia direto nos sistemas sem saber quem os construiu. *Contrapartida obrigatória:* como "Sobre mim" agora abre a página, ela precisa ser **curta** — o visitante tem de chegar rápido aos sistemas, que continuam sendo o centro do site. Pontos revistos por esta decisão: 1 (este resumo), 5.3, 12.1, 13 (Fluxo 1) e 25.
+> 2. **Posicionamento: marketing + desenvolvimento.** O público principal são gestores de uma agência de comunicação e a oportunidade pode ser tanto em desenvolvimento quanto em marketing. A **formação em Marketing** (Bacharelado, UNIBRA, 2020) passa a aparecer **ao lado da formação em ADS**, como parte do perfil — alguém que veio de marketing, atendimento e coordenação de equipe e hoje constrói software a partir de problemas de operação que vive. O elemento de **objetivo** passa a servir às duas frentes (uma posição que una repertório de negócio e capacidade de construir a solução), sem parecer indefinição. **Não muda:** os cards de projeto seguem sendo o centro do site; marketing entra como contexto de quem é o autor, **não** como segunda vitrine de trabalhos de comunicação; a experiência profissional detalhada continua fora (fica no currículo em PDF). Pontos revistos por esta decisão: 6/A1, 6/D1, 10 e 26 (26.5).
+> 3. **Fusão da apresentação curta com o "quem sou" (2026-09-10).** O bloco `.apresentacao` abaixo do hero (A3), criado na Fase 2, **sai da página**. O que ele dizia (origem na recepção, aprender a programar vendo a operação travar) é unificado no card **"quem sou"** da seção "Sobre mim", que agora abre com a trajetória completa: *"Vim do marketing, do atendimento e da coordenação de equipe. Hoje trabalho na recepção de uma pousada, estudo Análise e Desenvolvimento de Sistemas e construo software a partir dos problemas que vejo travarem a operação todo dia."* *Motivo:* com "Sobre mim" abrindo a página logo após o hero, um bloco de apresentação separado imediatamente antes seria redundância na mesma dobra. O CSS de `.apresentacao` foi removido (nada mais o usa). Pontos revistos: 6/A3 (módulo descontinuado), 5.3, 12.7, 13, 25 (item 10) e 26.5.
+> 4. **Botão de contato de demonstração nos dois cards + reenquadramento como "gravação por WhatsApp" (2026-09-10).** O autor gravou, no celular, os **dois** sistemas em funcionamento. As gravações **não entram na página** (teto de peso de 1,5 MB — seção 21.2; vídeo é fora de escopo — seção 7.1), mas o visitante precisa saber que existem. Mudanças: (a) o botão de contato — antes "solicitação de apresentação", só no card do HGS — passa a existir **também no card do HFS**, cada um com mensagem de WhatsApp que identifica o próprio sistema; (b) o texto do botão passa a ser **"Pedir a gravação"** e uma linha curta acima dele explica que o envio é **pessoal, feito pelo autor, sem prazo prometido**; (c) o botão continua `.btn-ghost` nos dois cards — o âmbar preenchido (`.btn-primary`) segue reservado a "Ver projetos" e ao WhatsApp do contato (RN13 preservada); (d) os dois botões abrem `wa.me` — não há navegação autônoma no sistema, coerente com C1/RN07. *Motivo:* a razão original da assimetria (só o HGS tinha história de "acesso ao sistema em produção") deixou de valer — agora nenhum card oferece acesso; os dois oferecem o mesmo: uma gravação enviada pelo autor. **Não muda:** os 8 elementos do card e a paridade RN18 (o botão e a linha são conteúdo extra, não elementos da estrutura); nenhuma credencial na página; nenhum link pode ficar quebrado. Pontos revistos por esta decisão: 6/B3, 6/C1, 12.3, 13 (Fluxo 3), 21.1 e 26.4.
 
 **Natureza do projeto — condição determinante:** este **não é um projeto do zero**. Existe uma versão anterior do site, em HTML e CSS puro, com identidade visual aprovada. Essa versão é a base de partida e **não deve ser recriada**. O trabalho desta versão é **revisão de conteúdo**, com alterações de estilo apenas incrementais, restritas ao necessário para acomodar o conteúdo novo.
 
@@ -22,9 +29,9 @@
 
 | Perfil | Descrição | O que faz na página |
 | --- | --- | --- |
-| Gestor de agência de comunicação (**público principal**) | Profissional não técnico que recebeu o currículo e pediu o portfólio. Abre o link no celular, com pressa | Lê o posicionamento, percorre os dois cards, lê "Sobre mim" e aciona o WhatsApp |
+| Gestor de agência de comunicação (**público principal**) | Profissional não técnico que recebeu o currículo e pediu o portfólio. Abre o link no celular, com pressa | Lê o posicionamento e o "Sobre mim" curto, percorre os dois cards e aciona o WhatsApp |
 | Recrutador de estágio | Pessoa de RH ou avaliador em processo seletivo | Usa o menu, confere tecnologias e formação, baixa o currículo em PDF, abre LinkedIn e GitHub |
-| Avaliador técnico / desenvolvedor | Procura sinal de substância e não tolera exagero | Confere tecnologias e situação de cada sistema; solicita apresentação do sistema |
+| Avaliador técnico / desenvolvedor | Procura sinal de substância e não tolera exagero | Confere tecnologias e situação de cada sistema; pede a gravação de tela pelo botão do card |
 | Autor (João) | Único mantenedor | Altera o conteúdo diretamente no código-fonte e publica pelo repositório. Não existe painel de edição |
 
 **Contexto de uso:** visita curta, majoritariamente em celular, a partir de link recebido por WhatsApp ou clicado no LinkedIn. Tempo de atenção baixo e ambiente de leitura ruim. O site também será usado como link fixo no LinkedIn e no GitHub e enviado em processos seletivos de estágio.
@@ -162,18 +169,18 @@ A base navega por `onclick` nos links do menu, sem `href`. Isso quebra abertura 
 - O deslocamento causado pelo menu fixo é compensado por `scroll-margin-top` nas seções, com valor equivalente à altura do menu.
 - Resultado esperado: a navegação continua funcionando **mesmo sem JavaScript**, e o endereço passa a aceitar âncora direta (por exemplo, `devdapraia.github.io/#contato`).
 
-**Identificadores das seções:**
+**Identificadores das seções** (na ordem em que aparecem na página — ver alteração consciente de escopo na seção 1):
 
 | Seção | `id` | Rótulo no menu |
 | --- | --- | --- |
 | Bloco de abertura | `inicio` | Não aparece no menu (sem item "Início") |
+| Sobre mim | `sobre` | Sobre |
 | Cards de projeto | `projetos` | Projetos |
 | Bloco de processo de design | `processo` | (sem item próprio no menu) |
 | Tecnologias | `tecnologias` | Tecnologias |
-| Sobre mim | `sobre` | Sobre |
 | Contato | `contato` | Contato |
 
-O menu tem **quatro itens**: Projetos, Tecnologias, Sobre, Contato. O bloco de processo é alcançado pela rolagem a partir de Projetos.
+O menu tem **quatro itens, nesta ordem**: **Sobre, Projetos, Tecnologias, Contato** — a mesma ordem em que as seções aparecem na página. O bloco de processo é alcançado pela rolagem a partir de Projetos.
 
 O menu permanece **centralizado**, como na base, e **não recebe logo nem nome à esquerda** — a navegação da base não tem esse elemento e adicioná-lo alteraria o layout do `<nav>` herdado. O retorno ao topo fica por conta da rolagem: a página é curta e o menu é fixo.
 
@@ -242,7 +249,7 @@ Registros complementares, para evitar reintrodução por inércia:
 *Conteúdo:* nome, uma linha de posicionamento no espírito de "da recepção ao código: construo software que resolve problema de operação", foto de João, selo de credibilidade e botões de navegação.
 *Ações permitidas:* "Ver projetos" (botão primário, rola até a seção Projetos) e "Falar comigo" (botão secundário ghost, rola até a seção Contato). O hero **não contém** link de WhatsApp — a ação de WhatsApp vive na seção de contato e no menu.
 *Resultado esperado:* posicionamento, foto e selo visíveis **sem rolagem, inclusive no celular**, com caminho claro para Projetos e para Contato.
-*Regras:* o posicionamento **não menciona marketing** — marketing aparece apenas em "Sobre mim", como origem do olhar para o negócio.
+*Regras:* o **`h1` e a linha de posicionamento do hero não mencionam marketing** — a linha "da recepção ao código…" serve às duas leituras (desenvolvimento e marketing) sem estreitar nenhuma. Marketing aparece na seção **"Sobre mim"** como parte do perfil — formação em Marketing ao lado da de ADS; trajetória de marketing, atendimento e coordenação de equipe até construir software — e informa o elemento de **objetivo** (ver 6/D1 e a alteração consciente de escopo na seção 1).
 *Base existente:* o hero com avatar já existe e é mantido; muda o texto.
 
 **A2. Selo de credibilidade**
@@ -250,9 +257,8 @@ Registros complementares, para evitar reintrodução por inércia:
 *Conteúdo:* indicação curta e visível de que os sistemas estão em uso real, na linha de "sistemas em uso real numa pousada de 38 quartos".
 *Regras:* **a pousada não é nomeada** em nenhum ponto do site.
 
-**A3. Apresentação curta**
-*Objetivo:* criar conexão humana sem atrasar a chegada aos projetos.
-*Conteúdo:* duas ou três linhas de "quem sou", logo abaixo do bloco de abertura.
+**A3. Apresentação curta — ~~módulo descontinuado~~ (alteração consciente de escopo, 2026-09-10)**
+Este módulo previa duas ou três linhas de "quem sou" logo abaixo do hero, num bloco `.apresentacao` próprio. Foi implementado na Fase 2 e **removido** em 2026-09-10 (marcação e CSS): com a seção "Sobre mim" abrindo a página logo após o hero (ver alteração consciente de escopo na seção 1, item 3), um bloco de apresentação separado imediatamente antes seria redundante na mesma dobra. O texto de "quem sou" — origem na recepção, aprender a programar vendo a operação travar — foi **unificado no card "quem sou"** da seção "Sobre mim" (6/D1, 12.7). A função de "criar conexão humana sem atrasar a chegada aos projetos" agora é da própria seção "Sobre mim", que por isso precisa ser **curta**.
 
 **A4. Menu fixo com navegação por seções**
 *Objetivo:* permitir que recrutador e avaliador técnico cheguem direto ao que procuram.
@@ -293,7 +299,7 @@ Registros complementares, para evitar reintrodução por inércia:
 | 7. Imagens | Duas capturas, obrigatórias, com dados fictícios |
 | 8. Tecnologias | PHP, MySQL, HTML, CSS, JavaScript, Git e GitHub, Figma. **Nota (texto curto abaixo das pílulas):** "protótipo original em Java; app em construção com Flutter e Dart" |
 
-Contém também o **botão de solicitação de apresentação do sistema** (ver C1), no estilo `.btn-ghost`.
+Contém também o **botão "Pedir a gravação"** (ver C1), no estilo `.btn-ghost`, precedido de uma linha curta sobre o envio pessoal da gravação.
 
 **B3. Card do HFS — Hotel Finance System**
 
@@ -308,7 +314,8 @@ Contém também o **botão de solicitação de apresentação do sistema** (ver 
 | 7. Imagens | Duas capturas, obrigatórias, com **valores financeiros mascarados** |
 | 8. Tecnologias | PHP, MySQL, HTML, CSS, JavaScript, Git e GitHub |
 
-*Regra:* **o HFS não tem acesso nem botão de demonstração** — apenas imagens.
+*Regra (v1.0):* ~~**o HFS não tem acesso nem botão de demonstração** — apenas imagens.~~
+*Alteração consciente de escopo (2026-09-10 — ver seção 1, item 4):* o HFS continua **sem qualquer acesso ao sistema**, mas passa a ter o **botão "Pedir a gravação"** (`.btn-ghost`, após o elemento 8), igual ao do HGS, com mensagem de WhatsApp que identifica o HFS. Acima do botão, uma linha curta explica que a gravação é enviada pessoalmente pelo autor, sem prazo. O botão e a linha são **conteúdo extra**, não elementos da estrutura de oito — a paridade RN18 é preservada.
 
 **B4. Descrição do "o que mudou" em linguagem de rotina**
 *Regra:* nenhum número é publicado enquanto não houver dado apurado. O elemento fica escrito de forma que um número possa ser inserido depois sem reescrever o parágrafo.
@@ -319,17 +326,26 @@ Contém também o **botão de solicitação de apresentação do sistema** (ver 
 
 ### Módulo C — Credibilidade e comprovação
 
-**C1. Solicitação de apresentação do sistema (HGS)**
-*Objetivo:* transformar a afirmação "está em produção" em algo verificável e identificar contato qualificado.
-*Comportamento definido:* o botão leva ao WhatsApp (`https://wa.me/5581995212456?text=...`) com a mensagem previamente preenchida "Olá, João. Vi seu portfólio e gostaria de agendar uma apresentação do Hotel Governance System." Nenhum dado é coletado pelo site. Estilo do botão: `.btn-ghost` (ver 12.3).
-*Regra determinante desta versão:* **o perfil somente leitura no HGS não existe e não será criado nesta janela.** O HGS está em produção com a equipe real, e abrir acesso externo a ambiente de produção não é adequado. Portanto:
+**C1. Botão de contato de demonstração — "Pedir a gravação"**
 
-- o botão é de **solicitação de apresentação do sistema**, conduzida pelo autor, ao vivo ou por vídeo gravado;
-- o texto do botão e o trecho correspondente do card refletem **apresentação conduzida**, não navegação autônoma pelo sistema;
+> *Alteração consciente de escopo (2026-09-10 — ver seção 1, item 4).* Este item era "Solicitação de apresentação do sistema (HGS)", só no card do HGS, com a mensagem "...gostaria de agendar uma apresentação do Hotel Governance System." Passou a valer o texto abaixo. Motivo: existem gravações de tela dos **dois** sistemas; elas não cabem na página (seção 21.2) e vídeo é fora de escopo (7.1), então o card precisa dizer que o material existe e como obtê-lo.
+
+*Objetivo:* transformar a afirmação "está em uso real" em algo verificável e identificar contato qualificado, sem embutir vídeo e sem dar acesso ao sistema.
+*Comportamento definido:* cada card (HGS e HFS) tem, após o elemento 8, um botão **`.btn-ghost`** com o texto **"Pedir a gravação"**. O botão leva ao WhatsApp (`https://wa.me/5581995212456?text=...`) com a mensagem previamente preenchida **identificando o sistema pedido**:
+
+- HGS: "Olá, João. Vi seu portfólio e gostaria de receber a gravação do Hotel Governance System funcionando."
+- HFS: "Olá, João. Vi seu portfólio e gostaria de receber a gravação do Hotel Finance System funcionando."
+
+Acima do botão, uma linha curta deixa claro que **o envio é pessoal, feito pelo autor, sem prazo prometido** (direção de redação: "Gravei o [sistema] funcionando no meu celular. Toque no botão e eu te envio a gravação pelo WhatsApp — é um envio pessoal, feito por mim.").
+*Regras determinantes desta versão:*
+
+- **nenhum acesso ao sistema é concedido** — não há perfil somente leitura no HGS nem no HFS, e não haverá nesta janela; o botão apenas abre um canal de contato;
+- o texto do botão e a linha acima dele refletem **envio de uma gravação pelo autor**, nunca navegação autônoma pelo sistema nem reprodução de vídeo na própria página;
+- **a gravação não é anexada nem incorporada ao site** (peso — 21.2; vídeo fora de escopo — 7.1);
 - nenhuma credencial aparece na página;
-- **nenhum link quebrado é admissível neste ponto** — é critério de aceitação.
+- **nenhum link quebrado é admissível neste ponto** — é critério de aceitação (os dois botões `wa.me` são conferidos um a um).
 
-*Onde aparece:* **apenas no card do HGS**.
+*Onde aparece:* **nos dois cards**, HGS e HFS. É conteúdo extra (não conta na estrutura de oito elementos — RN18 preservada).
 
 **C2. Seção de tecnologias agrupada por contexto de uso**
 *Objetivo:* dar sinal de substância ao público técnico sem fazer afirmação que ninguém consegue verificar.
@@ -351,10 +367,11 @@ Acompanha **uma linha** sobre o curso de ADS e a previsão de conclusão: **Aná
 ### Módulo D — História e contexto pessoal
 
 **D1. Seção "Sobre mim"**
-*Objetivo:* é onde o gestor decide se quer conversar.
-*Conteúdo:* **três parágrafos**, na sequência recepção → observação do problema no próprio trabalho → decisão de estudar ADS e construir. O bacharelado em Marketing entra em **no máximo uma frase**, como origem do olhar para o negócio.
+*Objetivo:* dar contexto de quem é o autor a quem chega sem repertório prévio (currículo enviado, link no LinkedIn). A seção **abre a página**, logo após o hero (ver alteração consciente de escopo na seção 1), então precisa ser **curta** — o visitante tem de chegar rápido aos sistemas, que seguem sendo o centro do site. Absorve o "quem sou" que era do bloco de apresentação (A3, descontinuado): o card/parágrafo "quem sou" abre com a trajetória completa — *"Vim do marketing, do atendimento e da coordenação de equipe. Hoje trabalho na recepção de uma pousada, estudo Análise e Desenvolvimento de Sistemas e construo software a partir dos problemas que vejo travarem a operação todo dia."*
+*Conteúdo:* **três parágrafos curtos**, na sequência: origem em marketing, atendimento e coordenação de equipe → observação do problema no próprio trabalho → decisão de estudar ADS e construir. A **formação em Marketing** (Bacharelado, UNIBRA, 2020) aparece **ao lado da de ADS**, como parte do perfil de quem une repertório de negócio e capacidade de construir — não como curiosidade e **não** como segunda vitrine de trabalhos de comunicação.
+*Elemento de objetivo:* uma formulação que sirva às **duas frentes — desenvolvimento e marketing** — sem parecer indefinição: uma posição que aproveite a combinação de repertório de negócio com capacidade de construir a solução. (Na base isso vive num card "objetivo"; na revisão vira uma frase dentro dos parágrafos.)
 *Inclui uma frase sobre o artigo científico:* artigo submetido ao ERBASE 2026 sobre digitalização de pousadas de pequeno porte, com o feedback dos avaliadores incorporado à evolução do projeto — evolução técnica e validação com usuários reais.
-*Regras:* a frase do artigo **não afirma nem sugere aceitação** e **não se desculpa** nem trata o resultado como fracasso. O texto **não menciona** mudança para Recife nem Porto Digital.
+*Regras:* a frase do artigo **não afirma nem sugere aceitação** e **não se desculpa** nem trata o resultado como fracasso. O texto **não menciona** mudança para Recife nem Porto Digital. **Não inclui experiência profissional detalhada** — o portfólio não é currículo; o currículo está disponível para download.
 
 ### Módulo E — Contato e conversão
 
@@ -362,7 +379,7 @@ Acompanha **uma linha** sobre o curso de ADS e a previsão de conclusão: **Aná
 Bloco final, com pergunta convidativa e as formas de contato.
 
 **E2. Ação principal — WhatsApp**
-*Regra:* o WhatsApp é a **única ação de conversão em destaque** e, **na seção de contato, é o único botão em destaque visual**. O botão âmbar preenchido (`.btn-primary`) aparece em **no máximo dois momentos** na página inteira: "Ver projetos", no bloco de abertura, e o WhatsApp, na seção de contato. Todo o restante — inclusive o botão de apresentação do HGS — usa o estilo secundário (`.btn-ghost`). Um site com vários botões concorrendo entre si não converte nenhum.
+*Regra:* o WhatsApp é a **única ação de conversão em destaque** e, **na seção de contato, é o único botão em destaque visual**. O botão âmbar preenchido (`.btn-primary`) aparece em **no máximo dois momentos** na página inteira: "Ver projetos", no bloco de abertura, e o WhatsApp, na seção de contato. Todo o restante — inclusive os botões "Pedir a gravação" dos dois cards — usa o estilo secundário (`.btn-ghost`). Um site com vários botões concorrendo entre si não converte nenhum; por isso os dois botões dos cards são secundários e ficam a uma tela de distância um do outro (fim de cada card).
 
 **E3. Ações secundárias — e-mail, LinkedIn, GitHub e download do currículo em PDF**
 Presentes e acessíveis, porém visualmente subordinados ao WhatsApp. O currículo é baixado por **link direto, sem formulário**.
@@ -385,7 +402,7 @@ Presentes e acessíveis, porém visualmente subordinados ao WhatsApp. O currícu
 | Depoimento da gerência ou da proprietária da pousada | Depende de pedir, esperar resposta e possivelmente obter autorização. **Se chegar dentro das duas semanas, é promovido a essencial** e exige um lugar definido na página |
 | Números de impacto (quartos, usuários, registros por mês) | Exigem apuração com calma. O elemento "o que mudou" do card já prevê onde encaixá-los depois |
 | Página dedicada por projeto | A página única com os dois cards resolve nesta versão |
-| Vídeo ou GIF do fluxo do sistema | Gravar e editar consome tempo que o prazo não tem. As imagens cumprem o papel mínimo |
+| Vídeo ou GIF do fluxo do sistema **na página** | Continua fora: peso (21.2) e sem incorporação de vídeo (24.2). As imagens cumprem o papel mínimo. *Atualização 2026-09-10:* já existem gravações de tela dos dois sistemas; elas **não vão para a página**, são enviadas pelo autor pelo WhatsApp a quem pedir pelo botão "Pedir a gravação" (ver C1 e seção 1, item 4) |
 | Seção de experiência profissional em linha do tempo | A experiência formal é recepção e marketing; formato de carreira de desenvolvedor enfraquece a mensagem |
 | Versão em inglês | Sem necessidade identificada no público atual |
 | Blog | Exige produção contínua |
@@ -477,15 +494,15 @@ O que existe é **conteúdo fixo publicado**. A lista abaixo é a lista de mater
 | Código da base existente | **Recebido** | Aprovado. Não é refeito. Fornecido pelo autor em `docs/index.html`; entra intacto como primeiro commit — ver Fase 1 |
 | Foto profissional (avatar) | **Recebida** | Foto real de João em `docs/foto_principal.jpeg`. Substitui o avatar ilustrado da base. Tratar (recorte quadrado + WebP + redimensionamento ~320px, peso << 150 KB) e copiar para `imagens/avatar.png` ou `imagens/avatar.webp` |
 | Texto de posicionamento (uma linha) | A escrever | Frase mais importante do site |
-| Texto de apresentação curta | A escrever | Duas ou três linhas |
+| ~~Texto de apresentação curta~~ | **Descontinuado (2026-09-10)** | O bloco `.apresentacao` saiu; o "quem sou" foi unificado na seção "Sobre mim" (6/A3, 6/D1) |
 | Conteúdo do card do HGS | A escrever | Oito elementos da estrutura padrão |
 | Conteúdo do card do HFS | A escrever | Mesma estrutura |
 | Imagens de tela do HGS | **A capturar** | Duas. Dados fictícios obrigatórios |
 | Imagens de tela do HFS | **A capturar** | Duas. Valores mascarados |
 | Imagens do Figma (protótipo e design system) | **A capturar** | Bloco de processo. Sem dado real |
-| Texto "Sobre mim" | A escrever | Três parágrafos, com a frase do ERBASE |
+| Texto "Sobre mim" | A escrever | Três parágrafos curtos, com a frase do ERBASE e a formação em Marketing ao lado da de ADS (ver 6/D1) |
 | Listas de tecnologias | **Já definidas** | Por projeto (B2 e B3) e por contexto de uso (C2) |
-| Linha de formação | A escrever | Uma linha: ADS, conclusão prevista para **junho de 2028** (dado do currículo) |
+| Formação | **Definida** | Duas: **Análise e Desenvolvimento de Sistemas** — conclusão prevista para **junho de 2028**; **Bacharelado em Marketing** — **UNIBRA, 2020** (dados do currículo). Na seção de tecnologias (C2), a linha de formação cita **só a de ADS** (é contexto técnico); a de Marketing aparece na seção "Sobre mim" (6/D1). |
 | Currículo em PDF | **Recebido** | `docs/curriculo-joao-victor.pdf`. Conferido quanto a dados sensíveis (sem endereço, documento ou data de nascimento). Copiar para `arquivos/curriculo-joao-victor.pdf` |
 | Links de contato e perfis | **Recebidos** | WhatsApp `5581995212456`, e-mail `jvictorna.dev@gmail.com`, LinkedIn `/in/joaoadorno`, GitHub `/devdapraia`. Só o GitHub existia na base — ver seção 23 |
 
@@ -516,7 +533,7 @@ O site tem **uma única página**. As "telas" são as seções da página, na or
 
 *Objetivo:* permitir acesso direto às seções.
 *Usuários:* todos, principalmente recrutador e avaliador técnico.
-*Elementos:* quatro links — Projetos, Tecnologias, Sobre, Contato.
+*Elementos:* quatro links, na ordem das seções na página — **Sobre, Projetos, Tecnologias, Contato** (ver alteração consciente de escopo na seção 1).
 *Comportamento:* barra fixa no topo, fundo translúcido, borda inferior sutil; links em maiúsculas; cor muda para `--destaque` no hover e no estado ativo. Navegação por âncora real (seção 5.3). Menu **centralizado**, sem logo nem nome de marca à esquerda — o layout do `<nav>` da base é preservado.
 *Estado ativo:* opcional. Se implementado, é feito por `IntersectionObserver` marcando a seção visível; se não for implementado, o hover basta. Não é critério de aceitação.
 *Estados:* não há estados de erro, vazio ou carregamento.
@@ -550,7 +567,7 @@ Componente marcado como "A DEFINIR NO FSD" no `docs/DESIGN.md`. Especificação:
 | 7 | Imagens de tela | Duas imagens — ver 12.4 |
 | 8 | Tecnologias | Lista de itens de tecnologia, sem nível — ver 12.5 |
 
-*Botão:* apenas o card do HGS recebe o botão de solicitação de apresentação, posicionado **após o elemento 8**, usando **`.btn-ghost`** (estilo secundário — o âmbar preenchido fica reservado ao "Ver projetos" do hero e ao WhatsApp do contato; ver E2 e RN13). O card do HFS não tem botão.
+*Botão (revisto em 2026-09-10 — ver seção 1, item 4, e C1):* **os dois cards** recebem o botão **"Pedir a gravação"**, posicionado **após o elemento 8**, precedido de uma linha curta de texto (`.projeto-gravacao`), usando **`.btn-ghost`** (estilo secundário — o âmbar preenchido fica reservado ao "Ver projetos" do hero e ao WhatsApp do contato; ver E2 e RN13). Cada botão abre o WhatsApp com a mensagem que identifica o próprio sistema. ~~O card do HFS não tem botão.~~
 *Regra inviolável:* os dois cards têm exatamente os mesmos oito elementos, nos mesmos rótulos e na mesma ordem. Se um elemento não tiver conteúdo, o conteúdo é escrito — o elemento não é omitido.
 *Estados:* não há estados de erro ou carregamento. O estado "imagem ainda não capturada" **não pode ir ao ar**: sem imagem, o card não é publicado.
 
@@ -598,9 +615,11 @@ Substitui `.stack-item` com `.tech-dot`, que sai junto com a autoavaliação de 
 
 ### 12.7 Seções de tecnologias, "Sobre mim" e contato
 
-**Tecnologias (`#tecnologias`):** rótulo + `h2` + dois grupos (12.5) + linha de formação. Sem imagens.
+**Ordem na página (ver alteração consciente de escopo na seção 1):** `#sobre` vem **antes** de `#projetos` (é a primeira seção após o hero — o bloco `.apresentacao` foi descontinuado, ver 6/A3); `#tecnologias` fica entre `#projetos`/`#processo` e `#contato`.
 
-**Sobre mim (`#sobre`):** rótulo + `h2` + três parágrafos em texto corrido, peso 300, com largura de leitura confortável. A frase do ERBASE fica no terceiro parágrafo. Sem card, sem imagem adicional.
+**Tecnologias (`#tecnologias`):** rótulo + `h2` + dois grupos (12.5) + linha de formação (só a de ADS — é contexto técnico). Sem imagens.
+
+**Sobre mim (`#sobre`):** primeira seção após o hero (o bloco `.apresentacao` foi descontinuado — 6/A3). Rótulo + `h2` + três parágrafos **curtos** em texto corrido, peso 300, com largura de leitura confortável. Como a seção **abre a página**, é enxuta — não atrasa a chegada aos cards. O primeiro parágrafo absorve o "quem sou" que era do bloco de apresentação (trajetória: marketing/atendimento/coordenação → recepção → ADS → constrói software). A formação em Marketing aparece ao lado da de ADS (6/D1). A frase do ERBASE fica no terceiro parágrafo. Sem card, sem imagem adicional.
 
 **Contato (`#contato`):** bloco de fechamento em tela cheia (altura mínima equivalente à viewport, com o conteúdo centralizado verticalmente), com pergunta convidativa, o botão de WhatsApp em `.btn-primary` — **único botão em destaque visual da seção** — e, abaixo, e-mail, LinkedIn, GitHub e download do currículo como links secundários ou botões ghost, visivelmente subordinados.
 *Currículo:* link direto para `arquivos/curriculo-joao-victor.pdf`, com o atributo `download`. Sem formulário e sem etapa intermediária.
@@ -670,10 +689,10 @@ O CSS desses componentes sai junto com a marcação, **desde que nada mais o uti
 
 1. O gestor recebe o link por WhatsApp e abre o site no celular.
 2. A página exibe imediatamente o bloco de abertura: nome, posicionamento em uma linha, foto e selo de uso real — sem exigir rolagem.
-3. O gestor rola e encontra o card do HGS, com o problema antes da solução e as imagens de tela.
-4. Toca em uma imagem e ela é ampliada de forma legível; fecha a ampliação e continua a leitura.
-5. Rola novamente e encontra o card do HFS, na mesma estrutura.
-6. Lê a seção "Sobre mim" e entende a trajetória de transição de carreira.
+3. Logo abaixo, a seção "Sobre mim" enxuta dá o contexto de quem é o autor — trajetória de marketing, atendimento e coordenação até trabalhar na recepção e construir software — sem atrasar a chegada aos sistemas.
+4. O gestor rola e encontra o card do HGS, com o problema antes da solução e as imagens de tela.
+5. Toca em uma imagem e ela é ampliada de forma legível; fecha a ampliação e continua a leitura.
+6. Rola novamente e encontra o card do HFS, na mesma estrutura.
 7. Chega ao bloco de contato em tela cheia, com o WhatsApp em destaque.
 8. Toca no botão e inicia a conversa.
 
@@ -693,16 +712,18 @@ O CSS desses componentes sai junto com a marcação, **desde que nada mais o uti
 
 *Erros possíveis:* PDF ausente ou com caminho errado; link externo quebrado. Ambos cobertos pela conferência obrigatória de links.
 
-### Fluxo 3 — Solicitação de apresentação do sistema (HGS)
+### Fluxo 3 — Pedido da gravação do sistema (HGS ou HFS)
+
+> *Revisto em 2026-09-10 — ver seção 1, item 4, e C1.* Antes: "Solicitação de apresentação do sistema (HGS)", com o botão só no card do HGS.
 
 *Perfil:* avaliador técnico ou gestor mais interessado.
-*Pré-condição:* botão presente apenas no card do HGS.
+*Pré-condição:* botão "Pedir a gravação" presente **nos dois cards** (HGS e HFS).
 
-1. O visitante lê o card do HGS e quer verificar o sistema por dentro.
-2. Aciona o botão de solicitação de apresentação.
-3. O site abre o canal de contato já existente (WhatsApp com mensagem previamente preenchida, ou e-mail com assunto preenchido). **Nenhum dado é coletado pelo site.**
-4. João recebe a solicitação e avalia.
-5. João conduz a apresentação do sistema, ao vivo ou por vídeo gravado.
+1. O visitante lê um dos cards e quer ver aquele sistema funcionando.
+2. Aciona o botão "Pedir a gravação" daquele card.
+3. O site abre o WhatsApp com a mensagem previamente preenchida que **identifica o sistema pedido**. **Nenhum dado é coletado pelo site.**
+4. João recebe o pedido e avalia.
+5. João **envia a gravação de tela** daquele sistema pelo WhatsApp — envio pessoal, sem prazo prometido. Se fizer sentido, também conduz uma apresentação ao vivo.
 
 *Resultado esperado:* contato qualificado, sem qualquer acesso externo ao ambiente de produção.
 *Regra:* nenhuma credencial é publicada e nenhum acesso autônomo é concedido nesta versão.
@@ -737,8 +758,8 @@ Não há formulário, entrada de usuário nem persistência — portanto **não 
 
 - **RN04.** O acesso de demonstração nunca é aberto.
 - **RN05.** Nenhum acesso externo ao ambiente de produção é concedido nesta versão.
-- **RN06.** A apresentação vale apenas para o HGS. O HFS é apresentado somente por imagens.
-- **RN07.** Como o perfil somente leitura não existe, o botão do card do HGS é de **solicitação de apresentação do sistema**, e este é o comportamento definitivo desta versão — não uma alternativa condicional.
+- **RN06.** ~~A apresentação vale apenas para o HGS. O HFS é apresentado somente por imagens.~~ *Revisto em 2026-09-10 (seção 1, item 4):* os **dois** sistemas têm gravação de tela; o botão "Pedir a gravação" existe nos dois cards. Nenhum dos dois dá acesso ao sistema — só imagens no card e uma gravação enviada pelo autor sob pedido.
+- **RN07.** Como não existe perfil somente leitura em nenhum dos dois sistemas, o botão dos cards é de **pedido da gravação de tela**, enviada pessoalmente pelo autor pelo WhatsApp — nunca acesso autônomo ao sistema nem vídeo embutido na página. Este é o comportamento definitivo desta versão, não uma alternativa condicional.
 
 ### 14.3 Conteúdo e comunicação
 
@@ -753,7 +774,7 @@ Não há formulário, entrada de usuário nem persistência — portanto **não 
 
 ### 14.4 Conversão
 
-- **RN13.** Existe uma única **ação de conversão em destaque** — o WhatsApp. Na seção de contato, o WhatsApp é o único botão em destaque visual e as demais formas de contato são visualmente secundárias. O botão âmbar preenchido (`.btn-primary`) é reservado a dois usos em toda a página: "Ver projetos" no bloco de abertura e o WhatsApp na seção de contato. O botão de apresentação do HGS usa `.btn-ghost`.
+- **RN13.** Existe uma única **ação de conversão em destaque** — o WhatsApp. Na seção de contato, o WhatsApp é o único botão em destaque visual e as demais formas de contato são visualmente secundárias. O botão âmbar preenchido (`.btn-primary`) é reservado a dois usos em toda a página: "Ver projetos" no bloco de abertura e o WhatsApp na seção de contato. Os botões **"Pedir a gravação"** dos dois cards usam `.btn-ghost` (secundário) e não contam como ação em destaque.
 - **RN14.** O currículo em PDF fica disponível para download direto, sem exigir preenchimento de formulário.
 
 ### 14.5 Privacidade do visitante
@@ -943,7 +964,7 @@ Não há rota a proteger, permissão a validar no backend, sessão a expirar, en
 3. **Proteção de dado de terceiro** — objetivo declarado do projeto, que se materializa integralmente na conferência das imagens (seção 21.4).
 4. **Repositório público e histórico permanente** — a conferência é preventiva; a correção posterior é custosa e pode exigir recriação do repositório.
 5. **Links externos com `rel="noopener noreferrer"`** sempre que abrirem em nova aba.
-6. **Verificação de todos os links, um a um**, antes da publicação — inclusive o botão de apresentação do sistema, que **não pode ficar quebrado em nenhuma hipótese**.
+6. **Verificação de todos os links, um a um**, antes da publicação — inclusive os dois botões "Pedir a gravação" (HGS e HFS), que **não podem ficar quebrados em nenhuma hipótese**.
 7. **Nenhum script de terceiro** na página. Sem tag de analytics, sem pixel, sem widget de chat, sem incorporação de vídeo externo.
 8. **Nenhum dado de visitante** é coletado, armazenado ou transmitido. Sem formulário, sem cookie, sem armazenamento local de informação de visitante.
 9. **Os repositórios do HGS e do HFS permanecem privados.** Nada neste projeto os torna públicos nem referencia caminho interno deles.
@@ -991,18 +1012,20 @@ A implementação é dividida em duas fases. A **Fase 1 é inegociável e anteri
 
 Avançar **uma seção da página por vez, na ordem de leitura**, em passos pequenos e conferíveis. Ao fim de cada etapa o site deve estar **publicável e íntegro**.
 
+> **Alteração consciente de escopo (2026-09-10):** a **posição** da seção "Sobre mim" no HTML mudou — ela agora vem **logo após a apresentação curta, antes dos cards de projeto** (ver seção 1). A **ordem de implementação** abaixo não foi renumerada: a revisão de conteúdo do "Sobre mim" continua sendo um passo tardio (item 20 / `docs/PLANO.md` › Fase 8), porque depende de texto a redigir e não bloqueia as demais seções. O que se antecipou foi só a realocação do bloco no DOM e o alinhamento do menu. Como "Sobre mim" passou a abrir a página, o item 20 ganha um critério: **manter a seção curta**.
+
 9. **Bloco de abertura** — novo texto, posicionamento, selo e botões.
-10. **Apresentação curta.**
+10. ~~**Apresentação curta.**~~ Feita na Fase 2 e **descontinuada em 2026-09-10** — o bloco `.apresentacao` saiu (marcação e CSS) e o "quem sou" foi unificado na seção "Sobre mim" (item 20; ver 6/A3 e alteração consciente de escopo na seção 1, item 3).
 11. **Remoção da linha do tempo** — marcação e CSS de `.timeline` e `.timeline-item`.
 12. **Componente de card de projeto** — estilo do componente, conforme 12.3, ainda sem imagens.
-13. **Card do HGS** — texto dos oito elementos e botão de apresentação do sistema.
-14. **Card do HFS** — texto dos oito elementos, mesma estrutura, sem botão.
+13. **Card do HGS** — texto dos oito elementos, linha da gravação e botão "Pedir a gravação".
+14. **Card do HFS** — texto dos oito elementos, mesma estrutura, com a mesma linha da gravação e o mesmo botão "Pedir a gravação" (revisto em 2026-09-10 — ver seção 1, item 4).
 15. **Componente de grupo de tecnologias** e remoção de `.stack-item` e `.tech-dot`.
 16. **Imagens de tela** — conferência, compressão, redimensionamento e inserção nos dois cards, com dimensões declaradas, `alt` e carregamento adiado.
 17. **Ampliação de imagem ao toque** — sobreposição em JavaScript próprio, com o link direto como alternativa sem script.
 18. **Bloco de processo de design** — seção autocontida, com os recortes do Figma. Primeiro item a cortar se o prazo apertar.
 19. **Seção de tecnologias** — dois grupos e linha de formação.
-20. **Seção "Sobre mim"** — três parágrafos, com a frase do ERBASE.
+20. **Seção "Sobre mim"** — três parágrafos curtos, com a frase do ERBASE. A seção **abre a página** (primeira após o hero — o bloco `.apresentacao` foi descontinuado, item 10), então precisa ser enxuta; o primeiro parágrafo absorve o "quem sou" do antigo bloco de apresentação; inclui a formação em Marketing ao lado da de ADS (ver 6/D1).
 21. **Seção de contato** — WhatsApp em destaque, secundários subordinados, currículo em PDF publicado e testado.
 22. **Responsividade** — media queries de `768px` e `480px`, conferidas a partir de `360px`.
 23. **Revelação por rolagem** — reapontar o seletor com melhoria progressiva, ou remover.
@@ -1067,7 +1090,7 @@ Avançar **uma seção da página por vez, na ordem de leitura**, em passos pequ
 - [ ] Nenhuma imagem contém nome, documento ou telefone real de hóspede.
 - [ ] As imagens do HFS não exibem valores financeiros reais.
 - [ ] **Não há linha do tempo de versões técnicas em nenhum ponto da página.**
-- [ ] O botão de apresentação aparece **apenas** no card do HGS.
+- [ ] O botão **"Pedir a gravação"** aparece **nos dois cards** (HGS e HFS), no estilo `.btn-ghost`, precedido da linha curta sobre o envio pessoal da gravação; cada botão abre o WhatsApp com a mensagem que identifica o próprio sistema.
 
 ### 26.5 Conteúdo — tecnologias, sobre e processo
 
@@ -1075,8 +1098,12 @@ Avançar **uma seção da página por vez, na ordem de leitura**, em passos pequ
 - [ ] Não há barra, percentual, estrela, bolinha, ícone graduado ou nota de habilidade em nenhum ponto do site.
 - [ ] Nenhuma tecnologia do grupo "usei em projetos que estão no ar" está ausente dos cards de projeto.
 - [ ] O curso de ADS e a previsão de conclusão aparecem em uma linha.
-- [ ] O texto "Sobre mim" tem três parágrafos e segue a sequência recepção → problema observado → decisão de estudar e construir.
-- [ ] O bacharelado em Marketing é citado em, no máximo, uma frase.
+- [ ] O texto "Sobre mim" tem três parágrafos **curtos** e segue a sequência origem em marketing/atendimento/coordenação → problema observado no próprio trabalho → decisão de estudar ADS e construir.
+- [ ] A seção "Sobre mim" **abre a página** (é a primeira seção após o hero; o bloco `.apresentacao` foi removido) e é enxuta — não atrasa a chegada aos cards de projeto.
+- [ ] O "quem sou" do antigo bloco de apresentação está unificado no primeiro parágrafo de "Sobre mim"; não sobrou bloco `.apresentacao` na marcação nem `.apresentacao` no CSS.
+- [ ] A formação em **Marketing** (Bacharelado, UNIBRA, 2020) aparece **ao lado da de ADS**, como parte do perfil — **não** como segunda vitrine de trabalhos de comunicação.
+- [ ] O elemento de **objetivo** serve às duas frentes (desenvolvimento e marketing) sem parecer indefinição.
+- [ ] O texto "Sobre mim" **não traz experiência profissional detalhada** (isso fica no currículo em PDF).
 - [ ] O artigo do ERBASE 2026 é citado em, no máximo, uma frase, que menciona a submissão e a incorporação do feedback.
 - [ ] A frase do artigo não afirma nem sugere aceitação e não pede desculpas.
 - [ ] O texto não menciona mudança para Recife nem Porto Digital.
@@ -1085,11 +1112,11 @@ Avançar **uma seção da página por vez, na ordem de leitura**, em passos pequ
 ### 26.6 Contato e conversão
 
 - [ ] O WhatsApp é o único botão em destaque visual da seção de contato.
-- [ ] O botão âmbar preenchido (`.btn-primary`) aparece só em dois pontos da página: "Ver projetos" (hero) e WhatsApp (contato). O botão de apresentação do HGS usa `.btn-ghost`.
+- [ ] O botão âmbar preenchido (`.btn-primary`) aparece só em dois pontos da página: "Ver projetos" (hero) e WhatsApp (contato). Os botões "Pedir a gravação" dos dois cards usam `.btn-ghost`.
 - [ ] E-mail, LinkedIn, GitHub e download do currículo estão presentes e funcionando.
 - [ ] O currículo em PDF é baixado sem exigir preenchimento de formulário.
 - [ ] Todos os links de contato foram testados um a um antes da publicação.
-- [ ] O botão de apresentação do sistema tem destino válido e não está quebrado.
+- [ ] Os dois botões "Pedir a gravação" (HGS e HFS) têm destino válido e não estão quebrados.
 - [ ] Nenhuma credencial de acesso está publicada na página.
 
 ### 26.7 Celular, desempenho e acessibilidade
@@ -1148,7 +1175,7 @@ Nenhum dos pontos abaixo bloqueia o início da codificação.
 
 **O FSD está pronto para orientar a implementação.**
 
-As decisões que dependiam de resposta estão consolidadas neste documento: stack estática sem servidor e sem banco, publicação por GitHub Pages no endereço `devdapraia.github.io`, preservação da base como primeiro commit, separação de marcação, estilo e comportamento, especificação dos três componentes que não existiam na base (card de projeto, grupo de tecnologias e bloco de processo), pontos de quebra da responsividade, tetos de peso das imagens, comportamento de ampliação sem biblioteca externa e comportamento definitivo do botão do HGS como solicitação de apresentação do sistema.
+As decisões que dependiam de resposta estão consolidadas neste documento: stack estática sem servidor e sem banco, publicação por GitHub Pages no endereço `devdapraia.github.io`, preservação da base como primeiro commit, separação de marcação, estilo e comportamento, especificação dos três componentes que não existiam na base (card de projeto, grupo de tecnologias e bloco de processo), pontos de quebra da responsividade, tetos de peso das imagens, comportamento de ampliação sem biblioteca externa e comportamento definitivo dos botões dos dois cards como pedido da gravação de tela, enviada pessoalmente pelo autor (revisto em 2026-09-10 — ver seção 1, item 4).
 
 **Registro de resoluções aplicadas neste documento**, para que nenhuma divergência passe como esquecimento:
 

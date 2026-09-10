@@ -49,11 +49,12 @@ Fase 2 pode começar assim que o site publicado estiver idêntico à base.
 
 | Ordem | Marcação | `id` | Situação na revisão |
 | --- | --- | --- | --- |
-| Menu | `<nav>` com 4 links, `position: sticky` | — | Preservado. Rótulos e mecanismo de navegação trocados na Fase 1 (âncora real). |
+| Menu | `<nav>` com 4 links, `position: sticky` | — | Preservado. Ordem revisada em 2026-09-10: **Sobre · Projetos · Tecnologias · Contato** (alteração consciente de escopo — ver `docs/FSD.md` seção 1). |
 | Hero | `.hero` > `.hero-content` (avatar + texto), `.hero-btns` | `inicio` | Preservado. Texto, selo e botões entram na Fase 2. |
-| Sobre mim | `.section` > `.sobre-grid` com 3 `.sobre-card` (um `.destaque-card`) | `sobre` | Cards viram três parágrafos de texto corrido na Fase 8. |
-| Projetos | `.section` > `.timeline` com 5 `.timeline-item` | `projetos` | **A linha do tempo sai** (marcação + CSS) na Fase 3; entra o card de projeto. |
-| Tecnologias | `.section` > `.stack-grid` com 6 `.stack-item` + `.tech-dot` | `tecnologias` (era `stack`) | **Autoavaliação de nível sai** na Fase 4; entram as pílulas e os dois grupos (Fase 7). |
+| ~~Apresentação~~ | `.apresentacao` | — | Criado na Fase 2, **removido em 2026-09-10** (marcação + CSS). O "quem sou" foi unificado no card "quem sou" da seção Sobre. |
+| Sobre mim | `.section` > `.sobre-grid` com 3 `.sobre-card` (um `.destaque-card`) | `sobre` | **Primeira seção após o hero** desde 2026-09-10 (alteração consciente de escopo: o "Sobre" abre a página para dar contexto a quem chega sem repertório; precisa ser curto). Card "quem sou" absorveu o texto do antigo bloco `.apresentacao`. Cards "formação" e "objetivo" revisados no mesmo dia — Marketing (UNIBRA, 2020) ao lado de ADS; objetivo serve a desenvolvimento **ou** marketing. Vira três parágrafos curtos na Fase 8. |
+| Projetos | `.section` > dois `.projeto-card` (HGS e HFS) | `projetos` | Linha do tempo `.timeline` removida na Fase 3; entrou o card de projeto de oito elementos. Ajuste 2026-09-10 (alteração consciente de escopo — `docs/FSD.md` seção 1, item 4): **os dois cards** têm a linha `.projeto-gravacao` + o botão `.btn-ghost` **"Pedir a gravação"** (WhatsApp identificando o sistema). As gravações de tela **não entram no site** (peso — FSD 21.2) e os `.mp4` ficam fora do repositório (`.gitignore`). |
+| Tecnologias | `.section` > rótulo + `h2` + marcador textual provisório | `tecnologias` (era `stack`) | **Autoavaliação de nível removida** na Fase 4 (`.stack-grid`/`.stack-item`/`.tech-dot`, marcação e CSS). Os dois grupos por contexto de uso e a linha de formação entram na Fase 7. |
 | Rodapé | `<footer>` com crédito + link do GitHub | `contato` (provisório) | Vira a seção de contato em tela cheia na Fase 9. |
 
 ### Estrutura do HTML
@@ -67,7 +68,7 @@ Fase 2 pode começar assim que o site publicado estiver idêntico à base.
 
 - Abre com reset universal (`* { margin:0; padding:0; box-sizing:border-box }`).
 - Paleta em variáveis: `:root` (tema escuro, padrão) e `[data-tema="claro"]` sobrescrevendo 7 variáveis; `--destaque` e `--acento` são iguais nos dois temas.
-- Blocos comentados por componente: `TOGGLE`, `NAV`, `HERO`, `SECTIONS`, `SOBRE`, `TIMELINE`, `STACK`, `FOOTER`.
+- Blocos comentados por componente: `TOGGLE`, `NAV`, `HERO`, `SECTIONS`, `SOBRE`, `FOOTER` (os blocos `TIMELINE` e `STACK` da base foram removidos nas Fases 3 e 4). Blocos aditivos por fase no fim do arquivo (`FASE 1`, `FASE 2`, `FASE 3`, `FASE 4`), isolados e sem tocar nas regras herdadas.
 - Sem nenhuma media query (responsividade só na Fase 10).
 - Bloco aditivo da Fase 1 no fim do arquivo, isolado e sem tocar nas regras herdadas.
 
@@ -86,10 +87,10 @@ Fase 2 pode começar assim que o site publicado estiver idêntico à base.
 
 ### O que sai da base
 
-- `.timeline` / `.timeline-item` — marcação e CSS (Fase 3).
-- `.stack-item` / `.tech-dot` / `.dot-on` / `.dot-off` e os textos de nível (`avançado`, `intermediário`…) — marcação e CSS (Fase 4).
+- `.timeline` / `.timeline-item` — marcação e CSS (Fase 3, feito).
+- `.stack-item` / `.tech-dot` / `.dot-on` / `.dot-off` e os textos de nível (`avançado`, `intermediário`…) — marcação e CSS (Fase 4, feito).
 - Botão "GitHub" do hero — vai para a seção de contato (Fase 2).
-- Textos da base ("Maragogi → Recife", "Porto Digital", "Estágio Jan 2027", "v1.0 — Portugol"…) — substituídos ao longo das Fases 2–9.
+- Textos da base ("Maragogi → Recife", "Porto Digital", "Estágio Jan 2027", "v1.0 — Portugol"…) — substituídos ao longo das Fases 2–9. Os do card "objetivo" e "formação" da seção Sobre já foram trocados em 2026-09-10 (sem destino/data fixos; Marketing ao lado de ADS).
 
 ### Decisão sobre a extração de CSS/JS
 

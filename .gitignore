@@ -56,6 +56,17 @@ credenciais.*
 *.db
 *.dump
 
+# --- Material bruto de apoio (NÃO vai para o site nem para o histórico) ---
+# Gravações de tela e recortes de protótipo entregues soltos na raiz.
+# O teto de peso da página é 1,5 MB (FSD 21.2) e vídeo está fora de
+# escopo (FSD 7.1); estes arquivos ficam só no disco do autor. As
+# imagens tratadas das Fases 5 e 6 entram em imagens/hgs|hfs|processo/.
+*.mp4
+*.mov
+*.webm
+/figma-*.png
+/apresentacao-*.png
+
 # --- Exceções: arquivos de exemplo PODEM ser versionados ---
 !.env.example
 !*.example

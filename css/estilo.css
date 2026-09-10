@@ -283,55 +283,6 @@
             display: block;
         }
 
-        /* ========== STACK ========== */
-
-        .stack-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            gap: 12px;
-        }
-
-        .stack-item {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 8px;
-            padding: 14px 10px;
-            text-align: center;
-            transition: border-color 0.2s, transform 0.2s, background 0.3s;
-            cursor: default;
-        }
-
-        .stack-item:hover {
-            border-color: var(--destaque);
-            transform: translateY(-2px);
-        }
-
-        .stack-item .tech-name {
-            font-size: 0.8em;
-            font-weight: 600;
-            color: var(--neutro);
-            display: block;
-            margin-top: 6px;
-        }
-
-        .stack-item .tech-level {
-            font-size: 0.7em;
-            color: var(--texto-muted);
-            display: block;
-            margin-top: 2px;
-        }
-
-        .tech-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            display: inline-block;
-            margin: 0 1px;
-        }
-
-        .dot-on { background: var(--destaque); }
-        .dot-off { background: rgba(128, 128, 128, 0.3); }
-
         /* ========== FOOTER ========== */
 
         footer {
@@ -384,20 +335,6 @@
             line-height: 1.5;
             color: var(--texto-muted);
             transition: background 0.3s, border-color 0.3s;
-        }
-
-        /* Apresentacao curta: texto corrido logo abaixo do bloco de abertura. */
-        .apresentacao {
-            max-width: 780px;
-            margin: 0 auto;
-            padding: 32px 40px;
-        }
-
-        .apresentacao p {
-            font-size: 0.95em;
-            font-weight: 300;
-            line-height: 1.7;
-            color: var(--texto-muted);
         }
 
         /* ========== FASE 3 — CARDS DE PROJETO (adicoes) ========== */
@@ -511,9 +448,40 @@
             margin-top: 8px;
         }
 
-        /* Botao de solicitacao de apresentacao — apenas o card do HGS, estilo
-           secundario .btn-ghost (o ambar preenchido fica reservado ao hero e
-           ao contato — FSD RN13). */
+        /* Botao "Pedir a gravacao" — nos dois cards desde 2026-09-10 (antes: so
+           no HGS). Estilo secundario .btn-ghost; o ambar preenchido fica
+           reservado ao hero e ao contato (FSD RN13). */
         .projeto-card .btn-ghost {
             margin-top: 16px;
+        }
+
+        /* Linha curta acima do botao "Pedir a gravacao" — nos dois cards
+           (alteracao consciente de escopo 2026-09-10: o botao de contato passou
+           a existir tambem no card do HFS; ver docs/FSD.md C1/B3/12.3 e
+           docs/STATUS.md). Mesmo tratamento visual de .tech-nota; cola no botao
+           que vem logo abaixo. */
+        .projeto-gravacao {
+            font-size: 0.8em;
+            font-weight: 300;
+            color: var(--texto-muted);
+            line-height: 1.6;
+            margin-top: 16px;
+        }
+
+        .projeto-gravacao + .btn-ghost {
+            margin-top: 8px;
+        }
+
+        /* ========== FASE 4 — LIMPEZA DA AUTOAVALIACAO DE NIVEL (adicoes) ========== */
+        /* O bloco STACK (.stack-item / .tech-dot / .dot-on / .dot-off e os textos
+           de nivel) foi removido daqui e da marcacao — FSD 12.11 / RN16. O
+           conteudo definitivo da secao #tecnologias (dois grupos por contexto de
+           uso + linha de formacao) entra na Fase 7. Ate la, esta linha neutra
+           mantem a secao publicavel e integra. Consome variavel de tema; funciona
+           nos dois temas. */
+        .secao-preparo {
+            font-size: 0.9em;
+            font-weight: 300;
+            color: var(--texto-muted);
+            line-height: 1.7;
         }

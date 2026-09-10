@@ -140,15 +140,51 @@ Ao terminar qualquer trabalho:
 
 - **Sem repetição de formulação na página.** Nenhuma frase, título ou informação
   deve aparecer duas vezes com a mesma formulação em pontos diferentes da página.
-  Cada ideia tem **um lugar só**: a origem na recepção vive no bloco de
-  apresentação abaixo do hero; "dois sistemas em uso real" é **exclusivo do selo
-  do hero** (o título da seção Projetos é "Os sistemas"); a linha de posicionamento
+  Cada ideia tem **um lugar só**: a trajetória (marketing/atendimento/coordenação
+  → recepção → ADS → constrói software) vive no card/parágrafo "quem sou" da seção
+  "Sobre mim"; "dois sistemas em uso real" é **exclusivo do selo do hero** (o
+  título da seção Projetos é "Os sistemas"); a linha de posicionamento
   ("da recepção ao código…") vive no hero e não é repetida como título de seção.
   Ao escrever conteúdo novo, conferir se a frase — ou a mesma informação com outras
   palavras — já não está dita em outro ponto.
-- O card "quem sou" da seção Sobre **não repete** a origem na recepção (essa
-  história é do bloco de apresentação). Na fase da seção Sobre, ele é reescrito
-  com outro recorte: trajetória, o que se estuda hoje, para onde se vai.
+- **Bloco `.apresentacao` removido (alteração consciente de escopo, 2026-09-10).**
+  O bloco de apresentação curta abaixo do hero (FSD 6/A3), criado na Fase 2, saiu
+  da página (marcação e CSS). O que ele dizia foi **unificado no card "quem sou"**
+  da seção "Sobre mim", que agora abre com a trajetória completa. Motivo: com
+  "Sobre mim" abrindo a página logo após o hero, um bloco separado imediatamente
+  antes seria redundância na mesma dobra.
+- **Ordem das seções e do menu (alteração consciente de escopo, 2026-09-10).**
+  Ordem da página: hero → **`#sobre`** → **`#projetos`** →
+  `#processo` → `#tecnologias` → `#contato`. O menu acompanha:
+  **Sobre · Projetos · Tecnologias · Contato**. Isso contraria o FSD original
+  (seções 1, 5.3, 12.1, 13, 25), que foi atualizado. Motivo: o site é lido
+  também por quem chega sem contexto; a apresentação antes dos projetos dá esse
+  contexto. Como "Sobre" abre a página, precisa ser **curto** — o visitante tem
+  de chegar rápido aos sistemas, que continuam sendo o centro do site.
+- **Marketing + desenvolvimento (alteração consciente de escopo, 2026-09-10).**
+  O autor é bacharel em Marketing (UNIBRA, 2020) além de estudante de ADS
+  (conclusão prevista para junho de 2028). A oportunidade pode ser em
+  desenvolvimento **ou** em marketing. Na seção "Sobre mim", a formação em
+  Marketing aparece **ao lado** da de ADS, como parte do perfil (veio de
+  marketing, atendimento e coordenação de equipe; hoje constrói software a
+  partir de problemas de operação). O "objetivo" serve às duas frentes sem
+  parecer indefinição. **Não** vira segunda vitrine de trabalhos de comunicação;
+  os cards de projeto seguem sendo o centro. **Não** entra experiência
+  profissional detalhada (fica no currículo). O `h1` e a linha de posicionamento
+  do hero **não mencionam marketing** — a linha "da recepção ao código…" serve
+  às duas leituras.
+- **Botão "Pedir a gravação" nos dois cards (alteração consciente de escopo, 2026-09-10).**
+  Existem gravações de tela do HGS e do HFS funcionando; elas **não entram na
+  página** (teto de peso — FSD 21.2; vídeo fora de escopo — FSD 7.1) e os
+  arquivos `apresentacao-*.mp4` ficam fora do repositório (`.gitignore`). Cada
+  card (HGS e HFS) tem, após o elemento 8, uma **linha curta** (`.projeto-gravacao`)
+  + o botão **"Pedir a gravação"** (`.btn-ghost`), com mensagem de WhatsApp que
+  **identifica o sistema**. A linha diz que o envio é **pessoal, feito pelo autor,
+  sem prazo**. A linha é quase igual nos dois cards **de propósito** — é um rótulo
+  de componente paralelo, mesma lógica dos rótulos idênticos dos 8 elementos
+  (RN18); não conta como repetição de formulação. Contraria o FSD (6/B3, 6/C1,
+  12.3, 13/Fluxo 3, 21.1, 26.4), atualizado. `.btn-primary` continua só em "Ver
+  projetos" (hero) e WhatsApp (contato) — RN13 preservada.
 
 ## Publicação (procedimento para a IA)
 
