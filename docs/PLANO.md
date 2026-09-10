@@ -220,29 +220,31 @@ Recortes do Figma (prioridade baixa — INSUMOS 3). Se o prazo apertar, esta fas
 
 ---
 
-## Fase 7 — Seção de tecnologias e linha de formação
+## Fase 7 — Seção de tecnologias
+
+> **Adiantada em 2026-09-10** na fase "acabamento para apresentação" (fora da ordem do PLANO). Construída no `rascunho` (commit da PARTE 2). Detalhes abaixo já refletem o que foi feito e as decisões do autor.
 
 **Objetivo:** dar sinal de substância ao público técnico sem afirmação não verificável, em dois grupos por contexto de uso (FSD 12.5, 12.7, C2; 25/Fase 2 item 19).
 
 ### Checklist
 
-- [ ] Seção `#tecnologias`: rótulo + `h2` + dois grupos, com título de grupo em Space Mono maiúsculas, cor `--acento`:
-  - **"Usei em projetos que estão no ar":** Java, PHP, MySQL, HTML, CSS, JavaScript, Git e GitHub, Figma.
+- [x] Seção `#tecnologias`: rótulo (mantido "tecnologias") + `h2` **"Com o que eu construo"** (era "Stack atual", provisório) + dois grupos, com título de grupo em Space Mono maiúsculas, cor `--acento` (classe `.tech-grupo-titulo`):
+  - **"Uso em projetos"** *(o autor preferiu este rótulo ao texto do FSD C2 "Usei em projetos que estão no ar"):* Java, PHP, MySQL, HTML, CSS, JavaScript, Git e GitHub, Figma.
   - **"Estudando agora":** Flutter e Dart, Python.
-- [ ] Itens como pílulas (componente da Fase 3): texto curto, `padding` da escala, raio `8px`, borda 1px `--card-border`, fundo `--card-bg`, peso 300, `flex-wrap`, `gap` da escala. Hover: borda `--destaque`, `-2px`. **Não são links.** Sem indicação de nível (RN16).
-- [ ] Linha de formação abaixo dos grupos, texto corrido peso 300: "Análise e Desenvolvimento de Sistemas, conclusão prevista para junho de 2028".
-- [ ] Verificar o **lastro** (RN09): nenhuma tecnologia de "projetos que estão no ar" pode faltar nos cards. Java tem lastro na nota do card do HGS.
+- [x] Itens como pílulas (`.tech-pill`, componente da Fase 3). **Não são links.** Sem indicação de nível (RN16).
+- [x] ~~Linha de formação abaixo dos grupos.~~ **Removida** por decisão do autor (redundante com o card "formação" da seção "Sobre mim"); o FSD C2/12.5/12.7/26.5 foi atualizado.
+- [x] Verificar o **lastro** (RN09): Java tem lastro na nota do card do HGS; Figma nas pílulas do HGS; as demais nos dois cards.
+- [x] Linha provisória "Conteúdo em preparação." (`.secao-preparo`) removida da marcação e do CSS.
 
 ### Critérios de pronto
 
 - Dois grupos com os itens exatos; nenhuma barra/estrela/percentual/nível (26.5).
 - Toda tecnologia do primeiro grupo tem lastro nos cards (26.5).
-- Curso de ADS e conclusão prevista em uma linha (26.5).
 - Legível nos dois temas.
 
 ### Áreas prováveis de alteração
 
-`index.html` (seção `#tecnologias`), `css/estilo.css` (título de grupo, se necessário — a pílula já existe).
+`index.html` (seção `#tecnologias`), `css/estilo.css` (`.tech-grupo` / `.tech-grupo-titulo`; remoção de `.secao-preparo`).
 
 ### Dependências
 
@@ -297,11 +299,13 @@ Texto "Sobre mim" — três parágrafos (caminho crítico — FSD 28).
 
 ## Fase 9 — Seção de contato e conversão
 
-**Objetivo:** fechamento da página em tela cheia, com o WhatsApp como única ação de conversão em destaque (FSD Módulo E; 12.7; 25/Fase 2 item 21).
+> **Adiantada em 2026-09-10** (fases fora da ordem do PLANO). Construída no `rascunho`. Em 2026-09-10 o autor pediu para **remover a "tela cheia"** — a seção passou a ter o mesmo espaçamento vertical das demais (FSD E1/12.7 revisto).
+
+**Objetivo:** fechamento da página, com o WhatsApp como única ação de conversão em destaque (FSD Módulo E; 12.7; 25/Fase 2 item 21).
 
 ### Checklist
 
-- [ ] Seção `#contato` em tela cheia (altura mínima ≈ viewport, conteúdo centralizado verticalmente), com pergunta convidativa.
+- [x] Seção `#contato` como bloco de fechamento, com o **mesmo espaçamento vertical das outras seções** (sem `min-height` de viewport nem centragem vertical — revisto a pedido do autor em 2026-09-10), com pergunta convidativa.
 - [ ] **WhatsApp** em `.btn-primary` — **único botão em destaque visual da seção** — `https://wa.me/5581995212456?text=Olá,%20João.%20Vi%20seu%20portfólio%20e%20gostaria%20de%20conversar.` (E2, RN13).
 - [ ] Abaixo, visivelmente subordinados: e-mail `mailto:jvictorna.dev@gmail.com`; LinkedIn `https://linkedin.com/in/joaoadorno`; GitHub `https://github.com/devdapraia`; **download do currículo** — link direto para `arquivos/curriculo-joao-victor.pdf` com atributo `download`, sem formulário (E3, RN14).
 - [ ] Links externos com `target="_blank"` e `rel="noopener noreferrer"` (12.7, 24.2).
@@ -317,7 +321,7 @@ Texto "Sobre mim" — três parágrafos (caminho crítico — FSD 28).
 
 ### Áreas prováveis de alteração
 
-`index.html` (nova seção `#contato` / substituição do rodapé atual conforme necessário), `css/estilo.css` (bloco de contato em tela cheia), `arquivos/curriculo-joao-victor.pdf` (já em posição).
+`index.html` (nova seção `#contato` / substituição do rodapé atual conforme necessário), `css/estilo.css` (bloco de contato — espaçamento vertical padrão das seções), `arquivos/curriculo-joao-victor.pdf` (já em posição).
 
 ### Dependências
 

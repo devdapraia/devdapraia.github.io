@@ -354,7 +354,7 @@ Acima do botão, uma linha curta deixa claro que **o envio é pessoal, feito pel
 - **"Usei em projetos que estão no ar":** Java, PHP, MySQL, HTML, CSS, JavaScript, Git e GitHub, Figma
 - **"Estudando agora":** Flutter e Dart, Python
 
-Acompanha **uma linha** sobre o curso de ADS e a previsão de conclusão: **Análise e Desenvolvimento de Sistemas, conclusão prevista para junho de 2028**.
+~~Acompanha **uma linha** sobre o curso de ADS e a previsão de conclusão: **Análise e Desenvolvimento de Sistemas, conclusão prevista para junho de 2028**.~~ **Linha removida em 2026-09-10 (decisão do autor):** a formação em ADS (com a previsão de conclusão) já aparece no card **"formação"** da seção "Sobre mim"; repeti-la aqui é redundância. A seção de tecnologias fica só com os dois grupos de etiquetas. Revisto junto: 12.5, 12.7, 26 e o fluxo 2 da seção 13.
 *Regras:* sem barra, sem porcentagem, sem estrela, sem bolinha, sem ícone graduado e sem nível declarado por texto, em nenhum ponto do site. Cada item precisa ter lastro no grupo em que aparece — nenhuma tecnologia do grupo "usei em projetos que estão no ar" pode estar ausente dos cards de projeto. **Java** tem lastro na nota do card do HGS ("protótipo original em Java"), o que satisfaz a RN09.
 
 **C3. Bloco de processo de design**
@@ -375,8 +375,8 @@ Acompanha **uma linha** sobre o curso de ADS e a previsão de conclusão: **Aná
 
 ### Módulo E — Contato e conversão
 
-**E1. Seção de contato em tela cheia (fechamento da página)**
-Bloco final, com pergunta convidativa e as formas de contato.
+**E1. Seção de contato (fechamento da página)**
+Bloco final, com pergunta convidativa e as formas de contato. **Revisto em 2026-09-10 (decisão do autor):** ~~em tela cheia~~ — a seção usa o **mesmo espaçamento vertical das demais** (padding da escala, sem `min-height` de viewport e sem centragem vertical). Por ser a última seção, a âncora `#contato` não precisa levar o topo dela até o topo da tela.
 
 **E2. Ação principal — WhatsApp**
 *Regra:* o WhatsApp é a **única ação de conversão em destaque** e, **na seção de contato, é o único botão em destaque visual**. O botão âmbar preenchido (`.btn-primary`) aparece em **no máximo dois momentos** na página inteira: "Ver projetos", no bloco de abertura, e o WhatsApp, na seção de contato. Todo o restante — inclusive os botões "Pedir a gravação" dos dois cards — usa o estilo secundário (`.btn-ghost`). Um site com vários botões concorrendo entre si não converte nenhum; por isso os dois botões dos cards são secundários e ficam a uma tela de distância um do outro (fim de cada card).
@@ -389,7 +389,7 @@ Presentes e acessíveis, porém visualmente subordinados ao WhatsApp. O currícu
 **F1. Boa experiência no celular.** O site precisa funcionar bem em tela pequena, porque é assim que o público principal vai abri-lo. Atenção especial às imagens de tela. Especificação na seção 12.6.
 **F2. Carregamento rápido.** Sem animações pesadas nem efeitos que atrasem a exibição. Especificação na seção 24.3 e tetos na seção 21.
 **F3. Identidade visual devdapraia herdada.** Paleta, tipografia, componentes e alternância de tema vêm da base e não são redecididos.
-**F4. Estrutura de página herdada.** Página única, menu fixo com rolagem suave, seções com rótulo monoespaçado, blocos em card com borda sutil, hero com avatar e fechamento de contato em tela cheia.
+**F4. Estrutura de página herdada.** Página única, menu fixo com rolagem suave, seções com rótulo monoespaçado, blocos em card com borda sutil, hero com avatar e seção de contato como bloco de fechamento (sem tela cheia — ver E1, revisto em 2026-09-10).
 
 ---
 
@@ -502,7 +502,7 @@ O que existe é **conteúdo fixo publicado**. A lista abaixo é a lista de mater
 | Imagens do Figma (protótipo e design system) | **A capturar** | Bloco de processo. Sem dado real |
 | Texto "Sobre mim" | A escrever | Três parágrafos curtos, com a frase do ERBASE e a formação em Marketing ao lado da de ADS (ver 6/D1) |
 | Listas de tecnologias | **Já definidas** | Por projeto (B2 e B3) e por contexto de uso (C2) |
-| Formação | **Definida** | Duas: **Análise e Desenvolvimento de Sistemas** — conclusão prevista para **junho de 2028**; **Bacharelado em Marketing** — **UNIBRA, 2020** (dados do currículo). Na seção de tecnologias (C2), a linha de formação cita **só a de ADS** (é contexto técnico); a de Marketing aparece na seção "Sobre mim" (6/D1). |
+| Formação | **Definida** | Duas: **Análise e Desenvolvimento de Sistemas** — conclusão prevista para **junho de 2028**; **Bacharelado em Marketing** — **UNIBRA, 2020** (dados do currículo). Ambas aparecem no card **"formação"** da seção "Sobre mim" (6/D1). *(A linha de formação na seção de tecnologias foi removida em 2026-09-10 — ver C2.)* |
 | Currículo em PDF | **Recebido** | `docs/curriculo-joao-victor.pdf`. Conferido quanto a dados sensíveis (sem endereço, documento ou data de nascimento). Copiar para `arquivos/curriculo-joao-victor.pdf` |
 | Links de contato e perfis | **Recebidos** | WhatsApp `5581995212456`, e-mail `jvictorna.dev@gmail.com`, LinkedIn `/in/joaoadorno`, GitHub `/devdapraia`. Só o GitHub existia na base — ver seção 23 |
 
@@ -602,7 +602,7 @@ Substitui `.stack-item` com `.tech-dot`, que sai junto com a autoavaliação de 
 
 *Especificação visual:* cada tecnologia é um item em "pílula" — texto curto, padding da escala, raio `8px`, borda de 1px em `--card-border`, fundo `--card-bg`, texto em peso 300. Itens dispostos em linha com quebra automática (`flex-wrap`) e `gap` da escala. Sem ícone, sem bolinha, sem barra, sem percentual, sem estrela, **sem qualquer indicação de nível**.
 *Título do grupo (apenas na seção de tecnologias):* rótulo em Space Mono, maiúsculas, cor `--acento`, com o texto exato dos dois grupos definidos em C2.
-*Linha de formação:* aparece abaixo dos dois grupos, em texto corrido, peso 300.
+*Linha de formação:* ~~aparece abaixo dos dois grupos, em texto corrido, peso 300.~~ **Removida em 2026-09-10** — ver C2 (redundante com o card "formação" da seção "Sobre mim").
 *Estado hover:* borda passa a `--destaque`, deslocamento de `-2px`, dentro das transições já definidas. É acabamento, não indica interatividade — os itens **não são links**.
 
 ### 12.6 Bloco de processo de design — componente novo
@@ -617,11 +617,11 @@ Substitui `.stack-item` com `.tech-dot`, que sai junto com a autoavaliação de 
 
 **Ordem na página (ver alteração consciente de escopo na seção 1):** `#sobre` vem **antes** de `#projetos` (é a primeira seção após o hero — o bloco `.apresentacao` foi descontinuado, ver 6/A3); `#tecnologias` fica entre `#projetos`/`#processo` e `#contato`.
 
-**Tecnologias (`#tecnologias`):** rótulo + `h2` + dois grupos (12.5) + linha de formação (só a de ADS — é contexto técnico). Sem imagens.
+**Tecnologias (`#tecnologias`):** rótulo + `h2` + dois grupos (12.5). Sem imagens. (A linha de formação foi removida em 2026-09-10 — ver C2; a formação em ADS vive no card "formação" da seção "Sobre mim".)
 
 **Sobre mim (`#sobre`):** primeira seção após o hero (o bloco `.apresentacao` foi descontinuado — 6/A3). Rótulo + `h2` + três parágrafos **curtos** em texto corrido, peso 300, com largura de leitura confortável. Como a seção **abre a página**, é enxuta — não atrasa a chegada aos cards. O primeiro parágrafo absorve o "quem sou" que era do bloco de apresentação (trajetória: marketing/atendimento/coordenação → recepção → ADS → constrói software). A formação em Marketing aparece ao lado da de ADS (6/D1). A frase do ERBASE fica no terceiro parágrafo. Sem card, sem imagem adicional.
 
-**Contato (`#contato`):** bloco de fechamento em tela cheia (altura mínima equivalente à viewport, com o conteúdo centralizado verticalmente), com pergunta convidativa, o botão de WhatsApp em `.btn-primary` — **único botão em destaque visual da seção** — e, abaixo, e-mail, LinkedIn, GitHub e download do currículo como links secundários ou botões ghost, visivelmente subordinados.
+**Contato (`#contato`):** bloco de fechamento da página, com o **mesmo espaçamento vertical das demais seções** (padding da escala; ~~altura mínima equivalente à viewport, conteúdo centralizado verticalmente~~ — removido em 2026-09-10 por decisão do autor, ver E1), com pergunta convidativa, o botão de WhatsApp em `.btn-primary` — **único botão em destaque visual da seção** — e, abaixo, e-mail, LinkedIn, GitHub e download do currículo como links secundários ou botões ghost, visivelmente subordinados.
 *Currículo:* link direto para `arquivos/curriculo-joao-victor.pdf`, com o atributo `download`. Sem formulário e sem etapa intermediária.
 *Links externos:* todos com `target="_blank"` e `rel="noopener noreferrer"`.
 
@@ -693,7 +693,7 @@ O CSS desses componentes sai junto com a marcação, **desde que nada mais o uti
 4. O gestor rola e encontra o card do HGS, com o problema antes da solução e as imagens de tela.
 5. Toca em uma imagem e ela é ampliada de forma legível; fecha a ampliação e continua a leitura.
 6. Rola novamente e encontra o card do HFS, na mesma estrutura.
-7. Chega ao bloco de contato em tela cheia, com o WhatsApp em destaque.
+7. Chega ao bloco de contato (fechamento da página), com o WhatsApp em destaque.
 8. Toca no botão e inicia a conversa.
 
 *Resultado esperado:* conversa iniciada com contexto já formado.
@@ -706,7 +706,7 @@ O CSS desses componentes sai junto com a marcação, **desde que nada mais o uti
 
 1. Chega pelo link no LinkedIn ou por uma candidatura.
 2. Usa o menu fixo para ir direto à seção que lhe interessa.
-3. Confere as tecnologias por contexto de uso e a linha de formação.
+3. Confere as tecnologias por contexto de uso; a formação está na seção "Sobre mim".
 4. Aciona o link do currículo e o PDF é baixado **sem formulário e sem etapa intermediária**.
 5. Abre LinkedIn ou GitHub a partir dos links secundários, em nova aba.
 
@@ -1024,7 +1024,7 @@ Avançar **uma seção da página por vez, na ordem de leitura**, em passos pequ
 16. **Imagens de tela** — conferência, compressão, redimensionamento e inserção nos dois cards, com dimensões declaradas, `alt` e carregamento adiado.
 17. **Ampliação de imagem ao toque** — sobreposição em JavaScript próprio, com o link direto como alternativa sem script.
 18. **Bloco de processo de design** — seção autocontida, com os recortes do Figma. Primeiro item a cortar se o prazo apertar.
-19. **Seção de tecnologias** — dois grupos e linha de formação.
+19. **Seção de tecnologias** — dois grupos de etiquetas por contexto de uso (a linha de formação foi removida em 2026-09-10 — ver C2).
 20. **Seção "Sobre mim"** — três parágrafos curtos, com a frase do ERBASE. A seção **abre a página** (primeira após o hero — o bloco `.apresentacao` foi descontinuado, item 10), então precisa ser enxuta; o primeiro parágrafo absorve o "quem sou" do antigo bloco de apresentação; inclui a formação em Marketing ao lado da de ADS (ver 6/D1).
 21. **Seção de contato** — WhatsApp em destaque, secundários subordinados, currículo em PDF publicado e testado.
 22. **Responsividade** — media queries de `768px` e `480px`, conferidas a partir de `360px`.
@@ -1097,7 +1097,7 @@ Avançar **uma seção da página por vez, na ordem de leitura**, em passos pequ
 - [ ] A seção de tecnologias está dividida nos dois grupos definidos, com os itens exatos.
 - [ ] Não há barra, percentual, estrela, bolinha, ícone graduado ou nota de habilidade em nenhum ponto do site.
 - [ ] Nenhuma tecnologia do grupo "usei em projetos que estão no ar" está ausente dos cards de projeto.
-- [ ] O curso de ADS e a previsão de conclusão aparecem em uma linha.
+- [x] ~~O curso de ADS e a previsão de conclusão aparecem em uma linha.~~ Item retirado em 2026-09-10 — a linha de formação saiu da seção de tecnologias (ver C2); a formação em ADS aparece no card "formação" da seção "Sobre mim".
 - [ ] O texto "Sobre mim" tem três parágrafos **curtos** e segue a sequência origem em marketing/atendimento/coordenação → problema observado no próprio trabalho → decisão de estudar ADS e construir.
 - [ ] A seção "Sobre mim" **abre a página** (é a primeira seção após o hero; o bloco `.apresentacao` foi removido) e é enxuta — não atrasa a chegada aos cards de projeto.
 - [ ] O "quem sou" do antigo bloco de apresentação está unificado no primeiro parágrafo de "Sobre mim"; não sobrou bloco `.apresentacao` na marcação nem `.apresentacao` no CSS.

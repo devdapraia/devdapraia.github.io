@@ -91,6 +91,27 @@
             color: var(--destaque);
         }
 
+        /* ===== ACABAMENTO PARA APRESENTACAO — separadores do menu (PARTE 1) ===== */
+        /* Bolinha ambar so ENTRE os itens (nenhuma antes do 1o, nenhuma depois
+           do ultimo). Pseudo-elemento com content vazio, sem caractere no HTML:
+           e decorativa, o leitor de tela nao anuncia nada. Mesmo tom das antigas
+           bolinhas da secao de stack — cor pelo token --destaque, igual nos dois
+           temas. `vertical-align: middle` centra a bolinha na altura do texto.
+           Com o gap de 32px do nav + margin-right de 32px, a bolinha fica no meio
+           do vao entre os itens; nas telas estreitas a margem acompanha o gap
+           menor (bloco de responsividade) e, quando o menu quebra linha, a
+           bolinha e removida para nao sobrar pendurada no inicio nem no fim. */
+        nav a:not(:first-child)::before {
+            content: "";
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--destaque);
+            vertical-align: middle;
+            margin-right: 32px;
+        }
+
         /* ========== HERO ========== */
 
         .hero {
@@ -161,7 +182,10 @@
             font-size: 1em;
             font-weight: 300;
             color: var(--texto-sub);
-            margin-bottom: 32px;
+            /* 32px -> 24px (escala do DESIGN 3.2): com o selo logo abaixo, o
+               espaco frase -> caixa (aqui + margin-top do selo) estava em 44px,
+               contra 24px de caixa -> botoes. Agora os dois vaos ficam em 24px. */
+            margin-bottom: 24px;
         }
 
         .hero-sub strong {
@@ -325,7 +349,9 @@
         /* Selo de credibilidade: pilula discreta entre o posicionamento e os botoes. */
         .hero-selo {
             display: inline-block;
-            margin: 12px 0 24px;
+            /* margin-top 12px -> 0: o vao acima vem so do margin-bottom (24px) da
+               .hero-sub. Assim frase -> caixa (24px) = caixa -> botoes (24px). */
+            margin: 0 0 24px;
             padding: 6px 12px;
             border: 1px solid var(--card-border);
             border-radius: 8px;
@@ -465,17 +491,10 @@
 
         /* ========== FASE 4 — LIMPEZA DA AUTOAVALIACAO DE NIVEL (adicoes) ========== */
         /* O bloco STACK (.stack-item / .tech-dot / .dot-on / .dot-off e os textos
-           de nivel) foi removido daqui e da marcacao — FSD 12.11 / RN16. O
-           conteudo definitivo da secao #tecnologias (dois grupos por contexto de
-           uso + linha de formacao) entra na Fase 7. Ate la, esta linha neutra
-           mantem a secao publicavel e integra. Consome variavel de tema; funciona
-           nos dois temas. */
-        .secao-preparo {
-            font-size: 0.9em;
-            font-weight: 300;
-            color: var(--texto-muted);
-            line-height: 1.7;
-        }
+           de nivel) foi removido daqui e da marcacao — FSD 12.11 / RN16. A linha
+           provisoria ".secao-preparo" ("Conteudo em preparacao.") saiu quando o
+           conteudo real da secao #tecnologias entrou (ver bloco "ACABAMENTO PARA
+           APRESENTACAO — PARTE 2", mais abaixo). */
 
         /* ========== FASE 5 — IMAGENS DE TELA + AMPLIACAO AO TOQUE (adicoes) ========== */
         /* Bloco aditivo: consome variaveis de tema, funciona nos dois temas, usa
@@ -635,7 +654,12 @@
            por decisao do autor (ver docs/STATUS.md). O loading="lazy" na
            marcacao adia o download ate a rolagem chegar perto do card. */
         .projeto-gif {
-            margin: 16px 0 0;
+            /* Espaco acima aumentado de 16px para 32px (valor da escala do
+               DESIGN 3.2) para separar o GIF do bloco de tecnologias/nota
+               tecnica que vem logo acima. Igual nos dois cards (mesma classe).
+               Largura mantida no tamanho nativo do recorte (240px + 2x12 de
+               padding = 264px) por decisao do autor. */
+            margin: 32px 0 0;
             padding: 12px;
             border: 1px solid var(--card-border);
             border-radius: 12px;
@@ -649,6 +673,83 @@
             width: 100%;
             height: auto;
             border-radius: 8px;
+        }
+
+        /* ========== REVISAO PARCIAL DE TEXTOS (fase fora da ordem do FSD) ========== */
+        /* Paragrafo de abertura de secao em texto corrido, logo abaixo do <h2>.
+           Criado para o paragrafo novo da secao "Os sistemas" (item 1.5 da
+           revisao) porque nao havia um estilo generico adequado — .processo-intro
+           e do bloco autocontido "FASE 6" e .secao-preparo e rotulo de
+           placeholder. Segue os tokens do DESIGN (2.1: texto de card 0.9em/300;
+           3.2: margem 24px da escala; cor de texto secundario por variavel de
+           tema). Reutilizavel por outras secoes na revisao final do FSD. */
+        .section-intro {
+            font-size: 0.9em;
+            font-weight: 300;
+            color: var(--texto-muted);
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        /* ========== ACABAMENTO PARA APRESENTACAO — PARTE 2: secao de tecnologias ========== */
+        /* Conteudo da Fase 7 adiantado. Dois grupos por contexto de uso; cada
+           tecnologia e uma etiqueta .tech-pill (mesmo componente dos cards de
+           projeto — FSD 12.5), sem nivel/barra/estrela/percentual/bolinha
+           (RN16). O titulo de cada grupo segue o FSD 12.5: Space Mono,
+           maiusculas, cor --acento (mesmo tratamento do .section-label).
+           Consome variaveis de tema; funciona nos dois temas; nenhuma regra
+           herdada reescrita. */
+        .tech-grupo + .tech-grupo {
+            margin-top: 24px;
+        }
+
+        .tech-grupo-titulo {
+            font-family: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: 11px;
+            color: var(--acento);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        /* ========== SECAO DE CONTATO — Fase 9 antecipada (fora da ordem do FSD) ========== */
+        /* Bloco de fechamento da pagina. Herda .section: recuo lateral, max-width
+           780px, centralizado, scroll-margin-top do bloco "FASE 1" e o MESMO
+           espacamento vertical das outras secoes (padding 48/32/24px da escala
+           do DESIGN 3.1/3.2). O `min-height: 100vh` + flex de centragem vertical
+           foi REMOVIDO em 2026-09-10 a pedido do autor: forcava a secao a ocupar
+           quase uma tela inteira, com espaco vazio exagerado acima e abaixo do
+           conteudo. Por ser a ultima secao, nao ha problema a ancora #contato
+           nao levar o topo dela ate o topo da viewport (revisa FSD E1 / 12.7:
+           "tela cheia" / "altura minima equivalente a viewport" / "conteudo
+           centralizado verticalmente"). O WhatsApp em .btn-primary segue o 2o e
+           ultimo botao em destaque (FSD E2 / RN13); e-mail, LinkedIn, GitHub e
+           curriculo sao links de texto subordinados (--acento, hover --destaque).
+           Consome variaveis de tema; funciona nos dois temas. */
+        .contato .section-intro {
+            max-width: 52ch;
+        }
+
+        .contato-principal {
+            margin: 8px 0 24px;
+        }
+
+        .contato-secundarios {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 0.9em;
+        }
+
+        .contato-secundarios a {
+            color: var(--acento);
+            text-decoration: none;
+            font-weight: 300;
+            transition: color 0.15s;
+        }
+
+        .contato-secundarios a:hover {
+            color: var(--destaque);
         }
 
         /* ========== AJUSTE DE RESPONSIVIDADE (fora de fase, a pedido do autor) ========== */
@@ -672,6 +773,11 @@
 
             nav a {
                 font-size: 0.8em;
+            }
+
+            /* Separadores do menu: margem acompanha o gap menor. */
+            nav a:not(:first-child)::before {
+                margin-right: 16px;
             }
 
             /* Hero: foto acima do texto, tudo centralizado, com respiro. */
@@ -725,6 +831,13 @@
             nav {
                 gap: 12px;
                 padding: 14px 16px;
+            }
+
+            /* Nesta largura o menu quebra em duas linhas; sem os pontos para
+               nenhum ficar pendurado no inicio nem no fim de uma linha. O gap
+               de 12px mantem a separacao entre os itens. */
+            nav a:not(:first-child)::before {
+                content: none;
             }
 
             .hero {
