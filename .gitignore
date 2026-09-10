@@ -75,11 +75,22 @@ credenciais.*
 /hgs-*.png
 /hfs-*.png
 /gif-*.gif
+# video-hgs-teste.mp4 na raiz: arquivo de origem do teste de vídeo do HGS,
+# gravado em produção; NÃO vai para o repo. O GIF antigo do HGS também sai
+# do site (substituído pelo vídeo processado), mas continua no disco do autor.
+/video-*.mp4
+imagens/hgs/sistema-em-uso.gif
 
 # --- Exceções: arquivos de exemplo PODEM ser versionados ---
 !.env.example
 !*.example
 !*.example.*
+
+# --- Exceção: os vídeos-demo TRATADOS (recortados, sem login/URL) vão ao ar ---
+# Gerados por ffmpeg a partir de video-*.mp4; conferidos quadro a quadro.
+# Padrão: só MP4 (H.264) — sem WebM (ver docs/DESIGN.md § 6.3).
+!imagens/hgs/hgs-demo.mp4
+!imagens/hfs/hfs-demo.mp4
 
 # ==============================================================
 # NÃO ignorar (registrado de propósito para não reintroduzir por engano):

@@ -284,6 +284,37 @@ começam com `opacity: 0` e `translateX(-10px)` e recebem a classe
 precisa ser reapontado para os componentes novos. Se não for mantida, o
 script correspondente sai junto.
 
+### 6.3 Vídeo-demo dos cards de projeto (adição — teste HGS aprovado em 2026-09-10)
+
+Um card de projeto pode trocar o GIF por um vídeo curto do sistema em uso.
+Padrão adotado:
+
+- **Formato:** **apenas MP4 (H.264)**, `yuv420p`, `-movflags +faststart`,
+  sem áudio. **Sem WebM** — o H.264 é suportado por todos os navegadores
+  atuais e uma segunda `<source>` VP9 só adicionava peso (o VP9 fica caro
+  com os degradês do fade). Uma `<source>` `video/mp4`, mais nada.
+- **Dimensões:** largura de exportação **600px** (retina para ~300px de
+  exibição), altura par proporcional; **30 fps**.
+- **Marcação:** `<video class="projeto-video" muted loop playsinline
+  preload="metadata" poster="…">` — **sem `autoplay`, sem `controls`,
+  sem som**. `aria-label` descreve o que o vídeo mostra, em uma frase
+  simples (equivale ao `alt` de uma imagem). O `poster` é o **primeiro
+  quadro já visível** (não o quadro escuro do fade).
+- **Reprodução:** um `IntersectionObserver` em `js/script.js` dá `play()`
+  quando o vídeo entra na viewport e `pause()` quando sai; com
+  `prefers-reduced-motion: reduce` não toca — fica no poster. Sem JS, sem
+  `autoplay`: fica no poster (melhoria progressiva).
+- **Loop:** fade de ~0,4s no início e no fim, na **cor da barra escura do
+  topo do sistema gravado** (no HGS, `#04344a`), para a volta do loop não
+  ter corte seco de conteúdo.
+- **Exibição:** caixa `.projeto-gif--v` (base visual da `.projeto-gif`),
+  até **300px** no desktop; no celular acompanha a largura do card, sem
+  rolagem horizontal.
+- **Segurança (regra do `AGENTS.md`):** a gravação passa por conferência
+  quadro a quadro; **tela de login, nome de usuário, senha e
+  endereço/URL/IP são recortados ou o trecho é cortado** — nunca borrados.
+- **Peso:** o vídeo tratado deve pesar menos que o GIF que substitui.
+
 ---
 
 ## 7. Responsividade

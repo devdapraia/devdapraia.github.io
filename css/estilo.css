@@ -675,6 +675,25 @@
             border-radius: 8px;
         }
 
+        /* ===== TESTE — video no card do HGS (substitui o GIF; so no HGS) ===== */
+        /* O card do HGS troca o GIF por <video muted loop playsinline> com poster.
+           .projeto-gif--v abre a caixa ate 300px de video (+ 2x12 de padding) no
+           desktop; no celular o max-width e um teto e a caixa acompanha a largura
+           do card, sem estourar. O <video> preenche 100% da caixa, mesmo raio do
+           GIF. O play/pause por rolagem e o respeito a prefers-reduced-motion
+           ficam no js/script.js (reutilizavel para o HFS depois). O card do HFS
+           segue com o GIF e a caixa de 264px (bloco acima, inalterado). */
+        .projeto-gif--v {
+            max-width: 324px;
+        }
+
+        .projeto-gif video {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
         /* ========== REVISAO PARCIAL DE TEXTOS (fase fora da ordem do FSD) ========== */
         /* Paragrafo de abertura de secao em texto corrido, logo abaixo do <h2>.
            Criado para o paragrafo novo da secao "Os sistemas" (item 1.5 da
