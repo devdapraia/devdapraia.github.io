@@ -1,18 +1,28 @@
 # STATUS — Site de Portfólio devdapraia
 
-**Última atualização:** 2026-09-10
-**Fase atual:** Fase 1 — Preservação da base, infraestrutura e preparação do terreno (**em andamento**)
-**Próximo passo recomendado:** concluir os itens pendentes da Fase 1 — configurar o GitHub Pages a partir de `main` e confirmar HTTPS ativo em `devdapraia.github.io`, registrar o inventário do código da base no `README.md`, criar o branch `rascunho`, extrair CSS/JS para `css/estilo.css` e `js/script.js` (cópia literal, commit isolado) e substituir a navegação `onclick` por âncoras reais. Ver `docs/PLANO.md` → Fase 1.
+**Última atualização:** 2026-09-10 (2ª atualização do dia — trabalho de código da Fase 1)
+**Fase atual:** Fase 1 — Preservação da base, infraestrutura e preparação do terreno (**quase concluída** — resta 1 item, dependente do autor)
+**Próximo passo recomendado:** o autor configura o **GitHub Pages a partir de `main`** e confirma **HTTPS ativo** em `devdapraia.github.io` (único item pendente da Fase 1 — não pode ser feito por código). Em paralelo, conferir no Live Server o branch `rascunho` (site idêntico à base + menu navegando por âncora nos dois temas) e, estando OK, integrar `rascunho` → `main`. Só depois do checkpoint da Fase 1 (site publicado idêntico à base, sob HTTPS) começa a **Fase 2 — Bloco de abertura e apresentação curta**. Ver `docs/PLANO.md`.
 
-**Controle de versão:** repositório Git inicializado; primeiro commit `c311b26` com a base intacta (ponto de retorno); remote `origin` = `https://github.com/devdapraia/devdapraia.github.io.git`; branch `main` enviado ao GitHub (`git push -u origin main`). `.gitignore` revisado e `.gitattributes` criado para a stack estática. Nenhum segredo, credencial ou dado de terceiro versionado.
+**Controle de versão:** repositório Git inicializado; primeiro commit `c311b26` com a base intacta (ponto de retorno); remote `origin` = `https://github.com/devdapraia/devdapraia.github.io.git`; branch `main` enviado ao GitHub. `.gitignore` revisado e `.gitattributes` criado para a stack estática. **Branch `rascunho` criado e ativo** — o trabalho de código da Fase 1 está nele, em 3 commits: `9a9e6b1` (extração de CSS/JS), `c0d082f` (navegação por âncora), `<pendente>` (inventário no README + este STATUS). Ainda **não enviado ao GitHub** nem integrado ao `main`. Nenhum segredo, credencial ou dado de terceiro versionado.
 
 ---
 
 ## Estado atual do projeto
 
-Terreno preparado e **projeto versionado em Git e com backup no GitHub**. A estrutura de arquivos, os arquivos vivos e o arquivo de contexto para a IA existem. A base foi copiada intacta para a raiz como arquivo de entrada. **O conteúdo ainda não foi revisado** e o site ainda não está publicado pelo GitHub Pages.
+Terreno preparado, **projeto versionado em Git e com backup no GitHub**, e o **trabalho de código da Fase 1 concluído** no branch `rascunho`: CSS e JS extraídos da base por cópia literal e navegação por âncora real no lugar do `onclick` inline. **O conteúdo ainda não foi revisado** (isso é a Fase 2 em diante). O site ainda **não está publicado** pelo GitHub Pages — este é o único item que falta para fechar a Fase 1 e depende do autor (configuração no painel do GitHub).
 
-O que foi feito nesta etapa:
+### O que foi feito no trabalho de código da Fase 1 (branch `rascunho`)
+
+- **Extração de CSS/JS (commit `9a9e6b1`)** — o conteúdo de `<style>` foi para `css/estilo.css` e o de `<script>` para `js/script.js`, por **cópia literal**: nenhuma regra renomeada, reordenada, reformatada ou "otimizada" (FSD 5.2). `index.html` referencia os dois por caminho relativo. Verificado: `index.html` + `css/estilo.css` + `js/script.js` reconstroem a base do commit `c311b26` **byte a byte**. Removidos os `.gitkeep` de `css/` e `js/` (agora com arquivos reais).
+- **Navegação por âncora (commit `c0d082f`)** — menu com 4 itens (projetos, tecnologias, sobre, contato), centralizado, sem logo, cada link com `href="#id"` (FSD 5.3). Item "início" saiu do menu. IDs: `#inicio` no hero, `#stack` renomeado para `#tecnologias`, `<footer id="contato">` como alvo provisório até a seção de contato da Fase 9. Botões do hero viraram âncoras reais. **Todo `onclick` inline foi removido** — o botão de tema agora usa `addEventListener` em `js/script.js`. CSS aditivo isolado no fim de `estilo.css` (`scroll-behavior: smooth`, `scroll-margin-top`, âncora estilizada como botão), sem tocar nas regras herdadas (RT02). A navegação passou a **funcionar sem JavaScript** e a alternância de tema continua funcionando nos dois sentidos.
+- **Inventário do código da base** registrado no `README.md` (FSD 25/Fase 1 item 3; PP04): seções, estrutura do HTML, organização do CSS, alternância de tema, componentes reaproveitáveis e o que sai. Conclusão: a base **suporta a troca de conteúdo sem retrabalho estrutural**.
+
+### Pendência da Fase 1 (bloqueia o início da Fase 2)
+
+- [ ] **GitHub Pages + HTTPS** — configurar no painel do repositório `devdapraia/devdapraia.github.io` a publicação a partir do branch `main` (pasta raiz) e confirmar que a base responde em `https://devdapraia.github.io` sob HTTPS. Não é possível fazer isso por código/CLI neste ambiente. Depois de integrar `rascunho` → `main` e o Pages publicar, conferir o endereço.
+
+### O que já havia sido feito antes desta etapa:
 
 - Estrutura de pastas criada: `css/`, `js/`, `imagens/hgs/`, `imagens/hfs/`, `imagens/processo/`, `arquivos/`.
 - `index.html` na raiz — cópia **literal e intacta** de `docs/index.html` (verificado byte a byte).
@@ -33,7 +43,7 @@ O que foi feito nesta etapa:
 
 Legenda: `[x]` concluído · `[~]` em andamento · `[ ]` não iniciado
 
-### Fase 1 — Preservação da base, infraestrutura e preparação do terreno — `[~]`
+### Fase 1 — Preservação da base, infraestrutura e preparação do terreno — `[~]` (só falta GitHub Pages + HTTPS)
 
 - [x] Estrutura de pastas (`css/`, `js/`, `imagens/hgs/`, `imagens/hfs/`, `imagens/processo/`, `arquivos/`)
 - [x] `index.html` na raiz = cópia intacta de `docs/index.html`
@@ -47,11 +57,11 @@ Legenda: `[x]` concluído · `[~]` em andamento · `[ ]` não iniciado
 - [x] Repositório Git local inicializado + **primeiro commit com a base intacta** (`c311b26` — ponto de retorno)
 - [x] Conferência de segredos antes do commit (`git status` + busca por padrões sensíveis) — nada versionado
 - [x] Repositório remoto `devdapraia/devdapraia.github.io` criado no GitHub (nome exato, público, vazio) + `git push -u origin main`
-- [ ] Inventário do código da base registrado no `README.md` (PP04)
-- [ ] GitHub Pages configurado a partir de `main`, respondendo sob HTTPS
-- [ ] Branch `rascunho` criado
-- [ ] CSS e JS extraídos para `css/estilo.css` e `js/script.js` (cópia literal, commit isolado, renderização idêntica nos dois temas)
-- [ ] Navegação `onclick` substituída por âncoras reais (`href="#id"`, `id` nas seções, `scroll-behavior: smooth`, `scroll-margin-top`); menu com 4 itens (Projetos, Tecnologias, Sobre, Contato)
+- [x] Inventário do código da base registrado no `README.md` (PP04)
+- [ ] **GitHub Pages configurado a partir de `main`, respondendo sob HTTPS** — *pendente, depende do autor (painel do GitHub); único item que falta na Fase 1*
+- [x] Branch `rascunho` criado e ativo
+- [x] CSS e JS extraídos para `css/estilo.css` e `js/script.js` (cópia literal, commit isolado `9a9e6b1`, reconstrução byte a byte verificada)
+- [x] Navegação `onclick` substituída por âncoras reais (`href="#id"`, `id` nas seções, `scroll-behavior: smooth`, `scroll-margin-top`); menu com 4 itens (projetos, tecnologias, sobre, contato); todo `onclick` inline removido (commit `c0d082f`)
 
 ### Fase 2 — Bloco de abertura e apresentação curta — `[ ]`
 
@@ -138,4 +148,5 @@ Legenda: `[x]` concluído · `[~]` em andamento · `[ ]` não iniciado
 ## Histórico de atualizações
 
 - **2026-09-10** — Preparação do terreno. Criados `docs/PLANO.md`, `AGENTS.md`, `docs/STATUS.md`, `docs/ERROS.md`, `README.md`, `.gitignore`, `favicon.ico` e a estrutura de pastas. `index.html` copiado intacto para a raiz; currículo copiado para `arquivos/`. Fase 1 iniciada e parcialmente concluída (infraestrutura de arquivos pronta; Git, GitHub Pages, extração de CSS/JS e navegação por âncora ainda pendentes).
+- **2026-09-10** — Trabalho de código da Fase 1 (branch `rascunho`). (1) Extração de CSS/JS embutidos para `css/estilo.css` e `js/script.js` por cópia literal, em commit isolado `9a9e6b1`; reconstrução da base do commit `c311b26` verificada byte a byte. (2) Navegação por âncora real no lugar do `onclick` inline, commit `c0d082f`: menu de 4 itens com `href="#id"`, `id` nas seções (`#inicio`, `#tecnologias` no lugar de `#stack`, `#contato` provisório no `<footer>`), botões do hero como âncoras, botão de tema via `addEventListener`, CSS aditivo isolado (`scroll-behavior`, `scroll-margin-top`, âncora-botão) sem tocar em regra herdada. Navegação passou a funcionar sem JavaScript; alternância de tema mantida. (3) Inventário do código da base no `README.md` (PP04) — base suporta a troca de conteúdo sem retrabalho estrutural. **Pendência da Fase 1:** configurar GitHub Pages a partir de `main` e confirmar HTTPS (depende do autor). Nada foi integrado ao `main` nem enviado ao GitHub ainda.
 - **2026-09-10** — Controle de versão e backup. `.gitignore` revisado (rede de segurança para `.env`, chaves, certificados, dumps, logs, lixo de SO/editor) e `.gitattributes` criado (LF para texto/código, binário para imagens e PDF), ambos adaptados à stack estática. `git init` + primeiro commit `c311b26` com a base intacta (ponto de retorno). Conferência de segredos antes do commit: nada sensível versionado. Remote `origin` (HTTPS) apontado para `github.com/devdapraia/devdapraia.github.io` e `git push -u origin main` concluído — backup no GitHub feito. Pendências da Fase 1: GitHub Pages + HTTPS, inventário do código no `README.md`, branch `rascunho`, extração de CSS/JS e navegação por âncora.

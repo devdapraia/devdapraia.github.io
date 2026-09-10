@@ -17,8 +17,8 @@ Este repositório é uma **revisão de conteúdo** sobre uma base HTML/CSS/JS j�
 ```
 index.html            página única — arquivo de entrada
 favicon.ico
-css/estilo.css        estilo (a ser extraído da base — ver docs/PLANO.md, Fase 1)
-js/script.js           comportamento (a ser extraído da base — ver docs/PLANO.md, Fase 1)
+css/estilo.css        estilo — extraído da base por cópia literal (Fase 1)
+js/script.js           comportamento — extraído da base por cópia literal (Fase 1)
 imagens/               avatar + capturas (hgs/, hfs/, processo/)
 arquivos/              currículo em PDF
 docs/                  FSD, DESIGN, INSUMOS, PLANO, STATUS, ERROS e material de apoio
@@ -41,7 +41,59 @@ O primeiro commit contém a base **intacta** e é o ponto de retorno do projeto.
 
 ## Inventário do código da base
 
-> A preencher na Fase 1 (item 3 do `docs/PLANO.md`): seções existentes, estrutura do HTML, organização do CSS, funcionamento da alternância de tema, componentes reaproveitáveis e o que precisará sair. Se a extração de CSS/JS for abandonada por custo (FSD 5.2), registrar a decisão aqui.
+Levantamento feito na Fase 1 com o código à vista (FSD 25 / Fase 1, item 3; PP04).
+Conclusão: **a base suporta a troca de conteúdo sem retrabalho estrutural** — a
+Fase 2 pode começar assim que o site publicado estiver idêntico à base.
+
+### Seções existentes (na ordem do HTML)
+
+| Ordem | Marcação | `id` | Situação na revisão |
+| --- | --- | --- | --- |
+| Menu | `<nav>` com 4 links, `position: sticky` | — | Preservado. Rótulos e mecanismo de navegação trocados na Fase 1 (âncora real). |
+| Hero | `.hero` > `.hero-content` (avatar + texto), `.hero-btns` | `inicio` | Preservado. Texto, selo e botões entram na Fase 2. |
+| Sobre mim | `.section` > `.sobre-grid` com 3 `.sobre-card` (um `.destaque-card`) | `sobre` | Cards viram três parágrafos de texto corrido na Fase 8. |
+| Projetos | `.section` > `.timeline` com 5 `.timeline-item` | `projetos` | **A linha do tempo sai** (marcação + CSS) na Fase 3; entra o card de projeto. |
+| Tecnologias | `.section` > `.stack-grid` com 6 `.stack-item` + `.tech-dot` | `tecnologias` (era `stack`) | **Autoavaliação de nível sai** na Fase 4; entram as pílulas e os dois grupos (Fase 7). |
+| Rodapé | `<footer>` com crédito + link do GitHub | `contato` (provisório) | Vira a seção de contato em tela cheia na Fase 9. |
+
+### Estrutura do HTML
+
+- Documento único, `lang="pt-br"`, `<meta viewport>` presente, `favicon.ico` referenciado.
+- Após a Fase 1: sem `<style>` e sem `<script>` embutidos; sem `onclick`/`style=` inline.
+- Fontes do Google Fonts com `preconnect` e `display=swap` — pesos Poppins 300/400/600/700 e Space Mono 400/700.
+- Navegação por âncora real (`href="#id"` + `id` nas seções); rolagem suave por CSS (`scroll-behavior: smooth`), com `scroll-margin-top` compensando o menu fixo.
+
+### Organização do CSS (`css/estilo.css`, cópia literal da base)
+
+- Abre com reset universal (`* { margin:0; padding:0; box-sizing:border-box }`).
+- Paleta em variáveis: `:root` (tema escuro, padrão) e `[data-tema="claro"]` sobrescrevendo 7 variáveis; `--destaque` e `--acento` são iguais nos dois temas.
+- Blocos comentados por componente: `TOGGLE`, `NAV`, `HERO`, `SECTIONS`, `SOBRE`, `TIMELINE`, `STACK`, `FOOTER`.
+- Sem nenhuma media query (responsividade só na Fase 10).
+- Bloco aditivo da Fase 1 no fim do arquivo, isolado e sem tocar nas regras herdadas.
+
+### Alternância de tema
+
+- Botão `.theme-toggle` fixo no canto inferior direito.
+- `js/script.js` mantém `data-tema="claro"` no `<body>` (ausência do atributo = tema escuro) e troca o ícone ☀️/🌙.
+- Na base era acionada por `onclick` inline; na Fase 1 passou a `addEventListener` no mesmo `js/script.js`. Sem persistência (decisão do FSD 12.9).
+
+### Componentes reaproveitáveis
+
+- `.section` + `.section-label` (rótulo Space Mono) + `h2` + `.divider`: base de toda seção nova.
+- `.sobre-card`: padrão visual do **card de projeto** da Fase 3 (fundo `--card-bg`, borda `--card-border`, raio 12px, padding 20px).
+- `.btn-primary` / `.btn-ghost`: botões do hero, do card do HGS e do contato.
+- `IntersectionObserver` (`threshold: 0.1`, atraso de 120ms): base da revelação por rolagem da Fase 10 — hoje apontado para `.timeline-item`.
+
+### O que sai da base
+
+- `.timeline` / `.timeline-item` — marcação e CSS (Fase 3).
+- `.stack-item` / `.tech-dot` / `.dot-on` / `.dot-off` e os textos de nível (`avançado`, `intermediário`…) — marcação e CSS (Fase 4).
+- Botão "GitHub" do hero — vai para a seção de contato (Fase 2).
+- Textos da base ("Maragogi → Recife", "Porto Digital", "Estágio Jan 2027", "v1.0 — Portugol"…) — substituídos ao longo das Fases 2–9.
+
+### Decisão sobre a extração de CSS/JS
+
+A extração **foi feita** (não foi abandonada). É cópia literal, verificada: `index.html` + `css/estilo.css` + `js/script.js` reconstroem a base do commit `c311b26` byte a byte. Nenhuma regra foi renomeada, reordenada ou reformatada.
 
 ## Documentação viva
 
