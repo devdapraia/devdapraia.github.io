@@ -571,6 +571,47 @@
             overflow: hidden;
         }
 
+        /* ========== FASE 6 — BLOCO DE PROCESSO DE DESIGN (adicoes, autocontido) ========== */
+        /* Secao #processo: recortes do prototipo e do design system do app do HGS,
+           feitos no Figma. E o item de menor prioridade e o primeiro candidato a
+           corte (FSD 12.6 / C3): tanto a marcacao (bloco delimitado por comentarios
+           em index.html) quanto estas regras sao autocontidas — remove-las nao
+           afeta nenhuma outra secao. As imagens reaproveitam .projeto-imagem /
+           .img-overlay da Fase 5 para a ampliacao ao toque. Consome variaveis de
+           tema, funciona nos dois temas, usa a escala de espacamento e nao
+           reescreve nenhuma regra herdada (FSD RT02/RT04/RT05). */
+
+        /* Linha curta de contexto acima dos recortes. */
+        .processo-intro {
+            font-size: 0.9em;
+            font-weight: 300;
+            color: var(--texto-muted);
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        /* Tres recortes de tela de celular, lado a lado em telas largas. */
+        .processo-imagens {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        /* Telas estreitas: os tres recortes passam a duas colunas e depois a uma,
+           na mesma direcao das imagens dos cards. Media queries proprias do bloco,
+           para ele seguir autocontido; a varredura completa e da Fase 10 (FSD 12.8). */
+        @media (max-width: 768px) {
+            .processo-imagens {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .processo-imagens {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* ========== AJUSTE DE RESPONSIVIDADE (fora de fase, a pedido do autor) ========== */
         /* Antecipa parte da Fase 10 (FSD 12.8): foto do hero acima do texto no
            celular com espaco para respirar, menu sem encostar nas bordas, grades

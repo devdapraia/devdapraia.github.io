@@ -198,9 +198,9 @@ Caminho crítico: **as quatro capturas** (PP02). Sem imagem conferida, o card n�
 
 ### Checklist
 
-- [ ] Seção autocontida com `id="processo"`, imediatamente após os cards: rótulo Space Mono + `h2` + uma linha curta + 2 a 3 recortes do Figma.
-- [ ] Imagens com as mesmas regras técnicas da Fase 5 (dimensões declaradas, `loading="lazy"`, `alt` descritivo, ampliação ao toque) em `imagens/processo/`. Sem dado real.
-- [ ] A seção é o **primeiro candidato a corte**: marcação e estilo **autocontidos**, para que a remoção não afete nenhuma outra parte da página (C3, 12.6).
+- [x] Seção autocontida com `id="processo"`, imediatamente após os cards: rótulo Space Mono ("processo de design") + `h2` ("Protótipo e design system do app") + uma linha curta (`.processo-intro`) + **3 recortes** do Figma.
+- [x] Imagens com as mesmas regras técnicas da Fase 5 (`width`/`height` reais `1170`×`2382`, `loading="lazy"`, `alt` descritivo sem dado de hóspede nem nome da pousada, ampliação ao toque reaproveitando `.projeto-imagem`/`.img-overlay`) em `imagens/processo/` (`app-grade-de-quartos.webp`, `app-detalhe-do-quarto.webp`, `app-conferencia-de-limpeza.webp` — WebP q82, 75,6–79,2 KB, << 150 KB). **Conferência de dado de terceiro (FSD 21.4):** são mockups de protótipo do app em construção; nomes visíveis ("João Silva", "Maria Silva", "João da Silva") são genéricos de teste; sem nome/documento/telefone de hóspede real, sem nome da pousada, sem credencial, sem barra de navegador (recorte tirou a barra de status do simulador). Mesma leitura de "dados fictícios" adotada na Fase 5. 2ª conferência = teste do autor em tamanho real / celular.
+- [x] A seção é o **primeiro candidato a corte**: marcação (bloco delimitado por comentários `FASE 6` em `index.html`, incluindo o `<hr class="divider">` que o precede) e estilo (bloco `FASE 6` em `css/estilo.css`, com media queries próprias) **autocontidos** — remover o bloco volta ao estado anterior sem efeito em nenhuma outra seção (C3, 12.6).
 
 ### Critérios de pronto
 
