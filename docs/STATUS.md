@@ -2,13 +2,15 @@
 
 **Última atualização:** 2026-09-10
 **Fase atual:** Fase 1 — Preservação da base, infraestrutura e preparação do terreno (**em andamento**)
-**Próximo passo recomendado:** concluir os itens pendentes da Fase 1 — inicializar o repositório Git com o primeiro commit da base intacta, criar o repositório remoto `devdapraia.github.io`, configurar o GitHub Pages sob HTTPS, criar o branch `rascunho`, extrair CSS/JS para `css/estilo.css` e `js/script.js` (cópia literal, commit isolado) e substituir a navegação `onclick` por âncoras reais. Ver `docs/PLANO.md` → Fase 1.
+**Próximo passo recomendado:** concluir os itens pendentes da Fase 1 — configurar o GitHub Pages a partir de `main` e confirmar HTTPS ativo em `devdapraia.github.io`, registrar o inventário do código da base no `README.md`, criar o branch `rascunho`, extrair CSS/JS para `css/estilo.css` e `js/script.js` (cópia literal, commit isolado) e substituir a navegação `onclick` por âncoras reais. Ver `docs/PLANO.md` → Fase 1.
+
+**Controle de versão:** repositório Git inicializado; primeiro commit `c311b26` com a base intacta (ponto de retorno); remote `origin` = `https://github.com/devdapraia/devdapraia.github.io.git`; branch `main` enviado ao GitHub (`git push -u origin main`). `.gitignore` revisado e `.gitattributes` criado para a stack estática. Nenhum segredo, credencial ou dado de terceiro versionado.
 
 ---
 
 ## Estado atual do projeto
 
-Terreno preparado. A estrutura de arquivos, os arquivos vivos e o arquivo de contexto para a IA existem. A base foi copiada intacta para a raiz como arquivo de entrada. **O conteúdo ainda não foi revisado** e o projeto ainda não está versionado em Git nem publicado.
+Terreno preparado e **projeto versionado em Git e com backup no GitHub**. A estrutura de arquivos, os arquivos vivos e o arquivo de contexto para a IA existem. A base foi copiada intacta para a raiz como arquivo de entrada. **O conteúdo ainda não foi revisado** e o site ainda não está publicado pelo GitHub Pages.
 
 O que foi feito nesta etapa:
 
@@ -20,6 +22,10 @@ O que foi feito nesta etapa:
 - `docs/PLANO.md`, `docs/STATUS.md`, `docs/ERROS.md` criados.
 - `arquivos/curriculo-joao-victor.pdf` — cópia de `docs/curriculo-joao-victor.pdf` (já conferido quanto a dados sensíveis; não requer tratamento).
 - `docs/foto_principal.jpeg` **não** foi copiada: precisa de tratamento (recorte quadrado + WebP + redimensionamento) e será processada na Fase 2 (bloco de abertura).
+- **`.gitignore` revisado** (rede de segurança para `.env`, chaves, certificados, dumps de banco, logs, lixo de SO/editor) e **`.gitattributes` criado** (fim de linha LF para texto/código; imagens e PDF como binário). Adaptados à stack estática — sem regras de PHP, Node, Python ou banco.
+- **Repositório Git inicializado** e **primeiro commit** `c311b26` ("Estrutura inicial do projeto e configuração de controle de versão") com a base intacta — **ponto de retorno** do projeto (FSD 9.1).
+- **Conferência anterior ao commit:** `git status` + busca por padrões de segredo (`senha`, `password`, `token`, `api_key`, chaves privadas) — nada encontrado. Nenhum `.env`, credencial, log, dump ou dado de terceiro entrou no repositório. `imagens/hgs/` e `imagens/hfs/` estão vazias (as capturas dos sistemas, ponto de risco real, ainda não existem).
+- **Backup no GitHub:** remote `origin` → `https://github.com/devdapraia/devdapraia.github.io.git` (conexão HTTPS); `git push -u origin main` concluído. O repositório remoto foi criado **público** (condição do GitHub Pages gratuito) e **vazio**, sem conflito com os arquivos locais.
 
 ---
 
@@ -37,8 +43,10 @@ Legenda: `[x]` concluído · `[~]` em andamento · `[ ]` não iniciado
 - [x] `AGENTS.md` criado
 - [x] `docs/PLANO.md`, `docs/STATUS.md`, `docs/ERROS.md` criados
 - [x] `arquivos/curriculo-joao-victor.pdf` copiado de `docs/`
-- [ ] Repositório Git local inicializado + **primeiro commit com a base intacta** (ponto de retorno)
-- [ ] Repositório remoto `devdapraia.github.io` criado no GitHub (nome exato)
+- [x] `.gitignore` revisado (rede de segurança para segredos) e `.gitattributes` criado (LF/binário), adaptados à stack estática
+- [x] Repositório Git local inicializado + **primeiro commit com a base intacta** (`c311b26` — ponto de retorno)
+- [x] Conferência de segredos antes do commit (`git status` + busca por padrões sensíveis) — nada versionado
+- [x] Repositório remoto `devdapraia/devdapraia.github.io` criado no GitHub (nome exato, público, vazio) + `git push -u origin main`
 - [ ] Inventário do código da base registrado no `README.md` (PP04)
 - [ ] GitHub Pages configurado a partir de `main`, respondendo sob HTTPS
 - [ ] Branch `rascunho` criado
@@ -130,3 +138,4 @@ Legenda: `[x]` concluído · `[~]` em andamento · `[ ]` não iniciado
 ## Histórico de atualizações
 
 - **2026-09-10** — Preparação do terreno. Criados `docs/PLANO.md`, `AGENTS.md`, `docs/STATUS.md`, `docs/ERROS.md`, `README.md`, `.gitignore`, `favicon.ico` e a estrutura de pastas. `index.html` copiado intacto para a raiz; currículo copiado para `arquivos/`. Fase 1 iniciada e parcialmente concluída (infraestrutura de arquivos pronta; Git, GitHub Pages, extração de CSS/JS e navegação por âncora ainda pendentes).
+- **2026-09-10** — Controle de versão e backup. `.gitignore` revisado (rede de segurança para `.env`, chaves, certificados, dumps, logs, lixo de SO/editor) e `.gitattributes` criado (LF para texto/código, binário para imagens e PDF), ambos adaptados à stack estática. `git init` + primeiro commit `c311b26` com a base intacta (ponto de retorno). Conferência de segredos antes do commit: nada sensível versionado. Remote `origin` (HTTPS) apontado para `github.com/devdapraia/devdapraia.github.io` e `git push -u origin main` concluído — backup no GitHub feito. Pendências da Fase 1: GitHub Pages + HTTPS, inventário do código no `README.md`, branch `rascunho`, extração de CSS/JS e navegação por âncora.
