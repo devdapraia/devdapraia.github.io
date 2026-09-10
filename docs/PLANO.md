@@ -254,6 +254,8 @@ Listas já definidas (INSUMOS 3, C2). Depende da pílula de tecnologia (Fase 3) 
 
 ### Checklist
 
+- [x] **Posição da seção na página** — `#sobre` fica **depois de `#tecnologias`**, imediatamente antes do `#contato`, como o FSD sempre previu (seção 1 "Resumo do funcionamento"; 5.3 tabela de IDs; 13/Fluxo 1; 25/Fase 2 itens 19–21). A base trazia `#sobre` **antes** de `#projetos` e a revisão ainda não havia reposicionado. **Feito antecipadamente em 2026-09-10**, fora da Fase 8, a pedido do autor, junto com o alinhamento do menu (`SOBRE · PROJETOS · TECNOLOGIAS · CONTATO` na ordem da página / o menu já estava na ordem do FSD). Nenhum documento precisou mudar de ordem — só o código, que estava divergindo. Ver `docs/STATUS.md`.
+- [x] **Card "objetivo"** — o texto herdado da base `Estágio no Porto Digital · Recife · Jan 2027` foi **substituído antecipadamente** (2026-09-10) por `Primeira oportunidade na área de desenvolvimento de software`: indica a direção sem fixar destino nem data, porque o site é lido por empresas diferentes e um destino datado sinaliza a qualquer leitor intenção de sair. Alinhado ao FSD 7.3 e à linha 357 (o texto não menciona Recife nem Porto Digital); a formulação antiga **não estava registrada no FSD** como conteúdo desejado. Na Fase 8 este card deixa de existir (vira parágrafo) — a redação definitiva do "para onde se vai" entra aqui.
 - [ ] Seção `#sobre`: rótulo + `h2` + **três parágrafos** em texto corrido peso 300, largura de leitura confortável, sem card e sem imagem.
 - [ ] Sequência: recepção → observação do problema no próprio trabalho → decisão de estudar ADS e construir (D1).
 - [ ] Marketing citado em **no máximo uma frase**, como origem do olhar para o negócio (D1).

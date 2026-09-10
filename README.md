@@ -51,9 +51,9 @@ Fase 2 pode começar assim que o site publicado estiver idêntico à base.
 | --- | --- | --- | --- |
 | Menu | `<nav>` com 4 links, `position: sticky` | — | Preservado. Rótulos e mecanismo de navegação trocados na Fase 1 (âncora real). |
 | Hero | `.hero` > `.hero-content` (avatar + texto), `.hero-btns` | `inicio` | Preservado. Texto, selo e botões entram na Fase 2. |
-| Sobre mim | `.section` > `.sobre-grid` com 3 `.sobre-card` (um `.destaque-card`) | `sobre` | Cards viram três parágrafos de texto corrido na Fase 8. |
-| Projetos | `.section` > `.timeline` com 5 `.timeline-item` | `projetos` | **A linha do tempo sai** (marcação + CSS) na Fase 3; entra o card de projeto. |
+| Projetos | `.section` > dois `.projeto-card` (HGS e HFS) | `projetos` | Linha do tempo `.timeline` removida na Fase 3; entrou o card de projeto de oito elementos. |
 | Tecnologias | `.section` > rótulo + `h2` + marcador textual provisório | `tecnologias` (era `stack`) | **Autoavaliação de nível removida** na Fase 4 (`.stack-grid`/`.stack-item`/`.tech-dot`, marcação e CSS). Os dois grupos por contexto de uso e a linha de formação entram na Fase 7. |
+| Sobre mim | `.section` > `.sobre-grid` com 3 `.sobre-card` (um `.destaque-card`) | `sobre` | **Reposicionada para depois de `#tecnologias`** em 2026-09-10 (a base a trazia antes de `#projetos`; o FSD sempre previu esta ordem — seção 1, 5.3, 13, 25). Card "objetivo" teve o texto herdado da base trocado no mesmo dia (sem destino/data fixos). Cards viram três parágrafos de texto corrido na Fase 8. |
 | Rodapé | `<footer>` com crédito + link do GitHub | `contato` (provisório) | Vira a seção de contato em tela cheia na Fase 9. |
 
 ### Estrutura do HTML
