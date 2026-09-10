@@ -173,6 +173,18 @@ Ao terminar qualquer trabalho:
   profissional detalhada (fica no currículo). O `h1` e a linha de posicionamento
   do hero **não mencionam marketing** — a linha "da recepção ao código…" serve
   às duas leituras.
+- **Botão "Pedir a gravação" nos dois cards (alteração consciente de escopo, 2026-09-10).**
+  Existem gravações de tela do HGS e do HFS funcionando; elas **não entram na
+  página** (teto de peso — FSD 21.2; vídeo fora de escopo — FSD 7.1) e os
+  arquivos `apresentacao-*.mp4` ficam fora do repositório (`.gitignore`). Cada
+  card (HGS e HFS) tem, após o elemento 8, uma **linha curta** (`.projeto-gravacao`)
+  + o botão **"Pedir a gravação"** (`.btn-ghost`), com mensagem de WhatsApp que
+  **identifica o sistema**. A linha diz que o envio é **pessoal, feito pelo autor,
+  sem prazo**. A linha é quase igual nos dois cards **de propósito** — é um rótulo
+  de componente paralelo, mesma lógica dos rótulos idênticos dos 8 elementos
+  (RN18); não conta como repetição de formulação. Contraria o FSD (6/B3, 6/C1,
+  12.3, 13/Fluxo 3, 21.1, 26.4), atualizado. `.btn-primary` continua só em "Ver
+  projetos" (hero) e WhatsApp (contato) — RN13 preservada.
 
 ## Publicação (procedimento para a IA)
 

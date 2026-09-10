@@ -111,15 +111,15 @@ Texto de posicionamento final (PP03) e apresentação curta — produção de co
 - [ ] **Remover** `.timeline` e `.timeline-item` — marcação e CSS — verificando antes que nada mais os usa (12.11, 25/Fase 2 item 11). A linha do tempo de versões técnicas **não pode existir em nenhum ponto da página** (7.2).
 - [ ] Criar o **componente de card de projeto** conforme 12.3: base visual de `.sobre-card` (fundo `--card-bg`, borda 1px `--card-border`, raio `12px`, `padding: 20px` herdado), sem cor nova, sem sombra; espaçamentos internos novos na escala `4·6·8·12·16·24·28·32·40·48`. Largura total da coluna (máx. `780px`); cards **empilhados**, nunca lado a lado.
 - [ ] Criar o componente **pílula de tecnologia** (elemento 8 do card) — ver 12.5; será reaproveitado na Fase 7. Sem ícone, sem bolinha, sem barra, sem nível.
-- [ ] **Card do HGS** — os oito elementos na ordem fixa (B2), mais a nota "protótipo original em Java; app em construção com Flutter e Dart" abaixo das pílulas, mais o **botão de solicitação de apresentação** (`.btn-ghost`, após o elemento 8) com link `https://wa.me/5581995212456?text=...` e a mensagem específica do HGS (C1, 12.3, RN13).
-- [ ] **Card do HFS** — os mesmos oito elementos, mesma ordem, **sem botão** (B3, RN18).
+- [ ] **Card do HGS** — os oito elementos na ordem fixa (B2), mais a nota "protótipo original em Java; app em construção com Flutter e Dart" abaixo das pílulas, mais o **botão de contato** (`.btn-ghost`, após o elemento 8) com link `https://wa.me/5581995212456?text=...` e a mensagem específica do HGS (C1, 12.3, RN13).
+- [ ] **Card do HFS** — os mesmos oito elementos, mesma ordem. ~~**sem botão** (B3, RN18).~~ **Revisto em 2026-09-10 (alteração consciente de escopo — FSD seção 1, item 4):** o HFS **também** recebe o botão de contato, agora chamado **"Pedir a gravação"**, com a mensagem que identifica o HFS. Acima do botão, nos dois cards, a linha `.projeto-gravacao` sobre o envio pessoal da gravação. RN18 preservada (botão e linha são conteúdo extra, não elementos da estrutura de oito).
 - [ ] "O que mudou" descrito por mudança de rotina, **sem números** não apurados, redigido para aceitar um número depois sem reescrever o parágrafo (B4, RN10).
 
 ### Critérios de pronto
 
 - HGS e HFS seguem exatamente a mesma estrutura de oito elementos, na mesma ordem (RN18, 26.4).
 - Cada card apresenta o problema antes de qualquer menção a tecnologia; tecnologia é o último elemento (RN08).
-- O botão de apresentação aparece **apenas** no card do HGS e tem destino válido (26.4, 26.6).
+- O botão **"Pedir a gravação"** aparece **nos dois cards** (HGS e HFS), no estilo `.btn-ghost`, e cada um tem destino de WhatsApp válido, com a mensagem identificando o sistema (26.4, 26.6; alteração consciente de escopo 2026-09-10).
 - Não há linha do tempo de versões técnicas em nenhum ponto da página.
 - Nenhum card publicado sem imagem? → nesta fase os cards ainda **não vão ao ar** com o slot de imagem vazio; se for publicar, usar placeholder textual e concluir na Fase 5. (Ver dependência.)
 - Alternância de tema continua funcionando; itens de tecnologia legíveis nos dois temas.

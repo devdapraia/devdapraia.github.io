@@ -33,7 +33,7 @@ Fornecidos pelo autor; **não existiam na base**, exceto o GitHub. Vão para a m
 
 | Canal | Valor | Uso |
 |---|---|---|
-| WhatsApp | `https://wa.me/5581995212456` | Ação principal da seção de contato; botão de solicitação de apresentação do HGS (com `?text=`) |
+| WhatsApp | `https://wa.me/5581995212456` | Ação principal da seção de contato; botão "Pedir a gravação" nos dois cards (com `?text=`) |
 | E-mail | `jvictorna.dev@gmail.com` | Link `mailto:` na seção de contato |
 | LinkedIn | `https://linkedin.com/in/joaoadorno` | Link secundário, nova aba, `rel="noopener noreferrer"` |
 | GitHub | `https://github.com/devdapraia` | Link secundário (já existe na base) |
@@ -41,7 +41,10 @@ Fornecidos pelo autor; **não existiam na base**, exceto o GitHub. Vão para a m
 **Mensagens pré-preenchidas do WhatsApp (curtas, propositalmente):**
 
 - Genérica: `Olá, João. Vi seu portfólio e gostaria de conversar.`
-- Apresentação do HGS: `Olá, João. Vi seu portfólio e gostaria de agendar uma apresentação do Hotel Governance System.`
+- Gravação do HGS: `Olá, João. Vi seu portfólio e gostaria de receber a gravação do Hotel Governance System funcionando.`
+- Gravação do HFS: `Olá, João. Vi seu portfólio e gostaria de receber a gravação do Hotel Finance System funcionando.`
+
+*Atualização 2026-09-10 (alteração consciente de escopo — FSD seção 1, item 4):* o botão de contato dos cards passou de "Solicitar apresentação do sistema" (só no HGS) para **"Pedir a gravação"** nos **dois** cards. Existem gravações de tela dos dois sistemas, mas elas **não entram na página** (teto de peso — FSD 21.2; vídeo fora de escopo — FSD 7.1): o autor as envia pelo WhatsApp a quem pedir. Os arquivos brutos (`apresentacao-*.mp4`) ficam fora do repositório (`.gitignore`).
 
 ---
 

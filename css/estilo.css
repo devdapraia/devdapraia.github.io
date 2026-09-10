@@ -448,11 +448,28 @@
             margin-top: 8px;
         }
 
-        /* Botao de solicitacao de apresentacao — apenas o card do HGS, estilo
-           secundario .btn-ghost (o ambar preenchido fica reservado ao hero e
-           ao contato — FSD RN13). */
+        /* Botao "Pedir a gravacao" — nos dois cards desde 2026-09-10 (antes: so
+           no HGS). Estilo secundario .btn-ghost; o ambar preenchido fica
+           reservado ao hero e ao contato (FSD RN13). */
         .projeto-card .btn-ghost {
             margin-top: 16px;
+        }
+
+        /* Linha curta acima do botao "Pedir a gravacao" — nos dois cards
+           (alteracao consciente de escopo 2026-09-10: o botao de contato passou
+           a existir tambem no card do HFS; ver docs/FSD.md C1/B3/12.3 e
+           docs/STATUS.md). Mesmo tratamento visual de .tech-nota; cola no botao
+           que vem logo abaixo. */
+        .projeto-gravacao {
+            font-size: 0.8em;
+            font-weight: 300;
+            color: var(--texto-muted);
+            line-height: 1.6;
+            margin-top: 16px;
+        }
+
+        .projeto-gravacao + .btn-ghost {
+            margin-top: 8px;
         }
 
         /* ========== FASE 4 — LIMPEZA DA AUTOAVALIACAO DE NIVEL (adicoes) ========== */
