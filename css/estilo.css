@@ -651,6 +651,22 @@
             border-radius: 8px;
         }
 
+        /* ========== REVISAO PARCIAL DE TEXTOS (fase fora da ordem do FSD) ========== */
+        /* Paragrafo de abertura de secao em texto corrido, logo abaixo do <h2>.
+           Criado para o paragrafo novo da secao "Os sistemas" (item 1.5 da
+           revisao) porque nao havia um estilo generico adequado — .processo-intro
+           e do bloco autocontido "FASE 6" e .secao-preparo e rotulo de
+           placeholder. Segue os tokens do DESIGN (2.1: texto de card 0.9em/300;
+           3.2: margem 24px da escala; cor de texto secundario por variavel de
+           tema). Reutilizavel por outras secoes na revisao final do FSD. */
+        .section-intro {
+            font-size: 0.9em;
+            font-weight: 300;
+            color: var(--texto-muted);
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
         /* ========== AJUSTE DE RESPONSIVIDADE (fora de fase, a pedido do autor) ========== */
         /* Antecipa parte da Fase 10 (FSD 12.8): foto do hero acima do texto no
            celular com espaco para respirar, menu sem encostar nas bordas, grades
