@@ -53,7 +53,7 @@ Fase 2 pode começar assim que o site publicado estiver idêntico à base.
 | Hero | `.hero` > `.hero-content` (avatar + texto), `.hero-btns` | `inicio` | Preservado. Texto, selo e botões entram na Fase 2. |
 | Sobre mim | `.section` > `.sobre-grid` com 3 `.sobre-card` (um `.destaque-card`) | `sobre` | Cards viram três parágrafos de texto corrido na Fase 8. |
 | Projetos | `.section` > `.timeline` com 5 `.timeline-item` | `projetos` | **A linha do tempo sai** (marcação + CSS) na Fase 3; entra o card de projeto. |
-| Tecnologias | `.section` > `.stack-grid` com 6 `.stack-item` + `.tech-dot` | `tecnologias` (era `stack`) | **Autoavaliação de nível sai** na Fase 4; entram as pílulas e os dois grupos (Fase 7). |
+| Tecnologias | `.section` > rótulo + `h2` + marcador textual provisório | `tecnologias` (era `stack`) | **Autoavaliação de nível removida** na Fase 4 (`.stack-grid`/`.stack-item`/`.tech-dot`, marcação e CSS). Os dois grupos por contexto de uso e a linha de formação entram na Fase 7. |
 | Rodapé | `<footer>` com crédito + link do GitHub | `contato` (provisório) | Vira a seção de contato em tela cheia na Fase 9. |
 
 ### Estrutura do HTML
@@ -67,7 +67,7 @@ Fase 2 pode começar assim que o site publicado estiver idêntico à base.
 
 - Abre com reset universal (`* { margin:0; padding:0; box-sizing:border-box }`).
 - Paleta em variáveis: `:root` (tema escuro, padrão) e `[data-tema="claro"]` sobrescrevendo 7 variáveis; `--destaque` e `--acento` são iguais nos dois temas.
-- Blocos comentados por componente: `TOGGLE`, `NAV`, `HERO`, `SECTIONS`, `SOBRE`, `TIMELINE`, `STACK`, `FOOTER`.
+- Blocos comentados por componente: `TOGGLE`, `NAV`, `HERO`, `SECTIONS`, `SOBRE`, `FOOTER` (os blocos `TIMELINE` e `STACK` da base foram removidos nas Fases 3 e 4). Blocos aditivos por fase no fim do arquivo (`FASE 1`, `FASE 2`, `FASE 3`, `FASE 4`), isolados e sem tocar nas regras herdadas.
 - Sem nenhuma media query (responsividade só na Fase 10).
 - Bloco aditivo da Fase 1 no fim do arquivo, isolado e sem tocar nas regras herdadas.
 
@@ -86,8 +86,8 @@ Fase 2 pode começar assim que o site publicado estiver idêntico à base.
 
 ### O que sai da base
 
-- `.timeline` / `.timeline-item` — marcação e CSS (Fase 3).
-- `.stack-item` / `.tech-dot` / `.dot-on` / `.dot-off` e os textos de nível (`avançado`, `intermediário`…) — marcação e CSS (Fase 4).
+- `.timeline` / `.timeline-item` — marcação e CSS (Fase 3, feito).
+- `.stack-item` / `.tech-dot` / `.dot-on` / `.dot-off` e os textos de nível (`avançado`, `intermediário`…) — marcação e CSS (Fase 4, feito).
 - Botão "GitHub" do hero — vai para a seção de contato (Fase 2).
 - Textos da base ("Maragogi → Recife", "Porto Digital", "Estágio Jan 2027", "v1.0 — Portugol"…) — substituídos ao longo das Fases 2–9.
 
