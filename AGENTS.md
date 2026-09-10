@@ -136,6 +136,20 @@ Ao terminar qualquer trabalho:
 4. Informar como testar ou validar a entrega.
 ```
 
+## Regras de conteúdo
+
+- **Sem repetição de formulação na página.** Nenhuma frase, título ou informação
+  deve aparecer duas vezes com a mesma formulação em pontos diferentes da página.
+  Cada ideia tem **um lugar só**: a origem na recepção vive no bloco de
+  apresentação abaixo do hero; "dois sistemas em uso real" vive no selo do hero e
+  no título da seção Projetos; a linha de posicionamento ("da recepção ao código…")
+  vive no hero e não é repetida como título de seção. Ao escrever conteúdo novo,
+  conferir se a frase — ou a mesma informação com outras palavras — já não está
+  dita em outro ponto.
+- O card "quem sou" da seção Sobre **não repete** a origem na recepção (essa
+  história é do bloco de apresentação). Na fase da seção Sobre, ele é reescrito
+  com outro recorte: trajetória, o que se estuda hoje, para onde se vai.
+
 ## Boas práticas
 
 - Código claro, funções pequenas, nomes descritivos. Comentários úteis em português do Brasil quando ajudarem.

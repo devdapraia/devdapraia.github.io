@@ -259,12 +259,16 @@ Listas já definidas (INSUMOS 3, C2). Depende da pílula de tecnologia (Fase 3) 
 - [ ] Marketing citado em **no máximo uma frase**, como origem do olhar para o negócio (D1).
 - [ ] Frase do **ERBASE 2026** no terceiro parágrafo: artigo submetido sobre digitalização de pousadas de pequeno porte, com o feedback dos avaliadores incorporado à evolução do projeto. **Não** afirma nem sugere aceitação; **não** se desculpa nem trata como fracasso (D1, RN17).
 - [ ] O texto **não menciona** mudança para Recife nem Porto Digital (D1, 7.3).
+- [ ] **Sem repetir o bloco de apresentação** (ajuste pedido pelo autor, 10/09/2026 — ver `AGENTS.md` › Regras de conteúdo). O bloco de apresentação abaixo do hero já conta a origem na recepção em duas linhas. Nesta seção, a origem na recepção **não é recontada com a mesma formulação**: o parágrafo 1 da sequência D1 abre a trajetória por outro ângulo (o que se observou no próprio trabalho), sem repetir a frase "trabalho na recepção… foi ali que aprendi a programar". Se necessário, revisar também o bloco de apresentação para que os dois não digam a mesma coisa.
+- [ ] O antigo card **"quem sou"** (grade `.sobre-grid`, hoje conteúdo da base) sai e dá lugar aos três parágrafos; seu conteúdo é **reescrito**, não reaproveitado — foco em trajetória, o que se estuda hoje e para onde se vai.
+- [ ] Confirmar o `h2` da seção. Na Fase 3 ele foi trocado de "Da recepção ao código" (repetia a linha do hero) para **"Minha trajetória"** — provisório; ajustar aqui se o autor preferir outro.
 
 ### Critérios de pronto
 
 - Três parágrafos na sequência definida (26.5).
 - Marketing em no máximo uma frase; ERBASE em no máximo uma frase, sem afirmar aceitação e sem desculpas (26.5).
 - Sem menção a Recife ou Porto Digital (26.5).
+- Nenhuma frase ou informação repete, com a mesma formulação, o bloco de apresentação ou o selo do hero (`AGENTS.md` › Regras de conteúdo).
 
 ### Áreas prováveis de alteração
 
