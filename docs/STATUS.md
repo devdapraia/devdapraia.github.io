@@ -1,6 +1,6 @@
 # STATUS — Site de Portfólio devdapraia
 
-**Última atualização:** 2026-09-10 (30ª atualização do dia — **teste HGS → vídeo APROVADO e PUBLICADO**. Antes de publicar: (1) `aria-label` reescrito para o conteúdo real do vídeo; (2) fade de 0,4 s nas duas pontas (`#04344a`); (3) **WebM removido** — só MP4 (H.264) como padrão de vídeo dos cards, registrado no `docs/DESIGN.md § 6.3`. Autor: "conferi, pode publicar". `rascunho` → `main` pelo merge `<merge>`. Verificação do endereço publicado: ver nota abaixo.)
+**Última atualização:** 2026-09-10 (30ª atualização do dia — **teste HGS → vídeo APROVADO e PUBLICADO**. Antes de publicar: (1) `aria-label` reescrito para o conteúdo real do vídeo; (2) fade de 0,4 s nas duas pontas (`#04344a`); (3) **WebM removido** — só MP4 (H.264) como padrão de vídeo dos cards, registrado no `docs/DESIGN.md § 6.3`. Autor: "conferi, pode publicar". `rascunho` → `main` pelo merge `5e1d4d8`. Verificação do endereço publicado: ver nota abaixo.)
 
 **Teste "GIF do HGS → vídeo" (autor, 2026-09-10) — FEITO no `rascunho`. NÃO publicado (é teste).** Trocar **só** o GIF do HGS por `<video>` (o HFS fica com o GIF), com **desvio do FSD autorizado** quanto a vídeo nos cards. O `video-hgs-teste.mp4` foi gravado no sistema em produção com **dados fictícios** (confirmado pelo autor). ffmpeg **v9.0.1** (winget). Arquivo de origem: 720×1556, 30 fps, 26,97 s, 809 quadros, 18,17 MB, com áudio (removido).
 
@@ -32,7 +32,20 @@
 
 *Conferência (prompt original):* vídeo toca ao rolar até ele e pausa ao sair — verificado em página de topo no headless (`play() OK`); nítido, sem recorte (`width:100%; height:auto`, sem `object-fit`), sem estourar a largura do card (desktop ~298px ≤ 300; 375px ~260px; `overflow-x = 0` nos dois temas); **console sem erros**; legível nos temas claro e escuro. **Peso:** o visitante deixa de baixar o GIF de 2,32 MB e passa a baixar MP4+poster = 1,21 MB → **−1,11 MB** (página ~6,25 MB; ainda acima do teto do FSD por causa do GIF do HFS de 4,35 MB, mas caiu).
 
-*Pendente / decisão do autor:* conferir no navegador real; decidir se o HFS também vira vídeo (mesmo processo, mesmo `.projeto-video` / observer). **Não publicado.**
+*Publicação (autor: "conferi, pode publicar"):* `git push origin rascunho` → `git checkout main` → `git merge --no-ff rascunho` (merge **`5e1d4d8`**) → `git push origin main` → `git checkout rascunho`. `origin/main` e `origin/rascunho` sincronizados. **Este merge é a 1ª vez que o site fica de fato no ar** — o GitHub Pages a partir de `main` + HTTPS **está ligado** (a pendência herdada da Fase 1 foi resolvida em algum momento entre a publicação anterior e esta; `https://devdapraia.github.io/` responde **200**).
+
+*Verificação do endereço publicado (`curl` em `https://devdapraia.github.io/`, HTTP 200):*
+- `<title>` = **`João Adôrno · Portfólio`**; `meta description` e `og:description` = "…Dois **projetos acadêmicos** em uso real…"; `og:image` = `…/imagens/avatar.jpg`. ✅ prévia do link
+- Card do HGS: `<section>`… `<source src="imagens/hgs/hgs-demo.mp4" type="video/mp4">` + `poster="…hgs-demo-poster.jpg"`; **nenhum** `hgs-demo.webm` / `video/webm`. ✅ vídeo, sem WebM
+- `imagens/hgs/hgs-demo.mp4` → **206** (1,23 MB) · `hgs-demo-poster.jpg` → **206** · `imagens/hgs/sistema-em-uso.gif` → **404** · `hgs-demo.webm` → **404**. ✅
+- `js/script.js` publicado tem o observer de `projeto-video` (2 ocorrências). ✅
+- `<section class="section contato" id="contato">` (não é só `<footer>`); `.contato` no CSS publicado **não tem** `min-height: 100vh` (só um comentário citando a remoção). ✅ espaçamento do contato
+- `.hero-selo` no CSS publicado com o comentário "margin-top 12px -> 0". ✅ espaçamento do hero
+- Texto do "quem sou": **0 ocorrências** de "freelance de social media". ✅
+- Hero: "Formado em marketing, estudante de ADS…". ✅
+- Currículo no contato: `href="arquivos/curriculo-joao-victor.pdf" download`. ✅
+
+*Pendente / decisão do autor:* decidir se o **HFS** também vira vídeo — mesmo processo (gravação sem tela de login e sem a barra de URL do Safari), mesmo `.projeto-video` / observer / § 6.3 do DESIGN. O card do HFS **segue com o GIF** por enquanto.
 **Fase atual:** no `main`: Fase 6 + ajustes (merges `971c4bf`, `534d6bc`, `711bac0`, `c1d2d28`). No `rascunho`, sem publicar, **duas fases fora da ordem do PLANO**: (a) revisão parcial de textos + seção de contato (commits `a695217`, `608b6a9`, `f221241`); (b) **"acabamento para apresentação"** (commits `eddc6cc` separadores do menu · `0c2d9fc` seção de tecnologias / Fase 7 adiantada · `f2cf009` espaçamento do GIF · `b492862` revisão de travessões · `a0c18c0` head/prévia do link) **+ ajustes pré-publicação** (`1d7ec85` espaçamento da seção de contato · `30364a8` espaçamento no hero · `84c39a5` descrição da prévia · `9837484` imagem da prévia em JPG · `39278da` texto do card "quem sou"). Próxima fase planejada: ver a nota sobre sequência mais abaixo. (O site só fica no ar de fato quando o GitHub Pages a partir de `main` + HTTPS for ligado no painel — pendência herdada da Fase 1, depende do autor.)
 
 **Ajuste de texto (autor, 2026-09-10) — card "quem sou".** Removida a última frase do parágrafo: ~~"Em paralelo, atuo em projetos freelance de social media e presença digital."~~ O parágrafo passa a terminar em "…travar a operação todo dia." Sem outra alteração; conferido que não sobrou espaço duplo nem quebra de linha no lugar. **Texto final do card "quem sou":** *"Sou formado em Marketing e estudo Análise e Desenvolvimento de Sistemas, e é dessa combinação que vem o meu jeito de trabalhar. Antes de escrever código, procuro entender quem é o negócio, como ele se comunica e o que o cliente dele precisa encontrar. Depois traduzo isso em interface, fluxo e funcionalidade. Vim do atendimento e da coordenação de equipe, e hoje trabalho na recepção de uma pousada. Foi ali que levei os projetos do curso para os problemas que eu via travar a operação todo dia."*
