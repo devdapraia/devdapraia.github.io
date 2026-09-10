@@ -649,7 +649,12 @@
            por decisao do autor (ver docs/STATUS.md). O loading="lazy" na
            marcacao adia o download ate a rolagem chegar perto do card. */
         .projeto-gif {
-            margin: 16px 0 0;
+            /* Espaco acima aumentado de 16px para 32px (valor da escala do
+               DESIGN 3.2) para separar o GIF do bloco de tecnologias/nota
+               tecnica que vem logo acima. Igual nos dois cards (mesma classe).
+               Largura mantida no tamanho nativo do recorte (240px + 2x12 de
+               padding = 264px) por decisao do autor. */
+            margin: 32px 0 0;
             padding: 12px;
             border: 1px solid var(--card-border);
             border-radius: 12px;
