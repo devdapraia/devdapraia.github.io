@@ -1,16 +1,29 @@
 # STATUS — Site de Portfólio devdapraia
 
-**Última atualização:** 2026-09-10 (2ª atualização do dia — trabalho de código da Fase 1)
-**Fase atual:** Fase 1 — Preservação da base, infraestrutura e preparação do terreno (**quase concluída** — resta 1 item, dependente do autor)
-**Próximo passo recomendado:** o autor configura o **GitHub Pages a partir de `main`** e confirma **HTTPS ativo** em `devdapraia.github.io` (único item pendente da Fase 1 — não pode ser feito por código). Em paralelo, conferir no Live Server o branch `rascunho` (site idêntico à base + menu navegando por âncora nos dois temas) e, estando OK, integrar `rascunho` → `main`. Só depois do checkpoint da Fase 1 (site publicado idêntico à base, sob HTTPS) começa a **Fase 2 — Bloco de abertura e apresentação curta**. Ver `docs/PLANO.md`.
+**Última atualização:** 2026-09-10 (3ª atualização do dia — construção da Fase 2)
+**Fase atual:** Fase 2 — Bloco de abertura e apresentação curta (**construída no branch `rascunho`**, aguardando conferência visual do autor)
+**Próximo passo recomendado:** o autor confere no Live Server o branch `rascunho` (novo hero: foto real, posicionamento, selo, botões "Ver projetos"/"Falar comigo", apresentação curta) nos dois temas e, se possível, no celular. Estando OK, o fluxo de publicação (push do `rascunho`, merge em `main`, push do `main`, retorno ao `rascunho`) é executado. Depois começa a **Fase 3 — Cards de projeto (HGS e HFS): estrutura e texto**. Ver `docs/PLANO.md`.
 
-**Controle de versão:** repositório Git inicializado; primeiro commit `c311b26` com a base intacta (ponto de retorno); remote `origin` = `https://github.com/devdapraia/devdapraia.github.io.git`; branch `main` enviado ao GitHub. `.gitignore` revisado e `.gitattributes` criado para a stack estática. **Branch `rascunho` criado e ativo** — o trabalho de código da Fase 1 está nele, em 3 commits: `9a9e6b1` (extração de CSS/JS), `c0d082f` (navegação por âncora), `<pendente>` (inventário no README + este STATUS). Ainda **não enviado ao GitHub** nem integrado ao `main`. Nenhum segredo, credencial ou dado de terceiro versionado.
+**Pendência conhecida herdada da Fase 1:** o **GitHub Pages a partir de `main` + HTTPS** em `devdapraia.github.io` depende de configuração no painel do GitHub (não é possível por código). Enquanto não confirmado, o site não está publicado — a conferência é feita localmente pelo Live Server.
+
+**Ressalva da Fase 2 (não bloqueia a conclusão):** o hero herdado da base **não empilha em telas estreitas** (a base não tem nenhuma media query). O layout do hero no celular — avatar acima do texto, `h1` reduzido, paddings menores — é entregue na **Fase 10 (Responsividade)**, conforme a sequência do `docs/PLANO.md`. Até lá, a conferência "sem rolagem no celular" (critério 26.3) fica parcialmente pendente da Fase 10. No desktop o hero está correto.
+
+**Controle de versão:** repositório Git inicializado; primeiro commit `c311b26` com a base intacta (ponto de retorno); remote `origin` = `https://github.com/devdapraia/devdapraia.github.io.git`. O trabalho de código da Fase 1 **já foi integrado ao `main`** pelo merge `5a0c80f` e enviado ao GitHub (`origin/main` e `origin/rascunho` sincronizados). O branch `rascunho` foi adiantado até `5a0c80f` e a Fase 2 está sendo construída sobre ele. `.gitignore` revisado e `.gitattributes` criado para a stack estática. Nenhum segredo, credencial ou dado de terceiro versionado.
 
 ---
 
 ## Estado atual do projeto
 
-Terreno preparado, **projeto versionado em Git e com backup no GitHub**, e o **trabalho de código da Fase 1 concluído** no branch `rascunho`: CSS e JS extraídos da base por cópia literal e navegação por âncora real no lugar do `onclick` inline. **O conteúdo ainda não foi revisado** (isso é a Fase 2 em diante). O site ainda **não está publicado** pelo GitHub Pages — este é o único item que falta para fechar a Fase 1 e depende do autor (configuração no painel do GitHub).
+Terreno preparado, **projeto versionado em Git e com backup no GitHub**, **Fase 1 concluída** (CSS/JS extraídos, navegação por âncora, base intacta no `main`) e **Fase 2 construída** no branch `rascunho`: o bloco de abertura passou a usar a foto real de João, o novo posicionamento ("Da recepção ao código…"), o selo de uso real (sem nomear a pousada) e os botões "Ver projetos"/"Falar comigo"; foi adicionada a apresentação curta logo abaixo do hero; o botão GitHub saiu do hero. As demais seções (`#sobre`, `#projetos`, `#tecnologias`) ainda têm o conteúdo da base — serão revisadas nas fases seguintes. O site continua **não publicado** pelo GitHub Pages (pendência herdada da Fase 1, depende do autor).
+
+### O que foi feito na Fase 2 (branch `rascunho`)
+
+- **Foto real tratada** — `docs/foto_principal.jpeg` (1170×1438) recortada em quadrado enquadrando rosto e ombros, redimensionada para 320×320 e convertida para WebP (qualidade 90): `imagens/avatar.webp`, **12,6 KB** (teto por arquivo: 150 KB). Ferramenta local usada só para o tratamento: Pillow (Python) — **não é dependência do site**. `imagens/.gitkeep` removido (a pasta agora tem arquivo real).
+- **Hero revisado** (`index.html`): `<img>` aponta para `imagens/avatar.webp` com `width`/`height` declarados (320×320) e **sem `loading="lazy"`** (o avatar não usa lazy — FSD 21.2); `alt="Retrato de João Adôrno"` (sem nome da pousada). Novo `h1` mantido ("João **Adôrno**"), nova linha de posicionamento em `.hero-sub` (**não menciona marketing** — A1), novo `.hero-selo` ("Dois sistemas em uso real numa pousada de 38 quartos em Maragogi/AL" — **não nomeia a pousada**, RN03). Botões: `.btn-primary` "Ver projetos" → `#projetos`; `.btn-ghost` "Falar comigo" → `#contato`. **Botão GitHub removido do hero** (vai para o contato na Fase 9). Hero **sem WhatsApp** (E2).
+- **Apresentação curta** — novo bloco `.apresentacao` com um parágrafo de 3 linhas ("quem sou"), logo abaixo do hero (A3).
+- **Estratégia de fontes** (FSD 24.3) — adicionado `preconnect` para `https://fonts.gstatic.com` (crossorigin); a URL do Google Fonts já tinha `display=swap` e só os pesos usados (Poppins 300/400/600/700, Space Mono 400/700); adicionada **pilha de fallback de sistema** nas famílias CSS (`'Poppins', -apple-system, …, sans-serif` e `'Space Mono', ui-monospace, …, monospace`) — inserção mecânica, sem reordenar nem remover regra.
+- **CSS aditivo** — bloco "FASE 2" no fim de `css/estilo.css` com `.hero-selo` (pílula discreta, borda `--card-border`, fundo `--card-bg`, raio 8px, espaçamentos da escala) e `.apresentacao` / `.apresentacao p` (texto corrido, peso 300, `--texto-muted`). Tudo consome variável de tema e funciona nos dois temas (RT02/RT04/RT05). Nenhuma regra herdada foi reescrita.
+- **Textos são propostos** — posicionamento, selo e apresentação seguem a direção do FSD, mas a redação final é do autor (PP03). Ajustar direto na marcação, se quiser.
 
 ### O que foi feito no trabalho de código da Fase 1 (branch `rascunho`)
 
@@ -18,9 +31,9 @@ Terreno preparado, **projeto versionado em Git e com backup no GitHub**, e o **t
 - **Navegação por âncora (commit `c0d082f`)** — menu com 4 itens (projetos, tecnologias, sobre, contato), centralizado, sem logo, cada link com `href="#id"` (FSD 5.3). Item "início" saiu do menu. IDs: `#inicio` no hero, `#stack` renomeado para `#tecnologias`, `<footer id="contato">` como alvo provisório até a seção de contato da Fase 9. Botões do hero viraram âncoras reais. **Todo `onclick` inline foi removido** — o botão de tema agora usa `addEventListener` em `js/script.js`. CSS aditivo isolado no fim de `estilo.css` (`scroll-behavior: smooth`, `scroll-margin-top`, âncora estilizada como botão), sem tocar nas regras herdadas (RT02). A navegação passou a **funcionar sem JavaScript** e a alternância de tema continua funcionando nos dois sentidos.
 - **Inventário do código da base** registrado no `README.md` (FSD 25/Fase 1 item 3; PP04): seções, estrutura do HTML, organização do CSS, alternância de tema, componentes reaproveitáveis e o que sai. Conclusão: a base **suporta a troca de conteúdo sem retrabalho estrutural**.
 
-### Pendência da Fase 1 (bloqueia o início da Fase 2)
+### Pendência herdada da Fase 1
 
-- [ ] **GitHub Pages + HTTPS** — configurar no painel do repositório `devdapraia/devdapraia.github.io` a publicação a partir do branch `main` (pasta raiz) e confirmar que a base responde em `https://devdapraia.github.io` sob HTTPS. Não é possível fazer isso por código/CLI neste ambiente. Depois de integrar `rascunho` → `main` e o Pages publicar, conferir o endereço.
+- [ ] **GitHub Pages + HTTPS** — configurar no painel do repositório `devdapraia/devdapraia.github.io` a publicação a partir do branch `main` (pasta raiz) e confirmar que o site responde em `https://devdapraia.github.io` sob HTTPS. Não é possível fazer isso por código/CLI neste ambiente. O código da Fase 1 já está no `main` (merge `5a0c80f`, enviado ao GitHub); falta só a configuração do Pages no painel.
 
 ### O que já havia sido feito antes desta etapa:
 
@@ -43,7 +56,7 @@ Terreno preparado, **projeto versionado em Git e com backup no GitHub**, e o **t
 
 Legenda: `[x]` concluído · `[~]` em andamento · `[ ]` não iniciado
 
-### Fase 1 — Preservação da base, infraestrutura e preparação do terreno — `[~]` (só falta GitHub Pages + HTTPS)
+### Fase 1 — Preservação da base, infraestrutura e preparação do terreno — `[~]` (código no `main`; só falta GitHub Pages + HTTPS, no painel do GitHub)
 
 - [x] Estrutura de pastas (`css/`, `js/`, `imagens/hgs/`, `imagens/hfs/`, `imagens/processo/`, `arquivos/`)
 - [x] `index.html` na raiz = cópia intacta de `docs/index.html`
@@ -63,14 +76,15 @@ Legenda: `[x]` concluído · `[~]` em andamento · `[ ]` não iniciado
 - [x] CSS e JS extraídos para `css/estilo.css` e `js/script.js` (cópia literal, commit isolado `9a9e6b1`, reconstrução byte a byte verificada)
 - [x] Navegação `onclick` substituída por âncoras reais (`href="#id"`, `id` nas seções, `scroll-behavior: smooth`, `scroll-margin-top`); menu com 4 itens (projetos, tecnologias, sobre, contato); todo `onclick` inline removido (commit `c0d082f`)
 
-### Fase 2 — Bloco de abertura e apresentação curta — `[ ]`
+### Fase 2 — Bloco de abertura e apresentação curta — `[x]` (construída no `rascunho`; aguardando conferência visual do autor)
 
-- [ ] `docs/foto_principal.jpeg` tratada → `imagens/avatar.png` ou `imagens/avatar.webp` (recorte quadrado, WebP, ~320px, << 150 KB)
-- [ ] Novo `h1`, tag do hero e linha de posicionamento (sem mencionar marketing)
-- [ ] Selo de credibilidade (sistemas em uso real, sem nomear a pousada)
-- [ ] Botões do hero: `.btn-primary` "Ver projetos" → `#projetos`; `.btn-ghost` "Falar comigo" → `#contato`; remover botão GitHub do hero
-- [ ] Apresentação curta (2–3 linhas abaixo do hero)
-- [ ] Estratégia de fontes (`display=swap` + pilha de fallback + só pesos usados)
+- [x] `docs/foto_principal.jpeg` tratada → `imagens/avatar.webp` (recorte quadrado, WebP 320×320, **12,6 KB** << 150 KB)
+- [x] Novo `h1` mantido + nova linha de posicionamento (**sem mencionar marketing**); tag do hero preservada
+- [x] Selo de credibilidade (`.hero-selo` — "dois sistemas em uso real numa pousada de 38 quartos em Maragogi/AL", **sem nomear a pousada**)
+- [x] Botões do hero: `.btn-primary` "Ver projetos" → `#projetos`; `.btn-ghost` "Falar comigo" → `#contato`; **botão GitHub removido do hero**
+- [x] Apresentação curta (`.apresentacao` — parágrafo de 3 linhas abaixo do hero)
+- [x] Estratégia de fontes (`display=swap` já na URL + `preconnect` gstatic adicionado + pilha de fallback de sistema nas famílias CSS + só os pesos usados)
+- [~] Hero visível "sem rolagem no celular" (critério 26.3): correto no desktop; o empilhamento em telas estreitas é entregue na **Fase 10 (Responsividade)** — a base não tem media queries e o PLANO sequencia isso para a Fase 10.
 
 ### Fase 3 — Cards de projeto (HGS e HFS): estrutura e texto — `[ ]`
 
@@ -150,3 +164,5 @@ Legenda: `[x]` concluído · `[~]` em andamento · `[ ]` não iniciado
 - **2026-09-10** — Preparação do terreno. Criados `docs/PLANO.md`, `AGENTS.md`, `docs/STATUS.md`, `docs/ERROS.md`, `README.md`, `.gitignore`, `favicon.ico` e a estrutura de pastas. `index.html` copiado intacto para a raiz; currículo copiado para `arquivos/`. Fase 1 iniciada e parcialmente concluída (infraestrutura de arquivos pronta; Git, GitHub Pages, extração de CSS/JS e navegação por âncora ainda pendentes).
 - **2026-09-10** — Trabalho de código da Fase 1 (branch `rascunho`). (1) Extração de CSS/JS embutidos para `css/estilo.css` e `js/script.js` por cópia literal, em commit isolado `9a9e6b1`; reconstrução da base do commit `c311b26` verificada byte a byte. (2) Navegação por âncora real no lugar do `onclick` inline, commit `c0d082f`: menu de 4 itens com `href="#id"`, `id` nas seções (`#inicio`, `#tecnologias` no lugar de `#stack`, `#contato` provisório no `<footer>`), botões do hero como âncoras, botão de tema via `addEventListener`, CSS aditivo isolado (`scroll-behavior`, `scroll-margin-top`, âncora-botão) sem tocar em regra herdada. Navegação passou a funcionar sem JavaScript; alternância de tema mantida. (3) Inventário do código da base no `README.md` (PP04) — base suporta a troca de conteúdo sem retrabalho estrutural. **Pendência da Fase 1:** configurar GitHub Pages a partir de `main` e confirmar HTTPS (depende do autor). Nada foi integrado ao `main` nem enviado ao GitHub ainda.
 - **2026-09-10** — Controle de versão e backup. `.gitignore` revisado (rede de segurança para `.env`, chaves, certificados, dumps, logs, lixo de SO/editor) e `.gitattributes` criado (LF para texto/código, binário para imagens e PDF), ambos adaptados à stack estática. `git init` + primeiro commit `c311b26` com a base intacta (ponto de retorno). Conferência de segredos antes do commit: nada sensível versionado. Remote `origin` (HTTPS) apontado para `github.com/devdapraia/devdapraia.github.io` e `git push -u origin main` concluído — backup no GitHub feito. Pendências da Fase 1: GitHub Pages + HTTPS, inventário do código no `README.md`, branch `rascunho`, extração de CSS/JS e navegação por âncora.
+- **2026-09-10** — Fase 1 integrada ao `main` (merge `5a0c80f`) e enviada ao GitHub (`origin/main` e `origin/rascunho` sincronizados). Pendência restante da Fase 1: apenas GitHub Pages + HTTPS no painel do GitHub.
+- **2026-09-10** — **Fase 2 — Bloco de abertura e apresentação curta** (branch `rascunho`, sobre `5a0c80f`). Foto real tratada com Pillow → `imagens/avatar.webp` (recorte quadrado 320×320, WebP q90, 12,6 KB); `imagens/.gitkeep` removido. Hero revisado em `index.html`: `<img>` para `avatar.webp` com `width`/`height` e sem `lazy`, `alt` sem nome da pousada; nova linha de posicionamento (sem marketing); novo `.hero-selo` (uso real, sem nomear a pousada); botões "Ver projetos" (`.btn-primary` → `#projetos`) e "Falar comigo" (`.btn-ghost` → `#contato`); botão GitHub removido do hero; hero sem WhatsApp. Novo bloco `.apresentacao` (3 linhas) abaixo do hero. Estratégia de fontes: `preconnect` gstatic adicionado, pilha de fallback de sistema nas famílias CSS, `display=swap` e pesos já corretos na URL. CSS aditivo "FASE 2" no fim de `css/estilo.css` (`.hero-selo`, `.apresentacao`) — consome variáveis de tema, funciona nos dois temas, sem reescrever regra herdada. Testes locais: `py -m http.server` — `/`, `css/estilo.css`, `js/script.js`, `imagens/avatar.webp`, `favicon.ico`, currículo em PDF respondem 200; peso da página 38,5 KB (teto 1,5 MB); avatar 12,6 KB (teto 150 KB); sem `style=`/`onclick=`/caminho absoluto na marcação. Sem erros registrados. **Ressalva:** empilhamento do hero no celular fica para a Fase 10 (a base não tem media queries). Aguardando conferência visual do autor no Live Server / celular; depois: push do `rascunho`, merge em `main`, push do `main`, retorno ao `rascunho`.
