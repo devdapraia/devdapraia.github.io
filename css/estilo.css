@@ -27,7 +27,7 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             background: var(--base);
             color: var(--neutro);
             transition: background 0.3s, color 0.3s;
@@ -113,7 +113,7 @@
         }
 
         .hero-tag {
-            font-family: 'Space Mono', monospace;
+            font-family: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
             font-size: 12px;
             color: var(--destaque);
             letter-spacing: 3px;
@@ -181,7 +181,7 @@
             border: none;
             padding: 12px 28px;
             border-radius: 8px;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             font-weight: 600;
             font-size: 0.9em;
             cursor: pointer;
@@ -199,7 +199,7 @@
             border: 1px solid rgba(242, 242, 242, 0.5);
             padding: 12px 28px;
             border-radius: 8px;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             font-weight: 400;
             font-size: 0.9em;
             cursor: pointer;
@@ -224,7 +224,7 @@
         }
 
         .section-label {
-            font-family: 'Space Mono', monospace;
+            font-family: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
             font-size: 11px;
             color: var(--acento);
             letter-spacing: 2px;
@@ -327,7 +327,7 @@
         }
 
         .timeline-item .version {
-            font-family: 'Space Mono', monospace;
+            font-family: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
             font-size: 11px;
             color: var(--acento);
             letter-spacing: 1px;
@@ -430,4 +430,37 @@
             display: inline-block;
             text-decoration: none;
             text-align: center;
+        }
+
+        /* ========== FASE 2 — BLOCO DE ABERTURA (adicoes) ========== */
+        /* Bloco aditivo: consome variaveis de tema, funciona nos dois temas,
+           usa a escala de espacamento e nao altera regra herdada (FSD RT02/RT04/RT05). */
+
+        /* Selo de credibilidade: pilula discreta entre o posicionamento e os botoes. */
+        .hero-selo {
+            display: inline-block;
+            margin: 12px 0 24px;
+            padding: 6px 12px;
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            background: var(--card-bg);
+            font-size: 0.8em;
+            font-weight: 300;
+            line-height: 1.5;
+            color: var(--texto-muted);
+            transition: background 0.3s, border-color 0.3s;
+        }
+
+        /* Apresentacao curta: texto corrido logo abaixo do bloco de abertura. */
+        .apresentacao {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 32px 40px;
+        }
+
+        .apresentacao p {
+            font-size: 0.95em;
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--texto-muted);
         }
