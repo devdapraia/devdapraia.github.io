@@ -395,21 +395,12 @@
             line-height: 1.7;
         }
 
-        /* Elemento 7 — area das imagens. Placeholder textual temporario ate a
-           Fase 5 (FSD 12.3: o card nao vai ao ar com o slot de imagem vazio). */
+        /* Elemento 7 — area das imagens. A grade de duas colunas e a ampliacao
+           ao toque estao no bloco "FASE 5", no fim deste arquivo. O placeholder
+           textual temporario (.projeto-imagens-placeholder) saiu daqui e da
+           marcacao quando as imagens reais entraram (FSD 12.3 / criterio 26.2). */
         .projeto-imagens {
             margin-bottom: 16px;
-        }
-
-        .projeto-imagens-placeholder {
-            border: 1px dashed var(--card-border);
-            border-radius: 12px;
-            padding: 24px;
-            text-align: center;
-            font-size: 0.85em;
-            font-weight: 300;
-            color: var(--texto-muted);
-            transition: border-color 0.3s;
         }
 
         /* Elemento 8 — pilulas de tecnologia. Reaproveitado na secao de
@@ -484,4 +475,212 @@
             font-weight: 300;
             color: var(--texto-muted);
             line-height: 1.7;
+        }
+
+        /* ========== FASE 5 — IMAGENS DE TELA + AMPLIACAO AO TOQUE (adicoes) ========== */
+        /* Bloco aditivo: consome variaveis de tema, funciona nos dois temas, usa
+           a escala de espacamento e nao reescreve nenhuma regra herdada (FSD RT02).
+           O empilhamento das imagens em telas estreitas entra com as media
+           queries da Fase 10 (FSD 12.4 / 12.8). */
+
+        /* Elemento 7 — grade das duas imagens do card, lado a lado em telas largas. */
+        .projeto-imagens {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .projeto-imagem {
+            display: block;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .projeto-imagem img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            transition: border-color 0.3s;
+        }
+
+        .projeto-imagem:hover img {
+            border-color: var(--destaque);
+        }
+
+        /* Sobreposicao de ampliacao — sem biblioteca externa (FSD 12.4). O fundo
+           escuro translucido e mantido nos dois temas de proposito: a captura
+           precisa de fundo neutro para leitura. Mesma constante que a base ja
+           usa em --nav-bg (rgba de #0a0712). So transicao de opacidade. */
+        .img-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background: rgba(10, 7, 18, 0.92);
+            opacity: 0;
+            transition: opacity 0.2s;
+            overflow: auto;
+        }
+
+        .img-overlay.aberto {
+            opacity: 1;
+        }
+
+        .img-overlay img {
+            display: block;
+            max-width: 100%;
+            max-height: 90vh;
+            height: auto;
+            border-radius: 12px;
+        }
+
+        /* Botao de fechar: mesmo padrao visual do .theme-toggle da base. O texto
+           sobre --destaque e sempre #0a0712 (excecao documentada no DESIGN). */
+        .img-overlay-fechar {
+            position: fixed;
+            top: 16px;
+            right: 16px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--destaque);
+            color: #0a0712;
+            border: none;
+            font-size: 1.5em;
+            line-height: 1;
+            cursor: pointer;
+            z-index: 201;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .img-overlay-fechar:hover {
+            transform: scale(1.1);
+            opacity: 0.9;
+        }
+
+        /* Enquanto a sobreposicao esta aberta, o corpo da pagina nao rola (FSD 12.4). */
+        body.overlay-aberto {
+            overflow: hidden;
+        }
+
+        /* ========== AJUSTE DE RESPONSIVIDADE (fora de fase, a pedido do autor) ========== */
+        /* Antecipa parte da Fase 10 (FSD 12.8): foto do hero acima do texto no
+           celular com espaco para respirar, menu sem encostar nas bordas, grades
+           de duas colunas passando a uma e paddings laterais na mesma escala em
+           todas as secoes. Bloco 100% aditivo — so media queries, que sobrescrevem
+           por contexto sem reescrever nenhuma regra herdada (FSD RT02). O desktop
+           fica igual (hero lado a lado e design aprovado). A varredura completa a
+           partir de 360px, os detalhes de 480px e a revelacao por rolagem seguem
+           na Fase 10. */
+
+        @media (max-width: 768px) {
+            /* Menu: cabe sem encostar nas bordas — menos espaco entre itens,
+               fonte menor, quebra em vez de estourar, recuo lateral da escala. */
+            nav {
+                gap: 16px;
+                padding: 16px 24px;
+                flex-wrap: wrap;
+            }
+
+            nav a {
+                font-size: 0.8em;
+            }
+
+            /* Hero: foto acima do texto, tudo centralizado, com respiro. */
+            .hero {
+                padding: 48px 24px 40px;
+            }
+
+            .hero-content {
+                flex-direction: column;
+                gap: 24px;
+                text-align: center;
+            }
+
+            .hero-avatar {
+                width: 130px;
+                height: 130px;
+            }
+
+            .hero h1 {
+                font-size: 2.2em;
+            }
+
+            .hero-btns {
+                justify-content: center;
+            }
+
+            /* Secoes, divisor e rodape com o mesmo recuo lateral do hero,
+               para tudo alinhar na mesma margem. */
+            .section {
+                padding: 32px 24px;
+            }
+
+            .divider {
+                margin: 0 24px;
+            }
+
+            footer {
+                padding: 32px 24px;
+            }
+
+            /* Cards que estavam em duas colunas passam a uma: recuo lateral
+               identico em todos, sem card espremido. */
+            .sobre-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projeto-imagens {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                gap: 12px;
+                padding: 14px 16px;
+            }
+
+            .hero {
+                padding: 40px 16px 32px;
+            }
+
+            .hero-avatar {
+                width: 110px;
+                height: 110px;
+            }
+
+            .hero h1 {
+                font-size: 1.9em;
+            }
+
+            .hero-selo {
+                font-size: 0.78em;
+            }
+
+            .section {
+                padding: 24px 16px;
+            }
+
+            .divider {
+                margin: 0 16px;
+            }
+
+            footer {
+                padding: 24px 16px;
+            }
+
+            /* Botoes do hero ocupam a largura toda quando quebram (FSD 12.8). */
+            .hero-btns .btn-primary,
+            .hero-btns .btn-ghost {
+                width: 100%;
+            }
         }
