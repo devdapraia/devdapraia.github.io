@@ -1,0 +1,70 @@
+# ==============================================================
+# .gitignore — Site de Portfólio devdapraia
+#
+# Repositório PÚBLICO (condição do GitHub Pages gratuito) e com
+# histórico PERMANENTE. Regra de ouro do projeto (FSD 5.5, 21.4, 24):
+# nada que não possa ser público entra aqui — em nenhum commit.
+#
+# A stack é estática: HTML + CSS + JS puro. NÃO há servidor, banco,
+# build, empacotador nem gerenciador de dependências. Por isso não
+# existem node_modules/, vendor/, dist/, build/, .venv/ etc.
+# ==============================================================
+
+# --- Sistema operacional ---
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# --- Editores e IDEs (configuração pessoal, não vai para o repo) ---
+.vscode/
+.idea/
+*.code-workspace
+*.sublime-project
+*.sublime-workspace
+
+# --- Temporários, cache e cópias de backup ---
+*.log
+*.tmp
+*.temp
+*.bak
+*.old
+*.orig
+*~
+
+# --- Segredos e credenciais (rede de segurança) ---
+# O projeto NÃO usa nenhum destes hoje. Ficam listados só para
+# impedir um envio acidental para um repositório público.
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_rsa.*
+secrets.*
+credenciais.*
+
+# --- Banco de dados (não existe neste projeto) ---
+*.sql
+*.sqlite
+*.sqlite3
+*.db
+*.dump
+
+# --- Exceções: arquivos de exemplo PODEM ser versionados ---
+!.env.example
+!*.example
+!*.example.*
+
+# ==============================================================
+# NÃO ignorar (registrado de propósito para não reintroduzir por engano):
+#   docs/          -> documentação do projeto, publicada junto com o site
+#   AGENTS.md      -> contexto para IA em chats futuros
+#   .gitkeep       -> mantêm as pastas vazias no repositório
+#   favicon.ico, index.html, css/, js/, imagens/, arquivos/  -> necessários ao site
+# ==============================================================

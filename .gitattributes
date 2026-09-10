@@ -1,0 +1,38 @@
+# ==============================================================
+# .gitattributes — Site de Portfólio devdapraia
+#
+# Padroniza o fim de linha e a classificação texto/binário.
+# O projeto é editado no Windows mas servido na web: o repositório
+# guarda tudo com LF (padrão da web), sem quebrar imagens e PDFs.
+# ==============================================================
+
+# Normaliza automaticamente todo arquivo de texto: LF no repositório.
+* text=auto eol=lf
+
+# --- Código e marcação (texto) ---
+*.html          text eol=lf
+*.css           text eol=lf
+*.js            text eol=lf
+*.json          text eol=lf
+*.svg           text eol=lf
+
+# --- Documentação e arquivos de controle (texto) ---
+*.md            text eol=lf
+*.txt           text eol=lf
+.gitignore      text eol=lf
+.gitattributes  text eol=lf
+
+# --- Imagens e binários (nunca sofrem conversão de fim de linha) ---
+*.png           binary
+*.jpg           binary
+*.jpeg          binary
+*.webp          binary
+*.gif           binary
+*.ico           binary
+*.pdf           binary
+
+# --- Fontes (binário), caso algum dia sejam servidas localmente ---
+*.woff          binary
+*.woff2         binary
+*.ttf           binary
+*.eot           binary

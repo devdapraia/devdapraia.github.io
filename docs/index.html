@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>devdapraia — Portfólio</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --base: #0a0712;
+            --destaque: #F29441;
+            --acento: #D95D30;
+            --neutro: #F2F2F2;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(242, 148, 65, 0.15);
+            --nav-bg: rgba(10, 7, 18, 0.97);
+            --texto-muted: rgba(242, 242, 242, 0.6);
+            --texto-sub: rgba(242, 242, 242, 0.65);
+        }
+
+        [data-tema="claro"] {
+            --base: #F5F3F0;
+            --neutro: #1a1a2e;
+            --card-bg: rgba(0, 0, 0, 0.04);
+            --card-border: rgba(242, 148, 65, 0.3);
+            --nav-bg: rgba(245, 243, 240, 0.97);
+            --texto-muted: rgba(26, 26, 46, 0.75);
+            --texto-sub: rgba(26, 26, 46, 0.75);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--base);
+            color: var(--neutro);
+            transition: background 0.3s, color 0.3s;
+        }
+
+        /* ========== TOGGLE ========== */
+
+        .theme-toggle {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--destaque);
+            color: #0a0712;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(242, 148, 65, 0.4);
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            opacity: 0.9;
+        }
+
+        /* ========== NAV ========== */
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            padding: 16px 40px;
+            background: var(--nav-bg);
+            border-bottom: 1px solid rgba(242, 148, 65, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            transition: background 0.3s;
+        }
+
+        nav a {
+            color: var(--texto-muted);
+            text-decoration: none;
+            font-size: 0.85em;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.15s;
+            cursor: pointer;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--destaque);
+        }
+
+        /* ========== HERO ========== */
+
+        .hero {
+            padding: 60px 40px 50px;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(242, 148, 65, 0.2);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(242, 148, 65, 0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-tag {
+            font-family: 'Space Mono', monospace;
+            font-size: 12px;
+            color: var(--destaque);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            display: block;
+            text-align: center;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            max-width: 780px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .hero-avatar {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 3px solid var(--destaque);
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero h1 {
+            font-size: 2.8em;
+            font-weight: 700;
+            color: var(--neutro);
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+
+        .hero h1 span {
+            color: var(--destaque);
+        }
+
+        .hero-sub {
+            font-size: 1em;
+            font-weight: 300;
+            color: var(--texto-sub);
+            margin-bottom: 32px;
+        }
+
+        .hero-sub strong {
+            color: var(--acento);
+            font-weight: 600;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--destaque);
+            color: #0a0712;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: transform 0.15s, opacity 0.15s;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.88;
+            transform: translateY(-1px);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--neutro);
+            border: 1px solid rgba(242, 242, 242, 0.5);
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: border-color 0.15s, transform 0.15s;
+        }
+
+        [data-tema="claro"] .btn-ghost {
+            border-color: rgba(26, 26, 46, 0.3);
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--destaque);
+            transform: translateY(-1px);
+        }
+
+        /* ========== SECTIONS ========== */
+
+        .section {
+            padding: 48px 40px;
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 11px;
+            color: var(--acento);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .section h2 {
+            font-size: 1.6em;
+            font-weight: 600;
+            color: var(--neutro);
+            margin-bottom: 24px;
+        }
+
+        .divider {
+            border: none;
+            border-top: 1px solid rgba(242, 148, 65, 0.12);
+            margin: 0 40px;
+        }
+
+        /* ========== SOBRE ========== */
+
+        .sobre-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .sobre-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 20px;
+            transition: background 0.3s, border-color 0.3s;
+        }
+
+        .sobre-card.destaque-card {
+            border-color: rgba(217, 93, 48, 0.4);
+            grid-column: 1 / -1;
+        }
+
+        .sobre-card p {
+            font-size: 0.9em;
+            font-weight: 300;
+            color: var(--texto-muted);
+            line-height: 1.7;
+        }
+
+        .sobre-card .card-label {
+            font-size: 11px;
+            color: var(--destaque);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            font-weight: 600;
+            display: block;
+        }
+
+        /* ========== TIMELINE ========== */
+
+        .timeline {
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 6px;
+            bottom: 6px;
+            width: 1px;
+            background: linear-gradient(to bottom, var(--destaque), var(--acento), transparent);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 28px;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: opacity 0.4s, transform 0.4s;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -28px;
+            top: 6px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--destaque);
+            border: 2px solid var(--base);
+            transition: border-color 0.3s;
+        }
+
+        .timeline-item .version {
+            font-family: 'Space Mono', monospace;
+            font-size: 11px;
+            color: var(--acento);
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .timeline-item h3 {
+            font-size: 0.95em;
+            font-weight: 600;
+            color: var(--neutro);
+            margin-bottom: 4px;
+        }
+
+        .timeline-item p {
+            font-size: 0.85em;
+            color: var(--texto-muted);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        /* ========== STACK ========== */
+
+        .stack-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 12px;
+        }
+
+        .stack-item {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 14px 10px;
+            text-align: center;
+            transition: border-color 0.2s, transform 0.2s, background 0.3s;
+            cursor: default;
+        }
+
+        .stack-item:hover {
+            border-color: var(--destaque);
+            transform: translateY(-2px);
+        }
+
+        .stack-item .tech-name {
+            font-size: 0.8em;
+            font-weight: 600;
+            color: var(--neutro);
+            display: block;
+            margin-top: 6px;
+        }
+
+        .stack-item .tech-level {
+            font-size: 0.7em;
+            color: var(--texto-muted);
+            display: block;
+            margin-top: 2px;
+        }
+
+        .tech-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 1px;
+        }
+
+        .dot-on { background: var(--destaque); }
+        .dot-off { background: rgba(128, 128, 128, 0.3); }
+
+        /* ========== FOOTER ========== */
+
+        footer {
+            text-align: center;
+            padding: 32px 40px;
+            font-size: 0.8em;
+            color: var(--texto-muted);
+        }
+
+        footer span { color: var(--destaque); }
+        footer a { color: var(--acento); text-decoration: none; }
+        footer a:hover { color: var(--destaque); }
+    </style>
+</head>
+<body>
+
+    <button class="theme-toggle" onclick="alternarTema()" title="Alternar tema">☀️</button>
+
+    <nav>
+        <a class="active" onclick="window.scrollTo(0,0)">início</a>
+        <a onclick="document.getElementById('sobre').scrollIntoView({behavior:'smooth'})">sobre</a>
+        <a onclick="document.getElementById('projetos').scrollIntoView({behavior:'smooth'})">projetos</a>
+        <a onclick="document.getElementById('stack').scrollIntoView({behavior:'smooth'})">stack</a>
+    </nav>
+
+    <div class="hero">
+        <span class="hero-tag">devdapraia · portfólio</span>
+        <div class="hero-content">
+            <img src="imagens/avatar.png" alt="João Adôrno" class="hero-avatar">
+            <div class="hero-text">
+                <h1>João <span>Adôrno</span></h1>
+                <p class="hero-sub">Dev em formação · <strong>Maragogi → Recife</strong> · Transição de carreira</p>
+                <div class="hero-btns">
+                    <button class="btn-primary" onclick="document.getElementById('projetos').scrollIntoView({behavior:'smooth'})">Ver projetos</button>
+                    <button class="btn-ghost" onclick="window.open('https://github.com/devdapraia')">GitHub</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="section" id="sobre">
+        <p class="section-label">sobre mim</p>
+        <h2>Da recepção ao código</h2>
+        <div class="sobre-grid">
+            <div class="sobre-card destaque-card">
+                <span class="card-label">quem sou</span>
+                <p>Estudante de ADS em transição de carreira, desenvolvendo projetos reais inspirados nos desafios operacionais da hotelaria onde trabalho. Acredito que a melhor forma de aprender programação é resolvendo problemas reais.</p>
+            </div>
+            <div class="sobre-card">
+                <span class="card-label">formação</span>
+                <p>ADS · 2º período<br>Anhanguera · Maragogi</p>
+            </div>
+            <div class="sobre-card">
+                <span class="card-label">objetivo</span>
+                <p>Estágio no Porto Digital · Recife · Jan 2027</p>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <section class="section" id="projetos">
+        <p class="section-label">projeto principal</p>
+        <h2>Hotel Governance System</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <p class="version">v1.0 — v1.4</p>
+                <h3>Protótipo em Portugol</h3>
+                <p>Sistema de controle de quartos com 9 status, checklists e travas de segurança. Base lógica do projeto.</p>
+            </div>
+            <div class="timeline-item">
+                <p class="version">v2.0 — v3.0</p>
+                <h3>Migração para Java + POO</h3>
+                <p>38 quartos reais, orientação a objetos com herança, polimorfismo e checklists especializados por tipo de quarto.</p>
+            </div>
+            <div class="timeline-item">
+                <p class="version">v4.0 — v4.2</p>
+                <h3>Persistência com MySQL</h3>
+                <p>Modelagem relacional completa, banco MariaDB, tabelas relacionadas com chaves estrangeiras.</p>
+            </div>
+            <div class="timeline-item">
+                <p class="version">v5.0 — v5.2</p>
+                <h3>Integração JDBC completa</h3>
+                <p>Arquitetura Main → Controller → DAO, histórico de operações, relatórios gerenciais em PDF e alertas automáticos.</p>
+            </div>
+            <div class="timeline-item">
+                <p class="version">ERBASE 2026</p>
+                <h3>Artigo científico</h3>
+                <p>Submetido ao IFAL Campus Maragogi — pesquisa sobre digitalização de pousadas de pequeno porte.</p>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <section class="section" id="stack">
+        <p class="section-label">tecnologias</p>
+        <h2>Stack atual</h2>
+        <div class="stack-grid">
+            <div class="stack-item">
+                <span class="tech-dot dot-on"></span><span class="tech-dot dot-on"></span><span class="tech-dot dot-on"></span><span class="tech-dot dot-on"></span><span class="tech-dot dot-on"></span>
+                <span class="tech-name">Java</span>
+                <span class="tech-level">avançado</span>
+            </div>
+            <div class="stack-item">
+                <span class="tech-dot dot-on"></span><span class="tech-dot dot-on"></span><span class="tech-dot dot-on"></span><span class="tech-dot dot-on"></span><span class="tech-dot dot-off"></span>
+                <span class="tech-name">MySQL</span>
+                <span class="tech-level">intermediário</span>
+            </div>
+            <div class="stack-item">
+                <span class="tech-dot dot-on"></span><span class="tech-dot dot-on"></span><span class="tech-dot dot-on"></span><span class="tech-dot dot-on"></span><span class="tech-dot dot-off"></span>
+                <span class="tech-name">JDBC</span>
+                <span class="tech-level">intermediário</span>
+            </div>
+            <div class="stack-item">
+                <span class="tech-dot dot-on"></span><span class="tech-dot dot-on"></span><span class="tech-dot dot-on"></span><span class="tech-dot dot-off"></span><span class="tech-dot dot-off"></span>
+                <span class="tech-name">HTML</span>
+                <span class="tech-level">básico</span>
+            </div>
+            <div class="stack-item">
+                <span class="tech-dot dot-on"></span><span class="tech-dot dot-on"></span><span class="tech-dot dot-off"></span><span class="tech-dot dot-off"></span><span class="tech-dot dot-off"></span>
+                <span class="tech-name">CSS</span>
+                <span class="tech-level">iniciando</span>
+            </div>
+            <div class="stack-item">
+                <span class="tech-dot dot-on"></span><span class="tech-dot dot-off"></span><span class="tech-dot dot-off"></span><span class="tech-dot dot-off"></span><span class="tech-dot dot-off"></span>
+                <span class="tech-name">Flutter</span>
+                <span class="tech-level">em breve</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>feito com HTML e CSS · <span>devdapraia</span> · <a href="https://github.com/devdapraia" target="_blank">github.com/devdapraia</a></p>
+    </footer>
+
+    <script>
+        const toggle = document.querySelector('.theme-toggle');
+
+        function alternarTema() {
+            const temAtual = document.body.getAttribute('data-tema');
+            if (temAtual === 'claro') {
+                document.body.removeAttribute('data-tema');
+                toggle.textContent = '☀️';
+            } else {
+                document.body.setAttribute('data-tema', 'claro');
+                toggle.textContent = '🌙';
+            }
+        }
+
+        const items = document.querySelectorAll('.timeline-item');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, i * 120);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        items.forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
