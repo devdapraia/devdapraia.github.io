@@ -92,3 +92,33 @@
                 });
             });
         })();
+
+        // ===== TESTE — video-demo dos cards: toca so quando esta visivel =====
+        // Reutilizavel: pega qualquer <video class="projeto-video"> (hoje so o
+        // HGS; o HFS usa o mesmo comportamento quando entrar). Toca quando o
+        // video entra na viewport e pausa quando sai (IntersectionObserver, sem
+        // biblioteca). Com prefers-reduced-motion: reduce nao toca sozinho — fica
+        // so no poster. Melhoria progressiva: sem JS (ou sem IntersectionObserver)
+        // o video nao tem 'autoplay', entao aparece parado no poster.
+        (function () {
+            var videos = document.querySelectorAll('video.projeto-video');
+            if (!videos.length || !('IntersectionObserver' in window)) return;
+
+            var semMovimento = window.matchMedia &&
+                window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (semMovimento) return;
+
+            var observador = new IntersectionObserver(function (entradas) {
+                entradas.forEach(function (entrada) {
+                    var video = entrada.target;
+                    if (entrada.isIntersecting) {
+                        var p = video.play();
+                        if (p && p.catch) p.catch(function () {});
+                    } else {
+                        video.pause();
+                    }
+                });
+            }, { threshold: 0.35 });
+
+            videos.forEach(function (video) { observador.observe(video); });
+        })();
