@@ -198,9 +198,10 @@ Caminho crítico: **as quatro capturas** (PP02). Sem imagem conferida, o card n�
 
 ### Checklist
 
-- [ ] Seção autocontida com `id="processo"`, imediatamente após os cards: rótulo Space Mono + `h2` + uma linha curta + 2 a 3 recortes do Figma.
-- [ ] Imagens com as mesmas regras técnicas da Fase 5 (dimensões declaradas, `loading="lazy"`, `alt` descritivo, ampliação ao toque) em `imagens/processo/`. Sem dado real.
-- [ ] A seção é o **primeiro candidato a corte**: marcação e estilo **autocontidos**, para que a remoção não afete nenhuma outra parte da página (C3, 12.6).
+- [x] Seção autocontida com `id="processo"`, imediatamente após os cards: rótulo Space Mono ("processo de design") + `h2` ("Protótipo e design system do app") + uma linha curta (`.processo-intro`) + **4 recortes** do Figma (3 + `figma-4` acrescentado a pedido do autor na conferência).
+- [x] Imagens com as mesmas regras técnicas da Fase 5 (`width`/`height` reais `1170`×`2382`, `loading="lazy"`, `alt` descritivo sem dado de hóspede nem nome da pousada, ampliação ao toque reaproveitando `.projeto-imagem`/`.img-overlay`) em `imagens/processo/` (`app-grade-de-quartos.webp`, `app-detalhe-do-quarto.webp`, `app-limpeza-em-andamento.webp`, `app-conferencia-de-limpeza.webp` — WebP q82, 57–79 KB, << 150 KB). **Conferência de dado de terceiro (FSD 21.4):** são mockups de protótipo do app em construção; nomes visíveis ("João Silva", "Maria Silva", "João da Silva") são genéricos de teste; sem nome/documento/telefone de hóspede real, sem nome da pousada, sem credencial, sem barra de navegador (recorte tirou a barra de status do simulador). Mesma leitura de "dados fictícios" adotada na Fase 5; ainda há uma linha visível `.nota-ficticia` reforçando isso. 2ª conferência = teste do autor em tamanho real / celular.
+- [x] A seção é o **primeiro candidato a corte**: marcação (bloco delimitado por comentários `FASE 6` em `index.html`, incluindo o `<hr class="divider">` que o precede) e estilo (bloco `FASE 6` em `css/estilo.css`) **autocontidos** — remover o bloco volta ao estado anterior sem efeito em nenhuma outra seção (C3, 12.6).
+- [x] **Ajustes da conferência do autor:** imagens dos cards e do processo em **miniatura de 150px** (flex-wrap) que expandem na sobreposição ao clique — antes ocupavam a largura da coluna e ficavam altas demais no celular (altera o visual da Fase 5, já publicada; ajuste consciente, mesmo portão de publicação); linha `.nota-ficticia` ("dados fictícios, só para demonstração") abaixo de cada grupo de imagens (2 cards + processo); botão **"Pedir a gravação" centralizado** no card (segue `.btn-ghost`, RN13 intacta).
 
 ### Critérios de pronto
 
