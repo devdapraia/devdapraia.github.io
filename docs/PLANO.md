@@ -81,7 +81,7 @@ Ponto de verificação obrigatório: a Fase 2 **só começa** após o site publi
 - [ ] Adicionar o **selo de credibilidade** — sistemas em uso real, **sem nomear a pousada** (A2, RN03).
 - [ ] Botões do hero: `.btn-primary` "Ver projetos" → `#projetos`; `.btn-ghost` "Falar comigo" → `#contato`. **Remover** o botão GitHub do hero (vai para o contato). O hero **não** tem link de WhatsApp (A1, 12.2, E2).
 - [ ] Apresentação curta — duas ou três linhas logo abaixo do hero (A3).
-- [ ] Ajustar os rótulos do menu se ainda não feito na Fase 1: Projetos, Tecnologias, Sobre, Contato.
+- [ ] Ajustar os rótulos do menu se ainda não feito na Fase 1. **Ordem do menu (revisada em 2026-09-10 — ver Fase 8 e alteração consciente na seção 1 do FSD):** Sobre, Projetos, Tecnologias, Contato.
 - [ ] Estratégia de fontes: `display=swap` já na URL, pilha de fallback de sistema nas famílias CSS, só os pesos usados (FSD 24.3).
 
 ### Critérios de pronto
@@ -250,31 +250,42 @@ Listas já definidas (INSUMOS 3, C2). Depende da pílula de tecnologia (Fase 3) 
 
 ## Fase 8 — Seção "Sobre mim"
 
-**Objetivo:** é onde o gestor decide se quer conversar (FSD Módulo D; 12.7; 25/Fase 2 item 20).
+**Objetivo:** dar contexto de quem é o autor a quem chega sem repertório prévio. A seção **abre a página** (após a apresentação curta), então precisa ser **curta** — o visitante tem de chegar rápido aos sistemas (FSD Módulo D/D1; 12.7; 25/Fase 2 item 20; alteração consciente de escopo na seção 1 do FSD).
 
-### Checklist
+### Feito antecipadamente (2026-09-10, fora da Fase 8, por decisão do autor)
 
-- [x] **Posição da seção na página** — `#sobre` fica **depois de `#tecnologias`**, imediatamente antes do `#contato`, como o FSD sempre previu (seção 1 "Resumo do funcionamento"; 5.3 tabela de IDs; 13/Fluxo 1; 25/Fase 2 itens 19–21). A base trazia `#sobre` **antes** de `#projetos` e a revisão ainda não havia reposicionado. **Feito antecipadamente em 2026-09-10**, fora da Fase 8, a pedido do autor, junto com o alinhamento do menu (`SOBRE · PROJETOS · TECNOLOGIAS · CONTATO` na ordem da página / o menu já estava na ordem do FSD). Nenhum documento precisou mudar de ordem — só o código, que estava divergindo. Ver `docs/STATUS.md`.
-- [x] **Card "objetivo"** — o texto herdado da base `Estágio no Porto Digital · Recife · Jan 2027` foi **substituído antecipadamente** (2026-09-10) por `Primeira oportunidade na área de desenvolvimento de software`: indica a direção sem fixar destino nem data, porque o site é lido por empresas diferentes e um destino datado sinaliza a qualquer leitor intenção de sair. Alinhado ao FSD 7.3 e à linha 357 (o texto não menciona Recife nem Porto Digital); a formulação antiga **não estava registrada no FSD** como conteúdo desejado. Na Fase 8 este card deixa de existir (vira parágrafo) — a redação definitiva do "para onde se vai" entra aqui.
-- [ ] Seção `#sobre`: rótulo + `h2` + **três parágrafos** em texto corrido peso 300, largura de leitura confortável, sem card e sem imagem.
-- [ ] Sequência: recepção → observação do problema no próprio trabalho → decisão de estudar ADS e construir (D1).
-- [ ] Marketing citado em **no máximo uma frase**, como origem do olhar para o negócio (D1).
+- [x] **Posição da seção na página** — `#sobre` vem **antes de `#projetos`**, logo após a apresentação curta. Ordem final: hero → apresentação → `#sobre` → `#projetos` → `#tecnologias` → `#contato`. O menu foi alinhado a essa ordem: **Sobre · Projetos · Tecnologias · Contato**. Isso **contraria** o FSD original (seções 1, 5.3, 12.1, 13, 25) — tratado como **alteração consciente de escopo** e registrado nesses cinco pontos. *Motivo:* o site também é lido por quem chega sem contexto prévio, e a apresentação antes dos projetos dá esse contexto. Houve um passo intermediário em que `#sobre` chegou a ser movida para depois de `#tecnologias` (alinhando ao FSD antigo); o autor reverteu para antes de `#projetos`.
+- [x] **Card "objetivo" — 1ª troca:** texto herdado da base `Estágio no Porto Digital · Recife · Jan 2027` → `Primeira oportunidade na área de desenvolvimento de software` (sem destino nem data; alinhado ao FSD 7.3).
+- [x] **Card "objetivo" — 2ª troca (posicionamento marketing + desenvolvimento):** → `Uma posição que una repertório de negócio e capacidade de construir a solução, em desenvolvimento ou em marketing`. A oportunidade pode ser nas duas frentes; a formulação serve às duas sem parecer indefinição (FSD 6/D1, alteração consciente na seção 1).
+- [x] **Card "formação" — Marketing ao lado de ADS:** `ADS · 2º período · Anhanguera · Maragogi` → `Análise e Desenvolvimento de Sistemas — conclusão prevista para junho de 2028` **+** `Bacharelado em Marketing — UNIBRA, 2020`. Marketing entra como parte do perfil, não como curiosidade (FSD 6/D1, 10).
+- [x] **Card "quem sou" — recorte provisório:** reescrito para `Vim do marketing, do atendimento e da coordenação de equipe. Hoje estudo Análise e Desenvolvimento de Sistemas e construo software a partir de problemas reais de operação.` — não reconta a origem na recepção com a formulação do bloco de apresentação; a redação definitiva (três parágrafos) é o restante desta fase.
+
+### Checklist (restante da fase — redação final)
+
+- [ ] Seção `#sobre`: rótulo + `h2` + **três parágrafos curtos** em texto corrido peso 300, largura de leitura confortável, sem card e sem imagem. **Enxuta** — a seção abre a página.
+- [ ] Sequência: **origem em marketing / atendimento / coordenação de equipe** → observação do problema no próprio trabalho → decisão de estudar ADS e construir (D1, revisto).
+- [ ] **Formação em Marketing ao lado da de ADS**, como parte do perfil de quem une repertório de negócio e capacidade de construir — **não** como segunda vitrine de trabalhos de comunicação (D1, revisto; alteração consciente na seção 1 do FSD).
+- [ ] **Objetivo** dentro dos parágrafos: uma frase que sirva às duas frentes (desenvolvimento e marketing) sem parecer indefinição (D1, revisto).
+- [ ] **Sem experiência profissional detalhada** — o portfólio não é currículo; o currículo está para download (D1, revisto; 7.1/7.2).
 - [ ] Frase do **ERBASE 2026** no terceiro parágrafo: artigo submetido sobre digitalização de pousadas de pequeno porte, com o feedback dos avaliadores incorporado à evolução do projeto. **Não** afirma nem sugere aceitação; **não** se desculpa nem trata como fracasso (D1, RN17).
 - [ ] O texto **não menciona** mudança para Recife nem Porto Digital (D1, 7.3).
-- [ ] **Sem repetir o bloco de apresentação** (ajuste pedido pelo autor, 10/09/2026 — ver `AGENTS.md` › Regras de conteúdo). O bloco de apresentação abaixo do hero já conta a origem na recepção em duas linhas. Nesta seção, a origem na recepção **não é recontada com a mesma formulação**: o parágrafo 1 da sequência D1 abre a trajetória por outro ângulo (o que se observou no próprio trabalho), sem repetir a frase "trabalho na recepção… foi ali que aprendi a programar". Se necessário, revisar também o bloco de apresentação para que os dois não digam a mesma coisa.
-- [ ] O antigo card **"quem sou"** (grade `.sobre-grid`, hoje conteúdo da base) sai e dá lugar aos três parágrafos; seu conteúdo é **reescrito**, não reaproveitado — foco em trajetória, o que se estuda hoje e para onde se vai.
-- [ ] Confirmar o `h2` da seção. Na Fase 3 ele foi trocado de "Da recepção ao código" (repetia a linha do hero) para **"Minha trajetória"** — provisório; ajustar aqui se o autor preferir outro.
+- [ ] **Sem repetir o bloco de apresentação** (`AGENTS.md` › Regras de conteúdo). O bloco de apresentação abaixo do hero já conta a origem na recepção em duas linhas; nesta seção a origem é aberta por outro ângulo (marketing/atendimento/coordenação), sem repetir a frase "trabalho na recepção… foi ali que aprendi a programar".
+- [ ] O antigo card **"quem sou"** e a grade `.sobre-grid` saem e dão lugar aos três parágrafos; o conteúdo é **reescrito**, não reaproveitado.
+- [ ] Confirmar o `h2` da seção (hoje **"Minha trajetória"**, provisório desde a Fase 3).
+- [ ] **Avaliar o hero** (pedido do autor): a linha "Da recepção ao código: construo software que resolve problema real de operação" serve às duas leituras; conferir, com a seção "Sobre mim" já reescrita, se o conjunto do hero não ficou estreito para o leitor de marketing. Só mexer no hero se a avaliação apontar necessidade — é conteúdo aprovado do FSD 12.2.
 
 ### Critérios de pronto
 
-- Três parágrafos na sequência definida (26.5).
-- Marketing em no máximo uma frase; ERBASE em no máximo uma frase, sem afirmar aceitação e sem desculpas (26.5).
-- Sem menção a Recife ou Porto Digital (26.5).
+- Três parágrafos **curtos** na sequência definida; a seção abre a página sem atrasar a chegada aos cards (26.5).
+- Marketing aparece ao lado da formação em ADS, como parte do perfil, sem virar segunda vitrine (26.5).
+- Objetivo serve às duas frentes sem parecer indefinição (26.5).
+- Sem experiência profissional detalhada; sem menção a Recife ou Porto Digital (26.5).
+- ERBASE em no máximo uma frase, sem afirmar aceitação e sem desculpas (26.5).
 - Nenhuma frase ou informação repete, com a mesma formulação, o bloco de apresentação ou o selo do hero (`AGENTS.md` › Regras de conteúdo).
 
 ### Áreas prováveis de alteração
 
-`index.html` (seção `#sobre` — hoje contém cards que serão substituídos por texto corrido), `css/estilo.css` (só se o texto corrido exigir ajuste incremental).
+`index.html` (seção `#sobre` — hoje contém cards provisórios que serão substituídos por texto corrido; hero, só se a avaliação apontar), `css/estilo.css` (só se o texto corrido exigir ajuste incremental).
 
 ### Dependências
 

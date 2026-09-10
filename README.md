@@ -49,11 +49,12 @@ Fase 2 pode começar assim que o site publicado estiver idêntico à base.
 
 | Ordem | Marcação | `id` | Situação na revisão |
 | --- | --- | --- | --- |
-| Menu | `<nav>` com 4 links, `position: sticky` | — | Preservado. Rótulos e mecanismo de navegação trocados na Fase 1 (âncora real). |
+| Menu | `<nav>` com 4 links, `position: sticky` | — | Preservado. Ordem revisada em 2026-09-10: **Sobre · Projetos · Tecnologias · Contato** (alteração consciente de escopo — ver `docs/FSD.md` seção 1). |
 | Hero | `.hero` > `.hero-content` (avatar + texto), `.hero-btns` | `inicio` | Preservado. Texto, selo e botões entram na Fase 2. |
+| Apresentação | `.apresentacao` > um `<p>` | — | Bloco curto de "quem sou" logo abaixo do hero (Fase 2). |
+| Sobre mim | `.section` > `.sobre-grid` com 3 `.sobre-card` (um `.destaque-card`) | `sobre` | **Reposicionada para antes de `#projetos`** em 2026-09-10 (alteração consciente de escopo: o "Sobre" abre a página para dar contexto a quem chega sem repertório; precisa ser curto). Cards "formação" e "objetivo" já revisados no mesmo dia — Marketing (UNIBRA, 2020) ao lado de ADS; objetivo serve a desenvolvimento **ou** marketing. Vira três parágrafos curtos na Fase 8. |
 | Projetos | `.section` > dois `.projeto-card` (HGS e HFS) | `projetos` | Linha do tempo `.timeline` removida na Fase 3; entrou o card de projeto de oito elementos. |
 | Tecnologias | `.section` > rótulo + `h2` + marcador textual provisório | `tecnologias` (era `stack`) | **Autoavaliação de nível removida** na Fase 4 (`.stack-grid`/`.stack-item`/`.tech-dot`, marcação e CSS). Os dois grupos por contexto de uso e a linha de formação entram na Fase 7. |
-| Sobre mim | `.section` > `.sobre-grid` com 3 `.sobre-card` (um `.destaque-card`) | `sobre` | **Reposicionada para depois de `#tecnologias`** em 2026-09-10 (a base a trazia antes de `#projetos`; o FSD sempre previu esta ordem — seção 1, 5.3, 13, 25). Card "objetivo" teve o texto herdado da base trocado no mesmo dia (sem destino/data fixos). Cards viram três parágrafos de texto corrido na Fase 8. |
 | Rodapé | `<footer>` com crédito + link do GitHub | `contato` (provisório) | Vira a seção de contato em tela cheia na Fase 9. |
 
 ### Estrutura do HTML
@@ -89,7 +90,7 @@ Fase 2 pode começar assim que o site publicado estiver idêntico à base.
 - `.timeline` / `.timeline-item` — marcação e CSS (Fase 3, feito).
 - `.stack-item` / `.tech-dot` / `.dot-on` / `.dot-off` e os textos de nível (`avançado`, `intermediário`…) — marcação e CSS (Fase 4, feito).
 - Botão "GitHub" do hero — vai para a seção de contato (Fase 2).
-- Textos da base ("Maragogi → Recife", "Porto Digital", "Estágio Jan 2027", "v1.0 — Portugol"…) — substituídos ao longo das Fases 2–9.
+- Textos da base ("Maragogi → Recife", "Porto Digital", "Estágio Jan 2027", "v1.0 — Portugol"…) — substituídos ao longo das Fases 2–9. Os do card "objetivo" e "formação" da seção Sobre já foram trocados em 2026-09-10 (sem destino/data fixos; Marketing ao lado de ADS).
 
 ### Decisão sobre a extração de CSS/JS
 

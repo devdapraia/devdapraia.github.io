@@ -149,6 +149,26 @@ Ao terminar qualquer trabalho:
 - O card "quem sou" da seção Sobre **não repete** a origem na recepção (essa
   história é do bloco de apresentação). Na fase da seção Sobre, ele é reescrito
   com outro recorte: trajetória, o que se estuda hoje, para onde se vai.
+- **Ordem das seções e do menu (alteração consciente de escopo, 2026-09-10).**
+  Ordem da página: hero → apresentação curta → **`#sobre`** → **`#projetos`** →
+  `#processo` → `#tecnologias` → `#contato`. O menu acompanha:
+  **Sobre · Projetos · Tecnologias · Contato**. Isso contraria o FSD original
+  (seções 1, 5.3, 12.1, 13, 25), que foi atualizado. Motivo: o site é lido
+  também por quem chega sem contexto; a apresentação antes dos projetos dá esse
+  contexto. Como "Sobre" abre a página, precisa ser **curto** — o visitante tem
+  de chegar rápido aos sistemas, que continuam sendo o centro do site.
+- **Marketing + desenvolvimento (alteração consciente de escopo, 2026-09-10).**
+  O autor é bacharel em Marketing (UNIBRA, 2020) além de estudante de ADS
+  (conclusão prevista para junho de 2028). A oportunidade pode ser em
+  desenvolvimento **ou** em marketing. Na seção "Sobre mim", a formação em
+  Marketing aparece **ao lado** da de ADS, como parte do perfil (veio de
+  marketing, atendimento e coordenação de equipe; hoje constrói software a
+  partir de problemas de operação). O "objetivo" serve às duas frentes sem
+  parecer indefinição. **Não** vira segunda vitrine de trabalhos de comunicação;
+  os cards de projeto seguem sendo o centro. **Não** entra experiência
+  profissional detalhada (fica no currículo). O `h1` e a linha de posicionamento
+  do hero **não mencionam marketing** — a linha "da recepção ao código…" serve
+  às duas leituras.
 
 ## Publicação (procedimento para a IA)
 

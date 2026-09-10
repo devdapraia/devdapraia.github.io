@@ -14,7 +14,12 @@
 
 **Objetivo principal:** fazer com que um gestor não técnico entenda, em poucos minutos e no celular, que o autor identifica problemas reais e constrói soluções que funcionam — e saia do site querendo conversar com ele.
 
-**Resumo do funcionamento:** site público de **página única**, estático, sem servidor de aplicação e sem banco de dados. Todo o conteúdo é fixo e publicado junto com o código. Um menu fixo no topo rola suavemente até cada seção. A página apresenta um bloco de abertura com posicionamento e foto, dois cards de projeto com estrutura idêntica e imagens de tela, um bloco de processo de design, uma seção de tecnologias agrupada por contexto de uso, uma seção "Sobre mim" e um bloco final de contato com uma única ação em destaque. Existe alternância entre tema claro e escuro, herdada da base.
+**Resumo do funcionamento:** site público de **página única**, estático, sem servidor de aplicação e sem banco de dados. Todo o conteúdo é fixo e publicado junto com o código. Um menu fixo no topo rola suavemente até cada seção. A página apresenta um bloco de abertura com posicionamento e foto, uma apresentação curta, uma **seção "Sobre mim" enxuta** que dá contexto de quem escreve, dois cards de projeto com estrutura idêntica e imagens de tela, um bloco de processo de design, uma seção de tecnologias agrupada por contexto de uso e um bloco final de contato com uma única ação em destaque. Existe alternância entre tema claro e escuro, herdada da base.
+
+> **Alteração consciente de escopo (2026-09-10) — ordem das seções e posicionamento profissional.** Duas mudanças foram decididas pelo autor depois da versão 1.0 e valem sobre o que este documento diz nas seções indicadas:
+>
+> 1. **Ordem da página e do menu.** A seção **"Sobre mim" passa a vir antes dos cards de projeto** — ordem final: hero → apresentação curta → **Sobre mim** → projetos → processo → tecnologias → contato. O menu acompanha: **Sobre · Projetos · Tecnologias · Contato**. *Motivo:* o site também é lido por quem chega sem contexto prévio (currículo enviado, link no LinkedIn); a apresentação de quem é o autor antes dos projetos dá esse contexto e evita que o visitante caia direto nos sistemas sem saber quem os construiu. *Contrapartida obrigatória:* como "Sobre mim" agora abre a página, ela precisa ser **curta** — o visitante tem de chegar rápido aos sistemas, que continuam sendo o centro do site. Pontos revistos por esta decisão: 1 (este resumo), 5.3, 12.1, 13 (Fluxo 1) e 25.
+> 2. **Posicionamento: marketing + desenvolvimento.** O público principal são gestores de uma agência de comunicação e a oportunidade pode ser tanto em desenvolvimento quanto em marketing. A **formação em Marketing** (Bacharelado, UNIBRA, 2020) passa a aparecer **ao lado da formação em ADS**, como parte do perfil — alguém que veio de marketing, atendimento e coordenação de equipe e hoje constrói software a partir de problemas de operação que vive. O elemento de **objetivo** passa a servir às duas frentes (uma posição que una repertório de negócio e capacidade de construir a solução), sem parecer indefinição. **Não muda:** os cards de projeto seguem sendo o centro do site; marketing entra como contexto de quem é o autor, **não** como segunda vitrine de trabalhos de comunicação; a experiência profissional detalhada continua fora (fica no currículo em PDF). Pontos revistos por esta decisão: 6/A1, 6/D1, 10 e 26 (26.5).
 
 **Natureza do projeto — condição determinante:** este **não é um projeto do zero**. Existe uma versão anterior do site, em HTML e CSS puro, com identidade visual aprovada. Essa versão é a base de partida e **não deve ser recriada**. O trabalho desta versão é **revisão de conteúdo**, com alterações de estilo apenas incrementais, restritas ao necessário para acomodar o conteúdo novo.
 
@@ -22,7 +27,7 @@
 
 | Perfil | Descrição | O que faz na página |
 | --- | --- | --- |
-| Gestor de agência de comunicação (**público principal**) | Profissional não técnico que recebeu o currículo e pediu o portfólio. Abre o link no celular, com pressa | Lê o posicionamento, percorre os dois cards, lê "Sobre mim" e aciona o WhatsApp |
+| Gestor de agência de comunicação (**público principal**) | Profissional não técnico que recebeu o currículo e pediu o portfólio. Abre o link no celular, com pressa | Lê o posicionamento e o "Sobre mim" curto, percorre os dois cards e aciona o WhatsApp |
 | Recrutador de estágio | Pessoa de RH ou avaliador em processo seletivo | Usa o menu, confere tecnologias e formação, baixa o currículo em PDF, abre LinkedIn e GitHub |
 | Avaliador técnico / desenvolvedor | Procura sinal de substância e não tolera exagero | Confere tecnologias e situação de cada sistema; solicita apresentação do sistema |
 | Autor (João) | Único mantenedor | Altera o conteúdo diretamente no código-fonte e publica pelo repositório. Não existe painel de edição |
@@ -162,18 +167,19 @@ A base navega por `onclick` nos links do menu, sem `href`. Isso quebra abertura 
 - O deslocamento causado pelo menu fixo é compensado por `scroll-margin-top` nas seções, com valor equivalente à altura do menu.
 - Resultado esperado: a navegação continua funcionando **mesmo sem JavaScript**, e o endereço passa a aceitar âncora direta (por exemplo, `devdapraia.github.io/#contato`).
 
-**Identificadores das seções:**
+**Identificadores das seções** (na ordem em que aparecem na página — ver alteração consciente de escopo na seção 1):
 
 | Seção | `id` | Rótulo no menu |
 | --- | --- | --- |
 | Bloco de abertura | `inicio` | Não aparece no menu (sem item "Início") |
+| Apresentação curta | — | (sem `id` próprio e sem item no menu) |
+| Sobre mim | `sobre` | Sobre |
 | Cards de projeto | `projetos` | Projetos |
 | Bloco de processo de design | `processo` | (sem item próprio no menu) |
 | Tecnologias | `tecnologias` | Tecnologias |
-| Sobre mim | `sobre` | Sobre |
 | Contato | `contato` | Contato |
 
-O menu tem **quatro itens**: Projetos, Tecnologias, Sobre, Contato. O bloco de processo é alcançado pela rolagem a partir de Projetos.
+O menu tem **quatro itens, nesta ordem**: **Sobre, Projetos, Tecnologias, Contato** — a mesma ordem em que as seções aparecem na página. O bloco de processo é alcançado pela rolagem a partir de Projetos.
 
 O menu permanece **centralizado**, como na base, e **não recebe logo nem nome à esquerda** — a navegação da base não tem esse elemento e adicioná-lo alteraria o layout do `<nav>` herdado. O retorno ao topo fica por conta da rolagem: a página é curta e o menu é fixo.
 
@@ -242,7 +248,7 @@ Registros complementares, para evitar reintrodução por inércia:
 *Conteúdo:* nome, uma linha de posicionamento no espírito de "da recepção ao código: construo software que resolve problema de operação", foto de João, selo de credibilidade e botões de navegação.
 *Ações permitidas:* "Ver projetos" (botão primário, rola até a seção Projetos) e "Falar comigo" (botão secundário ghost, rola até a seção Contato). O hero **não contém** link de WhatsApp — a ação de WhatsApp vive na seção de contato e no menu.
 *Resultado esperado:* posicionamento, foto e selo visíveis **sem rolagem, inclusive no celular**, com caminho claro para Projetos e para Contato.
-*Regras:* o posicionamento **não menciona marketing** — marketing aparece apenas em "Sobre mim", como origem do olhar para o negócio.
+*Regras:* o **`h1` e a linha de posicionamento do hero não mencionam marketing** — a linha "da recepção ao código…" serve às duas leituras (desenvolvimento e marketing) sem estreitar nenhuma. Marketing aparece na seção **"Sobre mim"** como parte do perfil — formação em Marketing ao lado da de ADS; trajetória de marketing, atendimento e coordenação de equipe até construir software — e informa o elemento de **objetivo** (ver 6/D1 e a alteração consciente de escopo na seção 1).
 *Base existente:* o hero com avatar já existe e é mantido; muda o texto.
 
 **A2. Selo de credibilidade**
@@ -351,10 +357,11 @@ Acompanha **uma linha** sobre o curso de ADS e a previsão de conclusão: **Aná
 ### Módulo D — História e contexto pessoal
 
 **D1. Seção "Sobre mim"**
-*Objetivo:* é onde o gestor decide se quer conversar.
-*Conteúdo:* **três parágrafos**, na sequência recepção → observação do problema no próprio trabalho → decisão de estudar ADS e construir. O bacharelado em Marketing entra em **no máximo uma frase**, como origem do olhar para o negócio.
+*Objetivo:* dar contexto de quem é o autor a quem chega sem repertório prévio (currículo enviado, link no LinkedIn). A seção **abre a página**, logo após a apresentação curta (ver alteração consciente de escopo na seção 1), então precisa ser **curta** — o visitante tem de chegar rápido aos sistemas, que seguem sendo o centro do site.
+*Conteúdo:* **três parágrafos curtos**, na sequência: origem em marketing, atendimento e coordenação de equipe → observação do problema no próprio trabalho → decisão de estudar ADS e construir. A **formação em Marketing** (Bacharelado, UNIBRA, 2020) aparece **ao lado da de ADS**, como parte do perfil de quem une repertório de negócio e capacidade de construir — não como curiosidade e **não** como segunda vitrine de trabalhos de comunicação.
+*Elemento de objetivo:* uma formulação que sirva às **duas frentes — desenvolvimento e marketing** — sem parecer indefinição: uma posição que aproveite a combinação de repertório de negócio com capacidade de construir a solução. (Na base isso vive num card "objetivo"; na revisão vira uma frase dentro dos parágrafos.)
 *Inclui uma frase sobre o artigo científico:* artigo submetido ao ERBASE 2026 sobre digitalização de pousadas de pequeno porte, com o feedback dos avaliadores incorporado à evolução do projeto — evolução técnica e validação com usuários reais.
-*Regras:* a frase do artigo **não afirma nem sugere aceitação** e **não se desculpa** nem trata o resultado como fracasso. O texto **não menciona** mudança para Recife nem Porto Digital.
+*Regras:* a frase do artigo **não afirma nem sugere aceitação** e **não se desculpa** nem trata o resultado como fracasso. O texto **não menciona** mudança para Recife nem Porto Digital. **Não inclui experiência profissional detalhada** — o portfólio não é currículo; o currículo está disponível para download.
 
 ### Módulo E — Contato e conversão
 
@@ -483,9 +490,9 @@ O que existe é **conteúdo fixo publicado**. A lista abaixo é a lista de mater
 | Imagens de tela do HGS | **A capturar** | Duas. Dados fictícios obrigatórios |
 | Imagens de tela do HFS | **A capturar** | Duas. Valores mascarados |
 | Imagens do Figma (protótipo e design system) | **A capturar** | Bloco de processo. Sem dado real |
-| Texto "Sobre mim" | A escrever | Três parágrafos, com a frase do ERBASE |
+| Texto "Sobre mim" | A escrever | Três parágrafos curtos, com a frase do ERBASE e a formação em Marketing ao lado da de ADS (ver 6/D1) |
 | Listas de tecnologias | **Já definidas** | Por projeto (B2 e B3) e por contexto de uso (C2) |
-| Linha de formação | A escrever | Uma linha: ADS, conclusão prevista para **junho de 2028** (dado do currículo) |
+| Formação | **Definida** | Duas: **Análise e Desenvolvimento de Sistemas** — conclusão prevista para **junho de 2028**; **Bacharelado em Marketing** — **UNIBRA, 2020** (dados do currículo). Na seção de tecnologias (C2), a linha de formação cita **só a de ADS** (é contexto técnico); a de Marketing aparece na seção "Sobre mim" (6/D1). |
 | Currículo em PDF | **Recebido** | `docs/curriculo-joao-victor.pdf`. Conferido quanto a dados sensíveis (sem endereço, documento ou data de nascimento). Copiar para `arquivos/curriculo-joao-victor.pdf` |
 | Links de contato e perfis | **Recebidos** | WhatsApp `5581995212456`, e-mail `jvictorna.dev@gmail.com`, LinkedIn `/in/joaoadorno`, GitHub `/devdapraia`. Só o GitHub existia na base — ver seção 23 |
 
@@ -516,7 +523,7 @@ O site tem **uma única página**. As "telas" são as seções da página, na or
 
 *Objetivo:* permitir acesso direto às seções.
 *Usuários:* todos, principalmente recrutador e avaliador técnico.
-*Elementos:* quatro links — Projetos, Tecnologias, Sobre, Contato.
+*Elementos:* quatro links, na ordem das seções na página — **Sobre, Projetos, Tecnologias, Contato** (ver alteração consciente de escopo na seção 1).
 *Comportamento:* barra fixa no topo, fundo translúcido, borda inferior sutil; links em maiúsculas; cor muda para `--destaque` no hover e no estado ativo. Navegação por âncora real (seção 5.3). Menu **centralizado**, sem logo nem nome de marca à esquerda — o layout do `<nav>` da base é preservado.
 *Estado ativo:* opcional. Se implementado, é feito por `IntersectionObserver` marcando a seção visível; se não for implementado, o hover basta. Não é critério de aceitação.
 *Estados:* não há estados de erro, vazio ou carregamento.
@@ -598,9 +605,11 @@ Substitui `.stack-item` com `.tech-dot`, que sai junto com a autoavaliação de 
 
 ### 12.7 Seções de tecnologias, "Sobre mim" e contato
 
-**Tecnologias (`#tecnologias`):** rótulo + `h2` + dois grupos (12.5) + linha de formação. Sem imagens.
+**Ordem na página (ver alteração consciente de escopo na seção 1):** `#sobre` vem **antes** de `#projetos` (logo após a apresentação curta); `#tecnologias` fica entre `#projetos`/`#processo` e `#contato`.
 
-**Sobre mim (`#sobre`):** rótulo + `h2` + três parágrafos em texto corrido, peso 300, com largura de leitura confortável. A frase do ERBASE fica no terceiro parágrafo. Sem card, sem imagem adicional.
+**Tecnologias (`#tecnologias`):** rótulo + `h2` + dois grupos (12.5) + linha de formação (só a de ADS — é contexto técnico). Sem imagens.
+
+**Sobre mim (`#sobre`):** rótulo + `h2` + três parágrafos **curtos** em texto corrido, peso 300, com largura de leitura confortável. Como a seção **abre a página**, é enxuta — não atrasa a chegada aos cards. A formação em Marketing aparece ao lado da de ADS (6/D1). A frase do ERBASE fica no terceiro parágrafo. Sem card, sem imagem adicional.
 
 **Contato (`#contato`):** bloco de fechamento em tela cheia (altura mínima equivalente à viewport, com o conteúdo centralizado verticalmente), com pergunta convidativa, o botão de WhatsApp em `.btn-primary` — **único botão em destaque visual da seção** — e, abaixo, e-mail, LinkedIn, GitHub e download do currículo como links secundários ou botões ghost, visivelmente subordinados.
 *Currículo:* link direto para `arquivos/curriculo-joao-victor.pdf`, com o atributo `download`. Sem formulário e sem etapa intermediária.
@@ -670,10 +679,10 @@ O CSS desses componentes sai junto com a marcação, **desde que nada mais o uti
 
 1. O gestor recebe o link por WhatsApp e abre o site no celular.
 2. A página exibe imediatamente o bloco de abertura: nome, posicionamento em uma linha, foto e selo de uso real — sem exigir rolagem.
-3. O gestor rola e encontra o card do HGS, com o problema antes da solução e as imagens de tela.
-4. Toca em uma imagem e ela é ampliada de forma legível; fecha a ampliação e continua a leitura.
-5. Rola novamente e encontra o card do HFS, na mesma estrutura.
-6. Lê a seção "Sobre mim" e entende a trajetória de transição de carreira.
+3. Logo abaixo, a apresentação curta e a seção "Sobre mim" enxuta dão o contexto de quem é o autor — trajetória de marketing, atendimento e coordenação até construir software — sem atrasar a chegada aos sistemas.
+4. O gestor rola e encontra o card do HGS, com o problema antes da solução e as imagens de tela.
+5. Toca em uma imagem e ela é ampliada de forma legível; fecha a ampliação e continua a leitura.
+6. Rola novamente e encontra o card do HFS, na mesma estrutura.
 7. Chega ao bloco de contato em tela cheia, com o WhatsApp em destaque.
 8. Toca no botão e inicia a conversa.
 
@@ -991,6 +1000,8 @@ A implementação é dividida em duas fases. A **Fase 1 é inegociável e anteri
 
 Avançar **uma seção da página por vez, na ordem de leitura**, em passos pequenos e conferíveis. Ao fim de cada etapa o site deve estar **publicável e íntegro**.
 
+> **Alteração consciente de escopo (2026-09-10):** a **posição** da seção "Sobre mim" no HTML mudou — ela agora vem **logo após a apresentação curta, antes dos cards de projeto** (ver seção 1). A **ordem de implementação** abaixo não foi renumerada: a revisão de conteúdo do "Sobre mim" continua sendo um passo tardio (item 20 / `docs/PLANO.md` › Fase 8), porque depende de texto a redigir e não bloqueia as demais seções. O que se antecipou foi só a realocação do bloco no DOM e o alinhamento do menu. Como "Sobre mim" passou a abrir a página, o item 20 ganha um critério: **manter a seção curta**.
+
 9. **Bloco de abertura** — novo texto, posicionamento, selo e botões.
 10. **Apresentação curta.**
 11. **Remoção da linha do tempo** — marcação e CSS de `.timeline` e `.timeline-item`.
@@ -1002,7 +1013,7 @@ Avançar **uma seção da página por vez, na ordem de leitura**, em passos pequ
 17. **Ampliação de imagem ao toque** — sobreposição em JavaScript próprio, com o link direto como alternativa sem script.
 18. **Bloco de processo de design** — seção autocontida, com os recortes do Figma. Primeiro item a cortar se o prazo apertar.
 19. **Seção de tecnologias** — dois grupos e linha de formação.
-20. **Seção "Sobre mim"** — três parágrafos, com a frase do ERBASE.
+20. **Seção "Sobre mim"** — três parágrafos curtos, com a frase do ERBASE. A seção abre a página (após a apresentação curta), então precisa ser enxuta; inclui a formação em Marketing ao lado da de ADS (ver 6/D1).
 21. **Seção de contato** — WhatsApp em destaque, secundários subordinados, currículo em PDF publicado e testado.
 22. **Responsividade** — media queries de `768px` e `480px`, conferidas a partir de `360px`.
 23. **Revelação por rolagem** — reapontar o seletor com melhoria progressiva, ou remover.
@@ -1075,8 +1086,11 @@ Avançar **uma seção da página por vez, na ordem de leitura**, em passos pequ
 - [ ] Não há barra, percentual, estrela, bolinha, ícone graduado ou nota de habilidade em nenhum ponto do site.
 - [ ] Nenhuma tecnologia do grupo "usei em projetos que estão no ar" está ausente dos cards de projeto.
 - [ ] O curso de ADS e a previsão de conclusão aparecem em uma linha.
-- [ ] O texto "Sobre mim" tem três parágrafos e segue a sequência recepção → problema observado → decisão de estudar e construir.
-- [ ] O bacharelado em Marketing é citado em, no máximo, uma frase.
+- [ ] O texto "Sobre mim" tem três parágrafos **curtos** e segue a sequência origem em marketing/atendimento/coordenação → problema observado no próprio trabalho → decisão de estudar ADS e construir.
+- [ ] A seção "Sobre mim" **abre a página** (após a apresentação curta) e é enxuta — não atrasa a chegada aos cards de projeto.
+- [ ] A formação em **Marketing** (Bacharelado, UNIBRA, 2020) aparece **ao lado da de ADS**, como parte do perfil — **não** como segunda vitrine de trabalhos de comunicação.
+- [ ] O elemento de **objetivo** serve às duas frentes (desenvolvimento e marketing) sem parecer indefinição.
+- [ ] O texto "Sobre mim" **não traz experiência profissional detalhada** (isso fica no currículo em PDF).
 - [ ] O artigo do ERBASE 2026 é citado em, no máximo, uma frase, que menciona a submissão e a incorporação do feedback.
 - [ ] A frase do artigo não afirma nem sugere aceitação e não pede desculpas.
 - [ ] O texto não menciona mudança para Recife nem Porto Digital.
